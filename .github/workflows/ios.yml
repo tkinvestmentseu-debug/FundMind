@@ -22,6 +22,8 @@ jobs:
           fi
 
       - name: Build iOS App
+        env:
+          APP_STORE_CONNECT_API_KEY: ${{ secrets.APP_STORE_CONNECT_API_KEY }}
         run: |
           cd ios_app
           bundle install

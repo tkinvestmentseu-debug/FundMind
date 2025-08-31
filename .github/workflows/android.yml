@@ -1,4 +1,4 @@
-name: Android CI (No Local Jar, v4)
+name: Android CI (Preinstalled Gradle)
 
 on:
   push:
@@ -23,13 +23,13 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Install Gradle (wrapper auto-download)
+      - name: Set up Gradle
         uses: gradle/gradle-build-action@v2
         with:
           gradle-version: 8.2.1
 
-      - name: Build with Gradle
-        run: ./gradlew assembleDebug
+      - name: Build with Gradle (Preinstalled)
+        run: gradle assembleDebug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4

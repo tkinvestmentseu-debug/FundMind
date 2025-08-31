@@ -1,17 +1,11 @@
-name: Android CI (Preinstalled Gradle)
+name: Android CI (Simple)
 
 on:
-  push:
-    branches: [ "main" ]
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
-    defaults:
-      run:
-        working-directory: android_app
 
     steps:
       - name: Checkout
@@ -23,13 +17,9 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Set up Gradle
-        uses: gradle/gradle-build-action@v2
-        with:
-          gradle-version: 8.2.1
-
-      - name: Build with Gradle (Preinstalled)
-        run: gradle assembleDebug
+      - name: Build with Gradle (wrapper)
+        working-directory: android_app
+        run: ./gradlew assembleDebug --stacktrace --no-daemon
 
       - name: Upload APK
         uses: actions/upload-artifact@v4

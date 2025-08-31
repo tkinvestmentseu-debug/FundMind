@@ -1,4 +1,4 @@
-name: Android CI (No Local Jar)
+name: Android CI (No Local Jar, v4)
 
 on:
   push:
@@ -32,7 +32,7 @@ jobs:
         run: ./gradlew assembleDebug
 
       - name: Upload APK
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: FundMind-APK
           path: android_app/app/build/outputs/apk/debug/app-debug.apk

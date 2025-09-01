@@ -1,0 +1,12 @@
+{
+  "build": {
+    "preview": {
+      "android": { "image": "latest" },
+      "ios": { "image": "latest" }
+    },
+    "production": {
+      "android": { "image": "latest" },
+      "ios": { "image": "latest" }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "FundMind Expo",
+    "slug": "fundmind-expo",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "sdkVersion": "51.0.0",
+    "platforms": ["ios", "android"]
+  }
+}

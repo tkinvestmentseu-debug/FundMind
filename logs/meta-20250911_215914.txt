@@ -1,0 +1,8 @@
+﻿Date: 2025-09-11T21:59:14
+Host PSVersion: 5.1.22621.5909
+Child exe: C:\Program Files\PowerShell\7\pwsh.exe
+OS: Microsoft Windows NT 10.0.22631.0
+Node: v20.19.4
+NPM:  10.8.2
+COMSPEC: C:\Windows\system32\cmd.exe
+PATH: C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files\Eclipse Adoptium\jdk-21.0.8.9-hotspot\bin;C:\Program Files\Eclipse Adoptium\jdk-21.0.8.9-hotspot\platform-tools;C:\Program Files\Eclipse Adoptium\jdk-21.0.8.9-hotspot\tools;C:\Users\HP\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Android\Android Studio;C:\Users\HP\AppData\Local\Android\Sdk\platform-tools;;;C:\Users\HP\AppData\Local\Programs\Python\Python312;C:\Users\HP\AppData\Local\Programs\Python\Python312\Scripts;C:\Program Files\PowerShell\7\;C:\Users\HP\AppData\Local\Programs\Python\Python312\Scripts\;C:\Users\HP\AppData\Local\Programs\Python\Python312\;C:\Users\HP\AppData\Local\Programs\Python\Launcher\;$env:PATH;C:\Program Files\Git\bin;C:\Users\HP\AppData\Local\Programs\ngrok;C:\Users\HP\AppData\Roaming\npm

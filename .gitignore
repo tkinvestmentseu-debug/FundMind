@@ -1,0 +1,16 @@
+node_modules/
+npm-debug.log
+dist/
+.expo/
+.expo-shared/
+*.log
+*.tmp
+*.bak
+*.swp
+*.DS_Store
+*.orig
+.idea/
+.vscode/
+coverage/
+android/
+ios/

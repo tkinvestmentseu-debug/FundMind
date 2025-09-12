@@ -1,44 +1,52 @@
-{
-  "version": "1.0.0",
-  "name": "fundmind",
-  "main": "expo-router/entry",
-  "scripts": {
-    "ios": "expo start --ios",
-    "web": "expo start --web",
-    "android": "expo start --android",
-    "start": "expo start"
-  },
-  "devDependencies": {
-    "@expo/cli": "^0.17.0",
-    "@react-native/metro-config": "^0.81.1",
-    "typescript": "~5.4.0",
-    "@react-native-community/cli": "^11.3.8",
-    "@react-native-community/cli-server-api": "^11.3.8",
-    "@react-native-community/cli-platform-android": "^11.3.8",
-    "@react-native-community/cli-platform-ios": "^11.3.8",
-    "metro": "0.79.1"
-  },
-  "dependencies": {
-    "expo": "~50.0.0",
-    "expo-constants": "~18.0.8",
-    "expo-linking": "~8.0.7",
-    "expo-status-bar": "~3.0.7",
-    "expo-updates": "~29.0.9",
-    "metro-resolver": "^0.83.1",
-    "react-native-safe-area-context": "~5.6.0",
-    "react-native-screens": "~4.16.0",
-    "@expo/metro-config": "~0.18.9",
-    "expo-router": "~3.4.7",
-    "@types/react": "~19.1.10",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-native": "0.73.6",
-    "react-test-renderer": "18.2.0"
-  },
-  "private": true,
-  "overrides": {
-    "metro-cache": "0.79.1",
-    "metro": "0.79.1",
-    "metro-config": "0.79.1"
-  }
+﻿{
+    "version":  "1.0.0",
+    "name":  "fundmind",
+    "main":  "expo-router/entry",
+    "scripts":  {
+                    "ios":  "expo start --ios",
+                    "web":  "expo start --web",
+                    "android":  "expo start --android",
+                    "start":  "expo start",
+                    "lint":  "expo lint",
+                    "typecheck":  "tsc --noEmit",
+                    "test":  "jest",
+                    "test:ci":  "jest --ci",
+                    "test:run":  "pwsh tools\\\\fix-index-and-test.ps1 -NoWrite",
+                    "test:fix":  "pwsh tools\\\\fix-index-and-test.ps1",
+                    "coverage":  "jest --coverage",
+                    "check:all":  "npm run lint -- --max-warnings=0 \u0026\u0026 npm run typecheck \u0026\u0026 npm run test"
+                },
+    "devDependencies":  {
+                            "@expo/cli":  "^0.17.0",
+                            "@react-native/metro-config":  "^0.81.1",
+                            "typescript":  "~5.4.0",
+                            "@react-native-community/cli":  "^11.3.8",
+                            "@react-native-community/cli-server-api":  "^11.3.8",
+                            "@react-native-community/cli-platform-android":  "^11.3.8",
+                            "@react-native-community/cli-platform-ios":  "^11.3.8",
+                            "metro":  "0.79.1"
+                        },
+    "dependencies":  {
+                         "expo":  "~50.0.0",
+                         "expo-constants":  "~18.0.8",
+                         "expo-linking":  "~8.0.7",
+                         "expo-status-bar":  "~3.0.7",
+                         "expo-updates":  "~29.0.9",
+                         "metro-resolver":  "^0.83.1",
+                         "react-native-safe-area-context":  "~5.6.0",
+                         "react-native-screens":  "~4.16.0",
+                         "@expo/metro-config":  "~0.18.9",
+                         "expo-router":  "~3.4.7",
+                         "@types/react":  "~19.1.10",
+                         "react":  "18.2.0",
+                         "react-dom":  "18.2.0",
+                         "react-native":  "0.73.6",
+                         "react-test-renderer":  "18.2.0"
+                     },
+    "private":  true,
+    "overrides":  {
+                      "metro-cache":  "0.79.1",
+                      "metro":  "0.79.1",
+                      "metro-config":  "0.79.1"
+                  }
 }

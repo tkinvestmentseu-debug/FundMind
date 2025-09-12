@@ -1,24 +1,28 @@
-{
-  "expo": {
-    "sdkVersion": "54.0.0",
-    "name": "FundMind",
-    "owner": "tomasz77",
-    "runtimeVersion": {
-      "policy": "sdkVersion"
-    },
-    "slug": "fundmind",
-    "extra": {
-      "eas": {
-        "projectId": "ec364355-5e9f-4791-927f-f5fec18fbbde"
-      }
-    },
-    "plugins": [
-      "expo-router"
-    ],
-    "updates": {
-      "url": "https://u.expo.dev/ec364355-5e9f-4791-927f-f5fec18fbbde"
-    },
-    "android": {},
-    "ios": {}
-  }
+﻿{
+    "expo":  {
+                 "sdkVersion":  "50.0.0",
+                 "name":  "FundMind",
+                 "owner":  "tomasz77",
+                 "runtimeVersion":  {
+                                        "policy":  "sdkVersion"
+                                    },
+                 "slug":  "FundMind",
+                 "extra":  {
+                               "eas":  {
+                                           "projectId":  "ec364355-5e9f-4791-927f-f5fec18fbbde"
+                                       }
+                           },
+                 "plugins":  [
+                                 "expo-router"
+                             ],
+                 "updates":  {
+                                 "url":  "https://u.expo.dev/ec364355-5e9f-4791-927f-f5fec18fbbde"
+                             },
+                 "android":  {
+
+                             },
+                 "ios":  {
+
+                         }
+             }
 }

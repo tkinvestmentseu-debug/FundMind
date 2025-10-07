@@ -4,3 +4,5 @@ node_modules/
 .autofix/
 *.log
 *.DELETEME*
+
+.archive/backups/kopie zapasowa new-20250929-231027/

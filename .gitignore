@@ -13,3 +13,8 @@ tools/tools/openai-key.txt
 
 **/openai-key.txt
 
+
+.secrets/
+.env
+.env.*
+.archive/

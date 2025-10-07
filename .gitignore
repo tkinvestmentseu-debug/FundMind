@@ -9,3 +9,4 @@ node_modules/
 # backups
 *.bak.*
 *.repair.*.bak
+tools/tools/openai-key.txt

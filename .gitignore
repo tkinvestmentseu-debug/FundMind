@@ -10,3 +10,6 @@ node_modules/
 *.bak.*
 *.repair.*.bak
 tools/tools/openai-key.txt
+
+**/openai-key.txt
+

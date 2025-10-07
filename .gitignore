@@ -6,3 +6,6 @@ node_modules/
 *.DELETEME*
 
 .archive/backups/kopie zapasowa new-20250929-231027/
+# backups
+*.bak.*
+*.repair.*.bak

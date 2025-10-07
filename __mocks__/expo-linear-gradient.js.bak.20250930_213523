@@ -1,5 +1,0 @@
-const React = require("react");
-function LinearGradient(props){
-  return React.createElement(React.Fragment, null, props && props.children);
-}
-module.exports = { LinearGradient, __esModule: true, default: LinearGradient };

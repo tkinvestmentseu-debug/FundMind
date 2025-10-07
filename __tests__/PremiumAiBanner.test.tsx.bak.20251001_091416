@@ -1,8 +1,0 @@
-import React from "react";
-import TestRenderer from "react-test-renderer";
-import PremiumAiBanner from "@/components/PremiumAiBanner";
-
-test("renders PremiumAiBanner", () => {
-  const tree = TestRenderer.create(<PremiumAiBanner disableAnimation />).toJSON();
-  expect(tree).toBeTruthy();
-});

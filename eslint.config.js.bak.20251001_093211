@@ -1,8 +1,0 @@
-import expo from "@expo/eslint-config";
-export default [
-  ...expo,
-  {
-    ignores: [["backups/"],
-  },
-];
-

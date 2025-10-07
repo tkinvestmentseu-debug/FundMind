@@ -1,4 +1,0 @@
-import "@testing-library/jest-native/extend-expect";
-
-// Silence React Native warnings in tests if needed
-jest.mock("react-native/Libraries/Animated/NativeAnimatedHelper");

@@ -1,7 +1,0 @@
-const React = require("react");
-const { View } = require("react-native");
-const Svg = (props) => React.createElement(View, props, props.children);
-const handler = { get: () => Svg };
-module.exports = new Proxy({}, handler);
-module.exports.__esModule = true;
-module.exports.default = Svg;

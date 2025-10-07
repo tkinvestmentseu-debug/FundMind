@@ -1,8 +1,0 @@
-import React from "react";
-import { render } from "@testing-library/react-native";
-import PremiumAiBanner from "../app/_components/PremiumAiBanner";
-
-test("renders PremiumAiBanner", () => {
-  const { getByText } = render(<PremiumAiBanner disableAnimation />);
-  expect(getByText("Twój Asystent AI")).toBeTruthy();
-});

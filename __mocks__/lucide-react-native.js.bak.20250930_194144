@@ -1,4 +1,0 @@
-const React = require("react");
-const { View } = require("react-native");
-const Icon = (props) => React.createElement(View, props, null);
-module.exports = new Proxy({}, { get: () => Icon });

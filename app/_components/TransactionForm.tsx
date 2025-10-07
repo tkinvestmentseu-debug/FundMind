@@ -1,3 +1,4 @@
+type TransactionFormProps = { onSaved?: () => void; kind?: TransactionKind | string };
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 
@@ -8,12 +9,9 @@ import { Feather } from "@expo/vector-icons";
 
 import { addTransaction, TransactionKind } from "../_data/transactions";
 
-export default function TransactionForm({ onSaved }: { onSaved?: () => void }) {
-  const [name, setName] = useState("");
-  const [amount, setAmount] = useState("");
-  const [kind, setKind] = useState<TransactionKind>("expense");
-  const [note, setNote] = useState("");
-  const [imageUri, setImageUri] = useState<string | null>(null);
+export default function TransactionForm(props: TransactionFormProps) {
+  const [kind, setKind] = useState<TransactionKind>(() => ("receipt" as TransactionKind));const { kind: initialKind, onSaved } = props;  const [name, setName] = useState("");
+  const [amount, setAmount] = useState("");const [imageUri, setImageUri] = useState<string | null>(null);
 
   async function pickImage(fromCamera = false) {
     const res = fromCamera
@@ -29,13 +27,13 @@ export default function TransactionForm({ onSaved }: { onSaved?: () => void }) {
       Alert.alert("Błąd", "Wprowadź nazwę i kwotę");
       return;
     }
-    addTransaction({ name, amount: parseFloat(amount), kind, note, imageUri });
+    addTransaction({  title: name, amount: parseFloat(amount), kind: (kind as TransactionKind), dateISO: new Date().toISOString(), imageUri  });
     onSaved?.();
   }
 
   return (
     <SafeAreaView style={styles.safe}>
-      <ScrollView contentContainerStyle={styles.scroll} contentContainerStyle={{ flexGrow: 1, justifyContent: 'center', alignItems: 'stretch', padding: 20 }}>
+      <ScrollView contentContainerStyle={{ flexGrow: 1, justifyContent: 'center', alignItems: 'stretch', padding: 20 }}>
         <View style={styles.card}>
           <Text style={styles.label}>Nazwa</Text>
           <TextInput
@@ -130,6 +128,17 @@ const styles = StyleSheet.create({
   },
   saveText: { color: "#fff", fontWeight: "800", fontSize: 16 }
 });
+
+
+
+
+
+
+
+
+
+
+
 
 
 

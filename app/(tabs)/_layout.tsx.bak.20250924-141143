@@ -1,0 +1,61 @@
+import { t } from "../../src/lib/translations";
+import { useSettings } from "../../src/contexts/SettingsContext";
+import { Tabs } from "expo-router";
+import Ionicons from "@expo/vector-icons/Ionicons";
+
+export default function TabsLayout() {
+  const { lang } = useSettings();
+  return (
+    <Tabs
+      screenOptions={{
+        headerShown: false,
+        tabBarLabelStyle: { fontWeight: "700" },
+        tabBarStyle: { height: 60 }
+      }}
+    >
+      <Tabs.Screen
+        name="index"
+        options={{
+          title: t(lang, "start"),
+          tabBarLabel: t(lang, "start"),
+          tabBarIcon: ({ focused, color, size }) => (
+            <Ionicons name={focused ? "home" : "home-outline"} size={size} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="calendar/index"
+        options={{
+          title: t(lang, "calendar"),
+          tabBarLabel: t(lang, "calendar"),
+          tabBarIcon: ({ focused, color, size }) => (
+            <Ionicons name={focused ? "calendar" : "calendar-outline"} size={size} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="notifications/index"
+        options={{
+          title: t(lang, "notifications"),
+          tabBarLabel: t(lang, "notifications"),
+          tabBarIcon: ({ focused, color, size }) => (
+            <Ionicons name={focused ? "notifications" : "notifications-outline"} size={size} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="settings/index"
+        options={{
+          title: t(lang, "settings"),
+          tabBarLabel: t(lang, "settings"),
+          tabBarIcon: ({ focused, color, size }) => (
+            <Ionicons name={focused ? "settings" : "settings-outline"} size={size} color={color} />
+          ),
+        }}
+      />
+    </Tabs>
+  );
+}
+
+
+

@@ -1,0 +1,1 @@
+module.exports = require("react-native/Libraries/ReactNative/__mocks__/react-native.js");

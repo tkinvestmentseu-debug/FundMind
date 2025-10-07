@@ -1,0 +1,108 @@
+import React, { useMemo } from "react";
+import { Pressable, View, Text, StyleSheet, Platform, Dimensions } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
+
+/**
+ * Stałe muszą być zgodne z styles.grid w index.tsx:
+ * GRID_PADDING = poziomy padding kontenera
+ * GAP = przerwa pomiędzy kafelkami (zrealizowana marginesami)
+ */
+const GRID_PADDING = 18;
+const GAP = 12;
+
+type TileProps = {
+  label: string;
+  icon: JSX.Element;
+  onPress: () => void;
+};
+
+export default function PremiumTile({ label, icon, onPress }: TileProps) {
+  const { width: screenWidth } = Dimensions.get("window");
+
+  // Adaptacyjne kolumny:
+  // - bardzo wąskie ekrany (<360) -> 2 kolumny
+  // - normalne i szerokie (>=360) -> 3 kolumny
+  const columns = screenWidth >= 360 ? 3 : 2;
+
+  // Szerokość kafelka liczona "co do piksela":
+  // dostępna_szerokość = ekran - 2*padding - (columns-1)*GAP
+  // tileWidth = floor(dostępna_szerokość / columns)
+  const tileWidth = useMemo(() => {
+    const inner = screenWidth - (2 * GRID_PADDING) - ((columns - 1) * GAP);
+    return Math.floor(inner / columns);
+  }, [screenWidth, columns]);
+
+  return (
+    <Pressable
+      onPress={onPress}
+      style={({ pressed }) => [
+        styles.tile,
+        { width: tileWidth, marginLeft: GAP / 2, marginRight: GAP / 2 },
+        pressed && styles.tilePressed
+      ]}
+      testID={`tile-${label}`}
+    >
+      <View style={styles.badgeShadow}>
+        <LinearGradient
+          colors={["#F2EEFF", "#ECE8FF"]}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 1 }}
+          style={styles.badge}
+        >
+          {icon}
+        </LinearGradient>
+      </View>
+
+      <Text style={styles.label} numberOfLines={2} ellipsizeMode="tail">
+        {label}
+      </Text>
+    </Pressable>
+  );
+}
+
+const styles = StyleSheet.create({
+  tile: {
+    height: 110,                   // wyższe niż w 3-kolumnach, niższe niż 2-kolumny -> kompromis
+    borderRadius: 20,
+    backgroundColor: "#FFFFFF",
+    alignItems: "center",
+    justifyContent: "center",
+    marginBottom: 12,
+    borderWidth: 1,
+    borderColor: "#E6EDF2",
+    shadowColor: "#000",
+    shadowOpacity: 0.06,
+    shadowRadius: 10,
+    shadowOffset: { width: 0, height: 4 },
+    ...(Platform.OS === "android" ? { elevation: 3 } : {})
+  },
+  tilePressed: {
+    shadowOpacity: 0.12,
+    transform: [{ scale: 0.985 }]
+  },
+  badgeShadow: {
+    marginBottom: 8,
+    shadowColor: "#7C4DFF",
+    shadowOpacity: 0.14,
+    shadowRadius: 9,
+    shadowOffset: { width: 0, height: 5 }
+  },
+  badge: {
+    width: 52,
+    height: 52,
+    borderRadius: 26,
+    alignItems: "center",
+    justifyContent: "center",
+    borderWidth: 1,
+    borderColor: "rgba(124,77,255,0.16)",
+    backgroundColor: "#F4F0FF"
+  },
+  label: {
+    fontSize: 15,
+    fontWeight: "600",
+    color: "#0F172A",
+    textAlign: "center",
+    paddingHorizontal: 6,
+    lineHeight: 18
+  }
+});

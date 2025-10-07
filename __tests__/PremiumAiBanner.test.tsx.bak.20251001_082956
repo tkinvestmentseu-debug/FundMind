@@ -1,0 +1,14 @@
+import React from 'react';
+import { render, waitFor } from '@testing-library/react-native';
+import PremiumAiBanner from '../app/_components/PremiumAiBanner';
+
+test('renders PremiumAiBanner', async () => {
+  jest.useFakeTimers();
+  const screen = render(<PremiumAiBanner />);
+  // spuść kolejkę animacji/timerów uruchomionych w efekcie
+  jest.runOnlyPendingTimers();
+  jest.useRealTimers();
+  await waitFor(() => {
+    expect(screen.getByText('Twój Asystent AI')).toBeTruthy();
+  });
+});

@@ -1,0 +1,25 @@
+import React from "react";
+import { ScrollView, StyleSheet, View } from "react-native";
+import { SafeAreaView, useSafeAreaInsets } from "react-native-safe-area-context";
+import { useRouter } from "expo-router";
+import AddTransactionTile from "../../src/components/tiles/AddTransactionTile";
+
+export default function StartScreen() {
+  const router = useRouter();
+  const insets = useSafeAreaInsets();
+  const topPad = Math.max(Math.ceil(insets.top) + 16, 16);
+
+  return (
+    <SafeAreaView style={styles.safe} edges={["top","left","right"]}>
+      <ScrollView contentContainerStyle={[styles.container, { paddingTop: topPad }]}>
+        <AddTransactionTile onPress={() => router.push("/addTransaction")} />
+        <View style={{ height: 16 }} />
+      </ScrollView>
+    </SafeAreaView>
+  );
+}
+
+const styles = StyleSheet.create({
+  safe: { flex: 1, backgroundColor: "#F9FBFC" },
+  container: { paddingHorizontal: 16, paddingBottom: 24 }
+});

@@ -1,0 +1,54 @@
+{
+  "name": "fundmind",
+  "version": "1.0.0",
+  "private": true,
+  "main": "expo-router/entry",
+  "scripts": {
+    "lint": "eslint app --ext .ts,.tsx",
+    "test:ci": "jest --ci",
+    "typecheck": "tsc --noEmit",
+    "typegen": "expo-router typegen",
+    "test:run": "powershell ./tools/fix-index-and-test.ps1 -NoWrite",
+    "check:all": "npm run lint --max-warnings=0 && npm run typecheck && npm run test",
+    "coverage": "jest --coverage",
+    "test": "jest",
+    "test:fix": "pwsh ./tools/fix-index-and-test.ps1"
+  },
+  "dependencies": {
+    "@babel/runtime": "7.24.7",
+    "@expo/vector-icons": "^15.0.2",
+    "@react-native-async-storage/async-storage": "2.2.0",
+    "@react-native-community/datetimepicker": "8.4.4",
+    "@react-native-picker/picker": "2.11.1",
+    "babel-preset-expo": "~54.0.0",
+    "dayjs": "^1.11.18",
+    "expo": "~54.0.0",
+    "expo-linear-gradient": "~15.0.7",
+    "expo-linking": "~8.0.8",
+    "expo-router": "~6.0.8",
+    "expo-status-bar": "~3.0.8",
+    "lucide-react-native": "^0.544.0",
+    "moti": "^0.30.0",
+    "react": "19.1.0",
+    "react-native": "0.81.4",
+    "react-native-calendars": "^1.1313.0",
+    "react-native-pager-view": "6.9.1",
+    "react-native-reanimated": "~4.1.1",
+    "react-native-safe-area-context": "~5.6.0",
+    "react-native-screens": "~4.16.0",
+    "react-native-svg": "15.12.1",
+    "react-native-swiper": "^1.6.0",
+    "react-native-worklets": "^0.6.0"
+  },
+  "devDependencies": {
+    "@expo/cli": "^0.18.17",
+    "@types/jest": "^30.0.0",
+    "@types/react": "~19.1.10",
+    "@types/react-native": "^0.72.8",
+    "babel-preset-expo": "~54.0.0",
+    "typescript": "~5.9.2"
+  },
+  "overrides": {
+    "@babel/runtime": "7.24.7"
+  }
+}

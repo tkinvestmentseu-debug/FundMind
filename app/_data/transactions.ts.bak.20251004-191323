@@ -1,0 +1,39 @@
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
+export type TransactionKind = "receipt" | "bill" | "invoice";
+export type Transaction = {
+  id: string;
+  kind: TransactionKind;
+  title: string;
+  amount: number;
+  dateISO: string;
+  imageUri?: string | null;
+};
+
+const KEY = "@fundmind/transactions";
+
+export async function loadTransactions(): Promise<Transaction[]> {
+  try {
+    const raw = await AsyncStorage.getItem(KEY);
+    if (!raw) return [];
+    return JSON.parse(raw) as Transaction[];
+  } catch {
+    return [];
+  }
+}
+
+export async function saveTransactions(list: Transaction[]): Promise<void> {
+  await AsyncStorage.setItem(KEY, JSON.stringify(list));
+}
+
+export async function addTransaction(t: Omit<Transaction,"id">): Promise<Transaction> {
+  const nowId = Date.now().toString();
+  const tx: Transaction = { id: nowId, ...t };
+  const list = await loadTransactions();
+  list.unshift(tx);
+  await saveTransactions(list);
+  return tx;
+}
+
+/** auto-added to satisfy expo-router */
+export default function DataRoutePlaceholder(){return null;}

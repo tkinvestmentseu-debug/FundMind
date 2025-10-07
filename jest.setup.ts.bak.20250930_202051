@@ -1,0 +1,109 @@
+/* eslint-disable */
+// @ts-nocheck
+
+import "@testing-library/jest-native/extend-expect";
+
+// RN globals
+(globalThis as any).__DEV__ = true;
+(globalThis as any).__fbBatchedBridgeConfig = { remoteModuleConfig: [] };
+
+// Core RN mocks
+jest.mock("react-native/Libraries/Animated/NativeAnimatedHelper");
+jest.mock("react-native-gesture-handler", () => ({}));
+
+// TurboModuleRegistry with PlatformConstants available
+jest.mock("react-native/Libraries/TurboModule/TurboModuleRegistry", () => {
+  const modules: Record<string, any> = {
+    PlatformConstants: {
+      getConstants: () => ({
+        isTesting: true,
+        reactNativeVersion: { major: 0, minor: 73, patch: 6 },
+        systemName: "iOS",
+        interfaceIdiom: "handset",
+        isHermes: false,
+        osVersion: "17.0",
+        forceEnableAccessibility: false,
+      }),
+    },
+  };
+  return {
+    get: (name: string) => modules[name],
+    getEnforcing: (name: string) => modules[name] ?? modules.PlatformConstants,
+  };
+});
+
+// NativeModules minimal surface
+jest.mock("react-native/Libraries/BatchedBridge/NativeModules", () => ({
+  I18nManager: {
+    isRTL: false,
+    doLeftAndRightSwapInRTL: false,
+  },
+}));
+/* Dimensions mock (jest) */
+jest.mock("react-native/Libraries/Utilities/Dimensions", () => {
+  const base = { width: 390, height: 844, scale: 2, fontScale: 2, density: 2 };
+  let current = { window: base, screen: base };
+  const listeners = new Set();
+  return {
+    get: (key) => current[key],
+    set: (next) => {
+      if (next && (next.window || next.screen)) current = next;
+      listeners.forEach((h) => h({ window: current.window, screen: current.screen }));
+    },
+    addEventListener: (_type, handler) => { listeners.add(handler); return { remove: () => listeners.delete(handler) }; },
+    removeEventListener: (_type, handler) => { listeners.delete(handler); },
+  };
+});
+/* PixelRatio mock (jest) */
+/* PixelRatio mock (jest) */
+jest.mock("react-native/Libraries/Utilities/PixelRatio", () => {
+  const mock = {
+    get: () => 2,
+    getFontScale: () => 2,
+    roundToNearestPixel: (v) => Math.round(v),
+    getPixelSizeForLayoutSize: (l) => Math.round(l * 2),
+    startDetecting: () => {},
+  };
+  return {
+    __esModule: true,
+    default: mock,
+    ...mock,
+  };
+});
+
+
+jest.mock("react-native/Libraries/Utilities/Dimensions", () => {
+  const base = { width: 360, height: 640, scale: 2, fontScale: 2 };
+  const handlers = new Set();
+  const api = {
+    get: () => ({ window: base, screen: base }),
+    set: (dims) => { api._dims = dims; handlers.forEach(h => h({ window: dims, screen: dims })); },
+    addEventListener: (_t, h) => { handlers.add(h); return { remove: () => handlers.delete(h) }; },
+    removeEventListener: (_t, h) => { handlers.delete(h); }
+  };
+  return api;
+});
+
+
+/* FUNDMENT FAKE TIMERS */
+try { jest.useFakeTimers(); } catch (e) { /* ignore */ }
+
+/* FUNDMENT ANIMATED SYNC MOCK */
+jest.mock("react-native/Libraries/Animated/Animated", () => {
+  const Actual = jest.requireActual("react-native/Libraries/Animated/Animated");
+  const mkStart = (fn) => ({
+    start: (cb) => { try { fn && fn(); } catch(e) {} if (cb) cb({ finished: true }); },
+    stop: () => {}
+  });
+  const timing = (value, config = {}) =>
+    mkStart(() => { if (value && typeof value.setValue === "function") value.setValue(config.toValue ?? 0); });
+  const sequence = (anims = []) =>
+    mkStart(() => { anims.forEach(a => a && typeof a.start === "function" && a.start(() => {})); });
+  const loop = (anim) =>
+    mkStart(() => { anim && typeof anim.start === "function" && anim.start(() => {}); });
+  return { ...Actual, timing, sequence, loop };
+});
+
+// Niektóre wersje RN odwołują się do ścieżki z /src/, zmapuj ją tak samo:
+jest.mock("react-native/Libraries/Animated/src/Animated", () => jest.requireMock("react-native/Libraries/Animated/Animated"));
+

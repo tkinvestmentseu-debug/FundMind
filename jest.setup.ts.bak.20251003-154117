@@ -1,0 +1,147 @@
+jest.mock("react-native");
+/* RN core mock to avoid __fbBatchedBridgeConfig issues */
+/* Jest global setup for FundMind (ASCII-only) */
+/* Ensure React 18 test renderer semantics and silence native animation warnings */
+
+// Timers: use modern fake timers where needed within tests; keep real timers by default
+// Polyfill setImmediate if needed by libs
+if (typeof }
+
+// Silence RN Animated: NativeAnimatedHelper
+jest.mock("react-native/Libraries/Animated/NativeAnimatedHelper");
+
+// React Native Reanimated v3 mock (official recommendation with extra .default.call no-op)
+jest.mock("react-native-reanimated", () => {
+  const Reanimated = require("react-native-reanimated/mock");
+  Reanimated.default.call = () => {};
+  // Worklet bootstrap no-op
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  (global as any).__reanimatedWorkletInit = () => {};
+  return Reanimated;
+});
+
+// Optional: gesture handler jest setup (safe if package exists)
+try {
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
+  require("react-native-gesture-handler/jestSetup");
+} catch {}
+
+// Expo Router lightweight mock to avoid navigation side-effects in tests
+jest.mock("expo-router", () => {
+  const React = require("react");
+  const api = {
+    useRouter: () => ({ push: jest.fn(), replace: jest.fn(), back: jest.fn(), navigate: jest.fn() }),
+    useLocalSearchParams: () => ({}),
+    useSegments: () => [],
+    Link: ({ children, href }: any) => React.createElement("a", { "data-href": href }, children),
+    Slot: ({ children }: any) => React.createElement(React.Fragment, null, children),
+    Stack: ({ children }: any) => React.createElement(React.Fragment, null, children),
+    Tabs: ({ children }: any) => React.createElement(React.Fragment, null, children),
+  };
+  return api;
+});
+
+// react-native-svg safe fallback
+jest.mock("react-native-svg", () => {
+  const React = require("react");
+  const View = (props: any) => React.createElement("svg", props);
+  return {
+    __esModule: true,
+    default: View,
+    Svg: View,
+    Path: (p: any) => React.createElement("path", p),
+    Circle: (p: any) => React.createElement("circle", p),
+    Rect: (p: any) => React.createElement("rect", p),
+    G: (p: any) => React.createElement("g", p),
+  };
+});
+
+// Stable RN env shims
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+(global as any).__DEV__ = true;
+
+
+
+
+
+jest.mock("react-native/Libraries/Utilities/PixelRatio", () => {
+  const PixelRatio = {
+    get: () => 2,
+    getFontScale: () => 1,
+    roundToNearestPixel: (v: number) => Math.round(v),
+    getPixelSizeForLayoutSize: (l: number) => Math.round(l * 2),
+    startDetecting: () => {},
+  };
+  return { __esModule: true, default: PixelRatio, ...PixelRatio };
+});
+jest.mock("react-native/Libraries/Utilities/Dimensions", () => {
+  const base = { width: 360, height: 640, scale: 2, fontScale: 1 };
+  const listeners = new Set<Function>();
+  return {
+    get: jest.fn(() => ({ window: base, screen: base })),
+    addEventListener: jest.fn((_t: any, fn: any) => { listeners.add(fn); return { remove: () => listeners.delete(fn) }; }),
+    removeEventListener: jest.fn((_t: any, fn: any) => { listeners.delete(fn); }),
+    set: jest.fn(),
+  };
+});
+jest.mock("react-native", () => {
+  const Real = jest.requireActual("react-native");
+
+  // Bezpieczny shim Animated
+  const immediate = {
+    start: (cb?: (r?: any)=>void) => { if (cb) cb({ finished: true }); return { finished: true }; },
+    stop: () => {},
+    reset: () => {},
+  };
+
+  class Value {
+    _value: number;
+    constructor(v: number){ this._value = v as any; }
+    setValue(v: number){ this._value = v as any; }
+    addListener(){ return 1; }
+    removeListener(){ }
+    removeAllListeners(){ }
+    stopAnimation(){ }
+    interpolate(){ return {}; }
+  }
+
+  const Animated = {
+    Value,
+    timing:    () => immediate,
+    spring:    () => immediate,
+    loop:      () => immediate,
+    sequence:  () => immediate,
+    parallel:  () => immediate,
+    stagger:   () => immediate,
+    delay:     () => immediate,
+  };
+
+  // Appearance / Interaction / LayoutAnimation — bezpieczne stuby
+  const Appearance = {
+    getColorScheme: () => "light",
+    addChangeListener: jest.fn(),
+    removeChangeListener: jest.fn(),
+  };
+
+  const InteractionManager = {
+    runAfterInteractions: (cb?: Function) => { if (cb) cb(); return Promise.resolve(); },
+    createInteractionHandle: () => 1,
+    clearInteractionHandle: () => {},
+    setDeadline: () => {},
+  };
+
+  const LayoutAnimation = {
+    configureNext: jest.fn(),
+    create: jest.fn(),
+    Types: {}, Properties: {}, Presets: {},
+  };
+
+  return { 
+    ...Real,
+    Animated,
+    Appearance,
+    InteractionManager,
+    LayoutAnimation,
+  };
+});
+

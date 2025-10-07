@@ -1,0 +1,17 @@
+/** Stable Jest config for React Native (no jest-expo) */
+module.exports = {
+  preset: "react-native",
+  testEnvironment: "jsdom",
+  roots: ["<rootDir>"],
+  setupFiles: ["<rootDir>/jest.presetup.js", "react-native-gesture-handler/jestSetup"],
+  setupFilesAfterEnv: ["@testing-library/jest-native/extend-expect", "<rootDir>/jest.setup.ts"],
+  transformIgnorePatterns: [
+    "node_modules/(?!(react-native|@react-native|react-clone-referenced-element|@react-native-community|expo(modules)?|@expo(nent)?|@testing-library/react-native)/)"
+  ],
+  testPathIgnorePatterns: ["^<rootDir>/\\.archive/.*"],
+  modulePathIgnorePatterns: ["^<rootDir>/\\.archive/.*"],
+  watchPathIgnorePatterns: ["^<rootDir>/\\.archive/.*"],
+  moduleNameMapper: {
+    "\\\\.(css|less|sass|scss)$": "identity-obj-proxy"
+  }
+};

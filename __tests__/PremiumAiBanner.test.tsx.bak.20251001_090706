@@ -1,0 +1,28 @@
+import React from "react";
+import { render } from "@testing-library/react-native";
+import PremiumAiBanner from "@/components/PremiumAiBanner";
+
+/**
+ * Lokalny mock Animated — całkowicie synchroniczny.
+ * Robimy to TU (w teście), żeby mieć 100% pewności, że żadne timery/loop nie wyciekną do act().
+ */
+jest.mock("react-native", () => {
+  const RN = jest.requireActual("react-native");
+  const immediate = { start: (cb?: () => void) => { if (cb) cb(); } };
+  // nadpisujemy najczęstsze prymitywy animacji
+  RN.Animated = {
+    ...RN.Animated,
+    timing: () => immediate,
+    spring: () => immediate,
+    loop: () => immediate,
+    sequence: () => immediate,
+    parallel: () => immediate,
+    delay: () => immediate,
+  };
+  return RN;
+});
+
+test("renders PremiumAiBanner", () => {
+  const { getByText } = render(<PremiumAiBanner disableAnimation />);
+  expect(getByText("Twój Asystent AI")).toBeTruthy();
+});

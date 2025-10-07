@@ -1,0 +1,20 @@
+import { Tabs } from "expo-router";
+import { View } from "react-native";
+import React from "react";
+import AIBanner from "../../components/AIBanner";
+
+export default function TabsLayout() {
+  return (
+    <View style={{ flex: 1 }}>
+      <Tabs
+        screenOptions={{
+          headerShown: false,
+          tabBarStyle: { position: "absolute", bottom: 72, left: 0, right: 0, height: 64 }
+        }}
+      />
+      <View pointerEvents="box-none" style={{ position: "absolute", left: 0, right: 0, bottom: 0 }}>
+        <AIBanner />
+      </View>
+    </View>
+  );
+}

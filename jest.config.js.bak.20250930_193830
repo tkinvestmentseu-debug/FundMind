@@ -1,0 +1,15 @@
+module.exports = {
+  preset: "jest-expo",
+  transformIgnorePatterns: [
+    "node_modules/(?!(react-native|expo|expo-router|expo-modules-core|@expo|@react-native|react-clone-referenced-element)/)"
+  ],
+  setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
+  moduleNameMapper: {
+    "^@react-native-async-storage/async-storage$": "<rootDir>/__mocks__/AsyncStorage.ts",
+    "react-native/Libraries/Animated/NativeAnimatedHelper": "<rootDir>/__mocks__/NativeAnimatedHelper.js",
+    "\\\\.(png|jpg|jpeg|gif|webp|svg)$": "<rootDir>/__mocks__/fileMock.js"
+  }
+,
+  testPathIgnorePatterns: ["/node_modules/", "/backups/"]
+};
+

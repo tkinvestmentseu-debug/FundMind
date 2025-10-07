@@ -1,0 +1,1 @@
+pwsh -NoProfile -ExecutionPolicy Bypass -File tools\fundmind-auto-fix.ps1 -ProjectRoot "D:\FundMind"

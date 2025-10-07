@@ -1,0 +1,65 @@
+import React from "react";
+import { View, Text, StyleSheet, ScrollView } from "react-native";
+import { SafeAreaView, useSafeAreaInsets } from "react-native-safe-area-context";
+import { Calendar, LocaleConfig } from "react-native-calendars";
+
+LocaleConfig.locales["pl"] = {
+  monthNames: [
+    "Styczen","Luty","Marzec","Kwiecien","Maj","Czerwiec",
+    "Lipiec","Sierpien","Wrzesien","Pazdziernik","Listopad","Grudzien"
+  ],
+  monthNamesShort: ["Sty","Lut","Mar","Kwi","Maj","Cze","Lip","Sie","Wrz","Paz","Lis","Gru"],
+  dayNames: ["Niedziela","Poniedzialek","Wtorek","Sroda","Czwartek","Piatek","Sobota"],
+  dayNamesShort: ["Nd","Pn","Wt","Sr","Czw","Pt","So"],
+};
+LocaleConfig.defaultLocale = "pl";
+
+export default function KalendarzScreen() {
+  const insets = useSafeAreaInsets();
+  const topPad = Math.max(Math.ceil(insets.top) + 40, 40);
+
+  return (
+    <SafeAreaView style={styles.safe} edges={["top","left","right"]}>
+      <ScrollView contentContainerStyle={[styles.container, { paddingTop: topPad }]}>
+        <View style={styles.card}>
+          <Calendar
+            firstDay={1}
+            enableSwipeMonths={true}
+            style={styles.calendar}
+            theme={{
+              arrowColor: "#1677FF",
+              todayBackgroundColor: "#E6EDF2",
+              todayTextColor: "#0F172A",
+              selectedDayBackgroundColor: "#1677FF",
+              selectedDayTextColor: "#FFFFFF",
+              monthTextColor: "#0F172A",
+              textMonthFontWeight: "600",
+            }}
+          />
+        </View>
+        <Text style={styles.section}>Nadchodzace wydarzenia</Text>
+        <Text style={styles.empty}>Brak nadchodzacych wydarzen</Text>
+      </ScrollView>
+    </SafeAreaView>
+  );
+}
+
+const styles = StyleSheet.create({
+  safe: { flex: 1, backgroundColor: "#F9FBFC" },
+  container: { paddingHorizontal: 16, paddingBottom: 24 },
+  card: {
+    borderRadius: 16,
+    backgroundColor: "#FFFFFF",
+    padding: 8,
+    shadowColor: "#000000",
+    shadowOpacity: 0.06,
+    shadowRadius: 16,
+    shadowOffset: { width: 0, height: 6 },
+    elevation: 2,
+    marginHorizontal: 2
+  },
+  calendar: { borderRadius: 12 },
+  section: { fontSize: 20, fontWeight: "700", marginTop: 20 },
+  empty: { fontSize: 16, color: "#64748B", marginTop: 6 }
+});
+

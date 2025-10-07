@@ -1,0 +1,49 @@
+{
+  "tabs": {
+    "home": "Home",
+    "calendar": "Calendar",
+    "notifications": "Notifications",
+    "settings": "Settings"
+  },
+  "home": {
+    "add": "Add",
+    "example": "Example"
+  },
+  "calendar": {
+    "title": "Calendar",
+    "addEvent": "Add event"
+  },
+  "notifications": {
+    "title": "Notifications",
+    "empty": "No new alerts."
+  },
+  "settings": {
+    "title": "Settings",
+    "appSettings": "App settings",
+    "language": "Language",
+    "english": "English",
+    "polish": "Polish"
+  },
+  "transaction": {
+    "screenTitle": "Add transaction",
+    "name": "Name",
+    "amount": "Amount",
+    "type": "Type",
+    "expense": "Expense",
+    "income": "Income",
+    "note": "Note (optional)",
+    "save": "Save transaction",
+    "errorTitle": "Error",
+    "errorMsg": "Provide a name and a valid amount.",
+    "okTitle": "OK",
+    "okMsg": "Transaction saved."
+  },
+  "common": {
+    "ok": "OK",
+    "cancel": "Cancel",
+    "save": "Save",
+    "close": "Close",
+    "delete": "Delete",
+    "edit": "Edit"
+  }
+}

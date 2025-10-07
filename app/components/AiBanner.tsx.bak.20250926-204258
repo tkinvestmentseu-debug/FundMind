@@ -1,0 +1,36 @@
+import React from "react";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { useRouter } from "expo-router";
+
+export default function AiBanner() {
+  const router = useRouter();
+  return (
+    <TouchableOpacity style={styles.banner} onPress={() => router.push("/ai")}>
+      <Text style={styles.text}>Twój Asystent AI</Text>
+    </TouchableOpacity>
+  );
+}
+
+const styles = StyleSheet.create({
+  banner: {
+    marginHorizontal: 16,
+    marginVertical: 12,
+    borderRadius: 20,
+    paddingVertical: 14,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "linear-gradient(90deg, #1E3C72, #2A5298)",
+    // Fallback gradient hack
+    backgroundColor: "#1E3C72",
+    shadowColor: "#000",
+    shadowOpacity: 0.15,
+    shadowRadius: 10,
+    shadowOffset: { width: 0, height: 4 },
+    elevation: 4,
+  },
+  text: {
+    fontSize: 16,
+    fontWeight: "700",
+    color: "#FFFFFF",
+  },
+});

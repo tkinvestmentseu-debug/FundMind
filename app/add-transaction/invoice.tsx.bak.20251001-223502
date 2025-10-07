@@ -1,0 +1,16 @@
+import React from "react";
+import { View, Text } from "react-native";
+import { Stack } from "expo-router";
+import SwipeBack from "../_components/SwipeBack";
+
+export default function Screen() {
+  return (<SwipeBack>
+    <>
+      <Stack.Screen options={{ headerTitle: "Dodaj " }} />
+      <View style={{flex:1,alignItems:"center",justifyContent:"center", backgroundColor:"#F6F8FB"}}>
+        <Text>TODO: formularz - </Text>
+      </View>
+    </>
+  </SwipeBack>);
+}
+

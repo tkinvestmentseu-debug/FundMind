@@ -1,0 +1,146 @@
+import React, { useEffect, useRef } from "react";
+import { View, Text, Pressable, StyleSheet, Animated, Easing, Platform } from "react-native";
+import { Link } from "expo-router";
+import { LinearGradient } from "expo-linear-gradient";
+import { Feather } from "@expo/vector-icons";
+
+const AnimatedLinear = Animated.createAnimatedComponent(LinearGradient);
+
+// Premium pillow-card CTA: gradient outline, white inner, soft shadow, subtle diagonal shimmer
+export default function AddTransactionCTA() {
+  const shine = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    const loop = Animated.loop(
+      Animated.sequence([
+        Animated.timing(shine, { toValue: 1, duration: 2200, easing: Easing.inOut(Easing.cubic), useNativeDriver: true }),
+        Animated.timing(shine, { toValue: 0, duration: 0, useNativeDriver: true })
+      ])
+    );
+    loop.start();
+    return () => { loop.stop(); };
+  }, [shine]);
+
+  const translate = shine.interpolate({ inputRange: [0, 1], outputRange: [-120, 320] });
+
+  return (
+    <View style={styles.wrapper}>
+      <Link href="/add-transaction" asChild>
+        <Pressable
+          accessibilityRole="button"
+          testID="AddTransactionCTA"
+          style={({ pressed }) => [styles.pressable, pressed && styles.pressablePressed]}
+        >
+          {/* Gradient outline */}
+          <LinearGradient
+            colors={["#C9B6FF", "#7C4DFF", "#B39AFF"]}
+            start={{ x: 0, y: 0.5 }}
+            end={{ x: 1, y: 0.5 }}
+            style={styles.outline}
+          >
+            {/* Inner white card */}
+            <View style={styles.inner}>
+              {/* Subtle diagonal shimmer UNDER content */}
+              <AnimatedLinear
+                pointerEvents="none"
+                colors={["rgba(255,255,255,0)", "rgba(255,255,255,0.6)", "rgba(255,255,255,0)"]}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 1, y: 1 }}
+                style={[styles.shine, { transform: [{ translateX: translate }] }]}
+              />
+
+              <View style={styles.content}>
+                {/* Accent icon */}
+                <LinearGradient
+                  colors={["#7C4DFF", "#9C84FF"]}
+                  start={{ x: 0, y: 0 }}
+                  end={{ x: 1, y: 1 }}
+                  style={styles.iconWrap}
+                >
+                  <Feather name="plus" size={20} color="#FFFFFF" />
+                </LinearGradient>
+
+                <Text style={styles.title}>Dodaj transakcje</Text>
+                <Text style={styles.subtitle}>Szybko dodaj nowy wydatek lub przychod</Text>
+              </View>
+            </View>
+          </LinearGradient>
+        </Pressable>
+      </Link>
+    </View>
+  );
+}
+
+const RADIUS_OUTER = 28;
+const RADIUS_INNER = 24;
+
+const styles = StyleSheet.create({
+  wrapper: {
+    width: "100%",
+    alignItems: "center",
+    marginTop: 28,
+    marginBottom: 44,
+    paddingHorizontal: 20
+  },
+  pressable: {
+    width: "100%",
+    borderRadius: RADIUS_OUTER,
+    overflow: "hidden"
+  },
+  pressablePressed: {
+    opacity: 0.96,
+    transform: [{ scale: 0.985 }]
+  },
+  outline: {
+    borderRadius: RADIUS_OUTER,
+    padding: 2
+  },
+  inner: {
+    borderRadius: RADIUS_INNER,
+    backgroundColor: "#FFFFFF",
+    paddingVertical: 20,
+    paddingHorizontal: 20,
+    overflow: "hidden",
+    shadowColor: "#000",
+    shadowOpacity: 0.10,
+    shadowRadius: 14,
+    shadowOffset: { width: 0, height: 6 },
+    ...(Platform.OS === "android" ? { elevation: 4 } : {})
+  },
+  content: {
+    alignItems: "center",
+    zIndex: 1
+  },
+  iconWrap: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    alignItems: "center",
+    justifyContent: "center",
+    marginBottom: 10
+  },
+  title: {
+    fontSize: 19,
+    fontWeight: "800",
+    color: "#0F172A",
+    textAlign: "center",
+    letterSpacing: 0.2,
+    marginBottom: 6
+  },
+  subtitle: {
+    fontSize: 14,
+    color: "#667085",
+    textAlign: "center"
+  },
+  shine: {
+    position: "absolute",
+    top: -24,
+    bottom: -24,
+    left: -80,
+    width: 140,
+    opacity: 0.25,
+    transform: [{ rotate: "14deg" }]
+  } as any
+});
+
+

@@ -1,0 +1,28 @@
+=== IDENTICAL EN vs PL / TODO EN ===
+Locales: D:\FundMind\app\locales
+Count: 24
+
+HH:mm = TODO_EN_HH:mm
+settings.english = TODO_EN_settings.english
+common.back = TODO_EN_common.back
+switches EN -> PL -> EN = TODO_EN_switches EN -> PL -> EN
+Tryb ciemny = TODO_EN_Tryb ciemny
+Zapisano = TODO_EN_Zapisano
+renders correctly = TODO_EN_renders correctly
+toggles switches without crashing = TODO_EN_toggles switches without crashing
+renders PremiumAiBanner = TODO_EN_renders PremiumAiBanner
+YYYY-MM-DD = TODO_EN_YYYY-MM-DD
+Twój Asystent AI = TODO_EN_Twój Asystent AI
+Galeria = TODO_EN_Galeria
+renders PremiumAiBanner without crashing = TODO_EN_renders PremiumAiBanner without crashing
+Błąd = TODO_EN_Błąd
+Aparat = TODO_EN_Aparat
+1000 = TODO_EN_1000
+Powiadomienia = TODO_EN_Powiadomienia
+lets user add simple budget = TODO_EN_lets user add simple budget
+settings.language = TODO_EN_settings.language
+DD.MM.YYYY HH:mm = TODO_EN_DD.MM.YYYY HH:mm
+Haptics = TODO_EN_Haptics
+settings.polish = TODO_EN_settings.polish
+menu.add = TODO_EN_menu.add
+Budgets = TODO_EN_Budgets

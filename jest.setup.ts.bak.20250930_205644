@@ -1,0 +1,81 @@
+// eslint-disable
+// @ts-nocheck
+
+import "@testing-library/jest-native/extend-expect";
+
+// Stabilne globalne flagi
+(globalThis as any).__DEV__ = true;
+
+// Ciche Animated helpery
+jest.mock("react-native/Libraries/Animated/NativeAnimatedHelper");
+
+// Publiczny mock RN (bez błędnych returnów)
+jest.mock("react-native", () => {
+  const RN = jest.requireActual("react-native");
+
+  // Stały wygląd
+  RN.Appearance = {
+    getColorScheme: () => "light",
+    addChangeListener: jest.fn(),
+    removeChangeListener: jest.fn(),
+  };
+  RN.useColorScheme = () => "light";
+
+  // Animacje -> natychmiastowe, bez asynchronicznych kolejek (naprawia AggregateError w act)
+  const immediate = { start: (cb) => cb && cb(), stop: jest.fn(), reset: jest.fn() };
+  if (RN.Animated) {
+    RN.Animated.timing   = () => immediate;
+    RN.Animated.spring   = () => immediate;
+    RN.Animated.loop     = () => immediate;
+    RN.Animated.sequence = () => immediate;
+    RN.Animated.parallel = () => immediate;
+    RN.Animated.stagger  = () => immediate;
+    RN.Animated.delay    = () => immediate;
+  }
+
+  // InteractionManager / LayoutAnimation na no-op
+  RN.InteractionManager = RN.InteractionManager || {};
+  RN.InteractionManager.runAfterInteractions = (cb) => { cb && cb(); return Promise.resolve(); };
+  RN.InteractionManager.createInteractionHandle = () => 1;
+  RN.InteractionManager.clearInteractionHandle = () => {};
+  RN.InteractionManager.setDeadline = () => {};
+
+  RN.LayoutAnimation = RN.LayoutAnimation || {
+    configureNext: jest.fn(),
+    create: jest.fn(),
+    Types: {}, Properties: {}, Presets: {}
+  };
+
+  return RN;
+});
+
+// Dimensions / PixelRatio – minimalne mocki używane przez StyleSheet
+jest.mock("react-native/Libraries/Utilities/Dimensions", () => {
+  const base = { width: 360, height: 640, scale: 2, fontScale: 1 };
+  const listeners = new Set();
+  return {
+    get: jest.fn(() => ({ window: base, screen: base })),
+    addEventListener: jest.fn((_t, fn) => { listeners.add(fn); return { remove: () => listeners.delete(fn) }; }),
+    removeEventListener: jest.fn((_t, fn) => { listeners.delete(fn); }),
+    set: jest.fn()
+  };
+});
+
+jest.mock("react-native/Libraries/Utilities/PixelRatio", () => ({
+  get: () => 2,
+  getFontScale: () => 1,
+  roundToNearestPixel: (v) => Math.round(v),
+  getPixelSizeForLayoutSize: (l) => Math.round(l * 2),
+}));
+
+// Wyciszenie zbędnych ostrzeżeń z act, ale nie ukrywamy realnych błędów
+const _error = console.error;
+beforeEach(() => {
+  jest.useRealTimers();
+  console.error = (...args) => {
+    const msg = String(args[0] ?? "");
+    if (msg.includes("Warning: An update to") || msg.includes("not wrapped in act")) return;
+    _error(...args);
+  };
+});
+afterEach(() => { console.error = _error; });

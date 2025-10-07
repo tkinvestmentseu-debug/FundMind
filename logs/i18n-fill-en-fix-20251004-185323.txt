@@ -1,0 +1,8 @@
+=== I18N FILL EN FIX REPORT ===
+Locales dir: D:\FundMind\app\locales
+en.json : D:\FundMind\app\locales\en.json
+pl.json : D:\FundMind\app\locales\pl.json
+Keys in code: 24
+Added to en: 0
+
+---- ADDED KEYS ----

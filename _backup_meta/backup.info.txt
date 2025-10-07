@@ -1,0 +1,6 @@
+FUND-MIND BACKUP
+Name: BEZPIECZNA KOPIA 0410-1333
+Source: D:\FundMind
+Target: C:\BEZPIECZNA KOPIA 0410-1333\FundMind
+Timestamp: 2025-10-04 13:42:06
+RobocopyExitCode: 1

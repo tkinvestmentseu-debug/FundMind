@@ -1,0 +1,97 @@
+/* eslint-disable */
+// @ts-nocheck
+
+import "@testing-library/jest-native/extend-expect";
+
+(globalThis as any).__DEV__ = true;
+(globalThis as any).__fbBatchedBridgeConfig = { remoteModuleConfig: [] };
+
+if (!global.requestAnimationFrame) global.requestAnimationFrame = (cb) => setTimeout(cb, 0);
+if (!global.cancelAnimationFrame) global.cancelAnimationFrame = (id) => clearTimeout(id);
+
+jest.mock("react-native/Libraries/BatchedBridge/NativeModules", () => ({
+  I18nManager: { isRTL: false, doLeftAndRightSwapInRTL: false },
+}));
+
+jest.mock("react-native/Libraries/TurboModule/TurboModuleRegistry", () => {
+  const createModule = (obj = {}) => ({ getConstants: () => ({}), ...obj });
+  const UIManager = createModule({
+    getConstants: () => ({}),
+    getViewManagerConfig: () => ({}),
+    setLayoutAnimationEnabledExperimental: () => {},
+    createView: () => {}, updateView: () => {},
+    dispatchViewManagerCommand: () => {},
+    measure: () => {}, measureInWindow: () => {}, measureLayout: () => {},
+  });
+  const PlatformConstants = createModule({
+    getConstants: () => ({
+      isTesting: true, reactNativeVersion: { major: 0, minor: 73, patch: 6 },
+      interfaceIdiom: "handset", isHermes: false, osVersion: "test", systemName: "iOS"
+    })
+  });
+  const SourceCode = createModule({
+    getConstants: () => ({ scriptURL: "http://localhost/index.bundle", codeBundleType: "server", appGroup: "test" })
+  });
+  const DevSettings = createModule({ addMenuItem: () => {}, reload: () => {} });
+  const modules = { UIManager, PlatformConstants, SourceCode, NativeSourceCode: SourceCode, DevSettings };
+  return { get: (name) => modules[name], getEnforcing: (name) => modules[name] ?? SourceCode };
+});
+
+jest.mock("react-native/Libraries/Utilities/Dimensions", () => {
+  const base = { width: 360, height: 640, scale: 2, fontScale: 1 };
+  const listeners = new Set();
+  return {
+    get: jest.fn(() => ({ window: base, screen: base })),
+    addEventListener: jest.fn((_t, fn) => { listeners.add(fn); return { remove: () => listeners.delete(fn) }; }),
+    removeEventListener: jest.fn((_t, fn) => { listeners.delete(fn); }),
+    set: jest.fn(),
+  };
+});
+
+jest.mock("react-native/Libraries/Utilities/PixelRatio", () => {
+  const PixelRatio = {
+    get: () => 2, getFontScale: () => 1,
+    roundToNearestPixel: (v) => Math.round(v),
+    getPixelSizeForLayoutSize: (l) => Math.round(l * 2),
+    startDetecting: () => {},
+  };
+  return { __esModule: true, default: PixelRatio, ...PixelRatio };
+});
+
+jest.mock("react-native/Libraries/Animated/NativeAnimatedHelper");
+jest.mock("react-native-gesture-handler", () => ({}));
+
+jest.mock("react-native", () => {
+  const RN = jest.requireActual("react-native");
+  const immediate = { start: (cb) => { if (cb) { try { cb(); } catch(_) {} } }, stop: jest.fn(), reset: jest.fn() };
+  if (RN.Animated) {
+    RN.Animated.timing = () => immediate; RN.Animated.spring = () => immediate;
+    RN.Animated.loop = () => immediate; RN.Animated.sequence = () => immediate;
+    RN.Animated.parallel = () => immediate; RN.Animated.stagger = () => immediate;
+    RN.Animated.delay = () => immediate;
+  }
+  RN.InteractionManager = RN.InteractionManager || {};
+  RN.InteractionManager.runAfterInteractions = (cb) => { if (cb) cb(); return Promise.resolve(); };
+  RN.InteractionManager.createInteractionHandle = () => 1;
+  RN.InteractionManager.clearInteractionHandle = () => {};
+  RN.InteractionManager.setDeadline = () => {};
+  RN.LayoutAnimation = RN.LayoutAnimation || { configureNext: jest.fn(), create: jest.fn(), Types: {}, Properties: {}, Presets: {} };
+  RN.Appearance = RN.Appearance || { getColorScheme: () => "light", addChangeListener: jest.fn(), removeChangeListener: jest.fn() };
+  RN.useColorScheme = () => "light";
+  return RN;
+});
+
+const _error = console.error;
+beforeEach(() => {
+  jest.useRealTimers();
+  console.error = (...args) => {
+    const msg = String(args[0] ?? "");
+    if (msg.includes("not wrapped in act")) return;
+    _error(...args);
+  };
+});
+afterEach(() => { console.error = _error; });
+
+jest.mock("react-native/Libraries/NativeModules/specs/NativeSourceCode", () => ({
+  getConstants: () => ({ scriptURL: "http://localhost/index.bundle" })
+}));

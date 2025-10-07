@@ -1,0 +1,436 @@
+=== I18N AUDIT REPORT ===
+Project: D:\FundMind
+Date: 2025-10-04 18:50:19
+
+en.json: D:\FundMind\app\locales\en.json
+pl.json: NOT FOUND
+
+Keys in code (t(...)) : 24
+Missing in en : 0
+Missing in pl : 0
+
+---- MISSING KEYS IN EN ----
+
+---- MISSING KEYS IN PL ----
+
+---- NON-ASCII LINES (potential hardcodes) ----
+D:\FundMind\jest.setup.ts:18: // Bezpieczne mocki pod przyszły picker obrazu (nie psują testów, jeśli paczki brak)
+D:\FundMind\.archive\backups\backup-20250919-102713\budgets\index.tsx:28: renderItem={({item})=> (<Text>{item.category} – {item.limit}</Text>)}
+D:\FundMind\.archive\backups\backup-20250919-102713\home\_layout.tsx:11: headerBackTitle: t("common.back") || "Wróć",
+D:\FundMind\.archive\backups\backup-20250919-102713\home\_layout.tsx:15: {/* Ekran główny /home nie pokazuje nagłówka, ale /home/* już tak i ma "Wróć" */}
+D:\FundMind\.archive\backups\backup-20250919-102713\settings\_layout.tsx:11: headerBackTitle: t("common.back") || "Wróć",
+D:\FundMind\.archive\backups\failed-20250919-102418\__archive-20250918-082600-20250918-101923\budgets\index.tsx:28: renderItem={({item})=> (<Text>{item.category} – {item.limit}</Text>)}
+D:\FundMind\.archive\backups\failed-20250919-102418\__archive-20250918-082600-20250918-101923\home\_layout.tsx:11: headerBackTitle: t("common.back") || "Wróć",
+D:\FundMind\.archive\backups\failed-20250919-102418\__archive-20250918-082600-20250918-101923\home\_layout.tsx:15: {/* Ekran główny /home nie pokazuje nagłówka, ale /home/* już tak i ma "Wróć" */}
+D:\FundMind\.archive\backups\failed-20250919-102418\__archive-20250918-082600-20250918-101923\settings\_layout.tsx:11: headerBackTitle: t("common.back") || "Wróć",
+D:\FundMind\.archive\backups\failed-20250919-102456\__archive-20250918-082600-20250918-101923\budgets\index.tsx:28: renderItem={({item})=> (<Text>{item.category} – {item.limit}</Text>)}
+D:\FundMind\.archive\backups\failed-20250919-102456\__archive-20250918-082600-20250918-101923\home\_layout.tsx:11: headerBackTitle: t("common.back") || "Wróć",
+D:\FundMind\.archive\backups\failed-20250919-102456\__archive-20250918-082600-20250918-101923\home\_layout.tsx:15: {/* Ekran główny /home nie pokazuje nagłówka, ale /home/* już tak i ma "Wróć" */}
+D:\FundMind\.archive\backups\failed-20250919-102456\__archive-20250918-082600-20250918-101923\settings\_layout.tsx:11: headerBackTitle: t("common.back") || "Wróć",
+D:\FundMind\.archive\backups\failed-20250919-102459\__archive-20250918-082600-20250918-101923\budgets\index.tsx:28: renderItem={({item})=> (<Text>{item.category} – {item.limit}</Text>)}
+D:\FundMind\.archive\backups\failed-20250919-102459\__archive-20250918-082600-20250918-101923\home\_layout.tsx:11: headerBackTitle: t("common.back") || "Wróć",
+D:\FundMind\.archive\backups\failed-20250919-102459\__archive-20250918-082600-20250918-101923\home\_layout.tsx:15: {/* Ekran główny /home nie pokazuje nagłówka, ale /home/* już tak i ma "Wróć" */}
+D:\FundMind\.archive\backups\failed-20250919-102459\__archive-20250918-082600-20250918-101923\settings\_layout.tsx:11: headerBackTitle: t("common.back") || "Wróć",
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\ai.tsx:7: <Text style={styles.title}>🤖 AI</Text>
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\scan.tsx:13: Szybkie dodawanie wydatków ze zdjęcia. (Placeholder)
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\scan.tsx:16: <Text style={styles.btnText}>Wróć</Text>
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\(tabs)\calendar.tsx:12: pl: { calendar:"Kalendarz", newEvent:"Nowe wydarzenie", title:"Tytuł", start:"Początek", end:"Koniec", cancel:"Anuluj", save:"Zapisz", upcoming:"Nadchodzące wydarzenia", empty:"Brak nadchodzących wydarzeń" },
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\(tabs)\calendar.tsx:20: monthNames: ["Styczeń","Luty","Marzec","Kwiecień","Maj","Czerwiec","Lipiec","Sierpień","Wrzesień","Październik","Listopad","Grudzień"],
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\(tabs)\calendar.tsx:21: monthNamesShort: ["Sty","Lut","Mar","Kwi","Maj","Cze","Lip","Sie","Wrz","Paź","Lis","Gru"],
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\(tabs)\calendar.tsx:22: dayNames: ["Niedziela","Poniedziałek","Wtorek","Środa","Czwartek","Piątek","Sobota"],
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\(tabs)\calendar.tsx:23: dayNamesShort: ["Nd","Pn","Wt","Śr","Czw","Pt","So"],
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\(tabs)\calendar.tsx:24: today: "Dziś",
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\(tabs)\calendar.tsx:98: // lista nadchodzących (przyszłość, sort rosnąco)
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\(tabs)\calendar.tsx:112: {/* Kalendarz niżej */}
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\(tabs)\calendar.tsx:126: {/* Nadchodzące wydarzenia */}
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\(tabs)\calendar.tsx:138: {dayjs(item.startISO).format("DD.MM.YYYY HH:mm")} – {dayjs(item.endISO).format("HH:mm")}
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\(tabs)\index.tsx:43: <Text style={styles.cardTitleText}>Budżet miesiąca</Text>
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\(tabs)\index.tsx:50: <Text style={styles.chipText}>Miesiąc</Text>
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\(tabs)\index.tsx:61: <Tile icon={<MaterialCommunityIcons name="calendar-clock" size={28} color="black" />} label="Do zapłaty" />
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\(tabs)\index.tsx:64: <Tile icon={<Feather name="pie-chart" size={28} color="black" />} label="Budżety" />
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\(tabs)\index.tsx:68: <Tile icon={<Feather name="airplay" size={28} color="black" />} label="Podróże" />
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\(tabs)\index.tsx:70: <Tile icon={<MaterialCommunityIcons name="tune-vertical" size={28} color="black" />} label="Dyspozycje stałe" onPress={() => router.push("/rules")} />
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\(tabs)\index.tsx:94: <Text style={styles.cardTitle}>Nadchodzące</Text>
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\(tabs)\index.tsx:103: <Tile icon={<Feather name="trending-up" size={28} color="black" />} label="Giełda" />
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\(tabs)\index.tsx:104: <Tile icon={<MaterialCommunityIcons name="swap-horizontal" size={28} color="black" />} label="Giełda krypto" />
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\(tabs)\index.tsx:112: {/* Pływający premium pasek AI – delikatnie nad dolnym menu (na obu stronach) */}
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\(tabs)\notifications\index.tsx:8: <Text style={{ opacity: 0.7, marginTop: 8 }}>Brak nowych alertów.</Text>
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\(tabs)\settings\index.tsx:66: {L("Włącz powiadomienia", "Enable notifications")}
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\(tabs)\settings\index.tsx:74: <SectionCard title={L("Wygląd", "Appearance")}>
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\(tabs)\settings\index.tsx:83: <SectionCard title={L("Język", "Language")}>
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\(tabs)\settings\index.tsx:95: {L("Bezpieczeństwo (wkrótce)", "Security (coming soon)")}
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\rules\index.tsx:23: if (!isFinite(val) || val <= 0) { Alert.alert("Błąd", "Podaj poprawną kwotę progu."); return; }
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\rules\index.tsx:35: <Text style={styles.title}>Dyspozycje stałe</Text>
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\rules\index.tsx:41: <Text style={styles.cardTitle}>Nowa reguła</Text>
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\rules\index.tsx:42: <Text style={styles.help}>Alert, gdy dzienne wydatki przekroczą kwotę:</Text>
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\rules\index.tsx:49: <MaterialCommunityIcons name="plus-circle-outline" size={20} color="#fff" /><Text style={styles.primaryText}>Dodaj regułę</Text>
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\rules\index.tsx:51: <Text style={styles.note}>*Integracja z powiadomieniami/analizą transakcji — do podpięcia w następnym kroku.</Text>
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\rules\index.tsx:54: <Text style={styles.section}>Aktywne reguły</Text>
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\rules\index.tsx:55: {rules.length === 0 ? <Text style={styles.empty}>Brak zdefiniowanych reguł.</Text> :
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\rules\index.tsx:63: <Pressable onPress={() => toggleActive(r.id)} style={styles.chip}><Text style={styles.chipText}>{r.active ? "Wstrzymaj" : "Wznów"}</Text></Pressable>
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\rules\index.tsx:64: <Pressable onPress={() => removeRule(r.id)} style={[styles.chip, { marginLeft: 8 }]}><Text style={styles.chipText}>Usuń</Text></Pressable>
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\_components\PremiumAiBanner.tsx:33: // Zapewnienie wartości pochodnych i pętli animacji (fade, float, shimmer)
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\_components\PremiumAiBanner.tsx:45: // wejście: fade + lekkie podbicie z dołu
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\_components\PremiumAiBanner.tsx:51: // shimmer: niekończący się sweep
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\components\AIPremiumBar.tsx:28: // Pulsowanie (ciągłe)
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\components\PremiumBudgetWidget.tsx:10: <Text style={styles.title}>Budżet miesiąca</Text>
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\lib\i18n.ts:4: pl: { calendar:'Kalendarz',language:'Język',polish:'Polski',english:'Angielski',date:'Data',time:'Czas',year:'Rok',month:'Miesiąc',day:'Dzień',hour:'Godzina',minute:'Minuta',reset:'Reset',confirm:'Zatwierdź',openNativeDate:'Wybierz datę',openNativeTime:'Wybierz czas',selected:'Wybrano'},
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\src\lib\translations.ts:4: upcoming: "Nadchodzące",
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\src\lib\translations.ts:7: stocks: "Giełda",
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\src\lib\translations.ts:8: cryptomarket: "Giełda krypto",
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\src\lib\translations.ts:17: addTransaction: "Dodaj transakcję",
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\src\lib\translations.ts:20: budgets: "Budżety",
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\src\lib\translations.ts:29: goToAI: "AI — zapytaj o finanse",
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\src\lib\translations.ts:30: monthlyBudget: "Budżet miesiąca",
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\src\lib\translations.ts:32: travel: "Podróże",
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\src\lib\translations.ts:63: goToAI: "AI — ask about finances",
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\__tests__\PremiumAiBanner.test.tsx:7: expect(getByText("Twój Asystent AI")).toBeTruthy();
+D:\FundMind\app\addTransaction.tsx:64: justifyContent: 'center',   // wyśrodkowanie pionowe
+D:\FundMind\app\addTransaction.tsx:65: alignItems: 'center',       // wyśrodkowanie poziome
+D:\FundMind\app\(tabs)\calendar.tsx:14: pl: { calendar:"Kalendarz", newEvent:"Nowe wydarzenie", title:"Tytuł", start:"Początek", end:"Koniec", cancel:"Anuluj", save:"Zapisz", upcoming:"Nadchodzące wydarzenia", empty:"Brak nadchodzących wydarzeń" },
+D:\FundMind\app\(tabs)\calendar.tsx:22: monthNames: ["Styczeń","Luty","Marzec","Kwiecień","Maj","Czerwiec","Lipiec","Sierpień","Wrzesień","Październik","Listopad","Grudzień"],
+D:\FundMind\app\(tabs)\calendar.tsx:23: monthNamesShort: ["Sty","Lut","Mar","Kwi","Maj","Cze","Lip","Sie","Wrz","Paź","Lis","Gru"],
+D:\FundMind\app\(tabs)\calendar.tsx:24: dayNames: ["Niedziela","Poniedziałek","Wtorek","Środa","Czwartek","Piątek","Sobota"],
+D:\FundMind\app\(tabs)\calendar.tsx:25: dayNamesShort: ["Nd","Pn","Wt","Śr","Czw","Pt","So"],
+D:\FundMind\app\(tabs)\calendar.tsx:26: today: "Dziś",
+D:\FundMind\app\(tabs)\calendar.tsx:100: // lista nadchodzących (przyszłość, sort rosnąco)
+D:\FundMind\app\(tabs)\calendar.tsx:114: {/* Kalendarz niżej */}
+D:\FundMind\app\(tabs)\calendar.tsx:128: {/* Nadchodzące wydarzenia */}
+D:\FundMind\app\(tabs)\calendar.tsx:140: {dayjs(item.startISO).format("DD.MM.YYYY HH:mm")} – {dayjs(item.endISO).format("HH:mm")}
+D:\FundMind\app\(tabs)\index.tsx:56: <PremiumTile label="Do zapłaty"           icon={<Feather name="credit-card"   size={24} color="#7C4DFF" />} onPress={() => router.push('/bills')} />
+D:\FundMind\app\(tabs)\index.tsx:59: <PremiumTile label="Budżety"              icon={<Feather name="pie-chart"     size={24} color="#7C4DFF" />} onPress={() => router.push('/budgets')} />
+D:\FundMind\app\(tabs)\index.tsx:63: <PremiumTile label="Podróże"              icon={<Feather name="map"           size={24} color="#7C4DFF" />} onPress={() => router.push('/travel')} />
+D:\FundMind\app\(tabs)\index.tsx:93: <Text style={styles.cardTitle}>Nadchodzące</Text>
+D:\FundMind\app\(tabs)\index.tsx:103: <PremiumTile label="Giełda"       icon={<Feather               name="trending-up" size={24} color="#7C4DFF" />} onPress={() => router.push('/stocks')} />
+D:\FundMind\app\(tabs)\index.tsx:104: <PremiumTile label="Giełda krypto" icon={<MaterialCommunityIcons name="swap-horizontal" size={24} color="#7C4DFF" />} onPress={() => router.push('/crypto-exchange')} />
+D:\FundMind\app\(tabs)\index.tsx:112: {/* Pływający premium pasek AI – delikatnie nad dolnym menu (na obu stronach) */}
+D:\FundMind\app\(tabs)\notifications\index.tsx:11: <Text style={{ opacity: 0.7, marginTop: 8 }}>Brak nowych alertów.</Text>
+D:\FundMind\app\(tabs)\settings\index.tsx:69: {L("Włącz powiadomienia", "Enable notifications")}
+D:\FundMind\app\(tabs)\settings\index.tsx:77: <SectionCard title={L("Wygląd", "Appearance")}>
+D:\FundMind\app\(tabs)\settings\index.tsx:86: <SectionCard title={L("Język", "Language")}>
+D:\FundMind\app\(tabs)\settings\index.tsx:98: {L("Bezpieczeństwo (wkrótce)", "Security (coming soon)")}
+D:\FundMind\app\add-transaction\index.tsx:13: <Stack.Screen options={{ headerTitle: "Dodaj transakcję" }} />
+D:\FundMind\app\add-transaction\index.tsx:15: <Text style={styles.title}>Co chcesz dodać?</Text>
+D:\FundMind\app\add-transaction\index.tsx:28: label="Dodaj fakturę"
+D:\FundMind\app\add-transaction\invoice.tsx:11: <Stack.Screen options={{ headerTitle: "Dodaj fakturę" }} />
+D:\FundMind\app\ai\index.tsx:7: <Text style={styles.title}>🤖 AI</Text>
+D:\FundMind\app\components\PremiumAiBanner.tsx:33: // Zapewnienie wartości pochodnych i pętli animacji (fade, float, shimmer)
+D:\FundMind\app\components\PremiumAiBanner.tsx:45: // wejście: fade + lekkie podbicie z dołu
+D:\FundMind\app\components\PremiumAiBanner.tsx:51: // shimmer: niekończący się sweep
+D:\FundMind\app\rules\index.tsx:23: if (!isFinite(val) || val <= 0) { Alert.alert("Błąd", "Podaj poprawną kwotę progu."); return; }
+D:\FundMind\app\rules\index.tsx:35: <Text style={styles.title}>Dyspozycje stałe</Text>
+D:\FundMind\app\rules\index.tsx:41: <Text style={styles.cardTitle}>Nowa reguła</Text>
+D:\FundMind\app\rules\index.tsx:42: <Text style={styles.help}>Alert, gdy dzienne wydatki przekroczą kwotę:</Text>
+D:\FundMind\app\rules\index.tsx:49: <MaterialCommunityIcons name="plus-circle-outline" size={20} color="#fff" /><Text style={styles.primaryText}>Dodaj regułę</Text>
+D:\FundMind\app\rules\index.tsx:51: <Text style={styles.note}>*Integracja z powiadomieniami/analizą transakcji — do podpięcia w następnym kroku.</Text>
+D:\FundMind\app\rules\index.tsx:54: <Text style={styles.section}>Aktywne reguły</Text>
+D:\FundMind\app\rules\index.tsx:55: {rules.length === 0 ? <Text style={styles.empty}>Brak zdefiniowanych reguł.</Text> :
+D:\FundMind\app\rules\index.tsx:63: <Pressable onPress={() => toggleActive(r.id)} style={styles.chip}><Text style={styles.chipText}>{r.active ? "Wstrzymaj" : "Wznów"}</Text></Pressable>
+D:\FundMind\app\rules\index.tsx:64: <Pressable onPress={() => removeRule(r.id)} style={[styles.chip, { marginLeft: 8 }]}><Text style={styles.chipText}>Usuń</Text></Pressable>
+D:\FundMind\app\scan\index.tsx:13: Szybkie dodawanie wydatków ze zdjęcia. (Placeholder)
+D:\FundMind\app\scan\index.tsx:16: <Text style={styles.btnText}>Wróć</Text>
+D:\FundMind\app\_components\PremiumTile.tsx:7: * - Dokładnie 3 kolumny dzięki procentowej szerokości + space-between w gridzie.
+D:\FundMind\app\_components\PremiumTile.tsx:42: // 3 kolumny: width = ~30.8% + space-between w gridzie ⇒ równe odstępy
+D:\FundMind\app\_components\PremiumTile.tsx:50: marginBottom: 12,      // odstęp pionowy między wierszami
+D:\FundMind\app\_components\SwipeBack.tsx:7: edgeWidth?: number;      // aktywacja tylko od lewej krawędzi
+D:\FundMind\app\_components\SwipeBack.tsx:8: trigger?: number;        // ile px przesunąć w prawo, żeby cofnąć
+D:\FundMind\app\_components\SwipeBack.tsx:9: velocity?: number;       // minimalna prędkość gestu
+D:\FundMind\app\_components\TransactionForm.tsx:29: Alert.alert("Błąd", "Wprowadź nazwę i kwotę");
+D:\FundMind\app\_components\TransactionForm.tsx:57: <Text style={styles.label}>Zdjęcie</Text>
+D:\FundMind\app\_components\TransactionForm.tsx:61: <Text style={styles.placeholder}>Brak zdjęcia</Text>
+D:\FundMind\app\_components\TransactionForm.tsx:76: <Text style={styles.saveText}>Zapisz transakcję</Text>
+D:\FundMind\components\AIPremiumBar.tsx:28: // Pulsowanie (ciągłe)
+D:\FundMind\components\PremiumBudgetWidget.tsx:10: <Text style={styles.title}>Budżet miesiąca</Text>
+D:\FundMind\lib\i18n.ts:4: pl: { calendar:'Kalendarz',language:'Język',polish:'Polski',english:'Angielski',date:'Data',time:'Czas',year:'Rok',month:'Miesiąc',day:'Dzień',hour:'Godzina',minute:'Minuta',reset:'Reset',confirm:'Zatwierdź',openNativeDate:'Wybierz datę',openNativeTime:'Wybierz czas',selected:'Wybrano'},
+D:\FundMind\src\lib\translations.ts:4: upcoming: "Nadchodzące",
+D:\FundMind\src\lib\translations.ts:7: stocks: "Giełda",
+D:\FundMind\src\lib\translations.ts:8: cryptomarket: "Giełda krypto",
+D:\FundMind\src\lib\translations.ts:17: addTransaction: "Dodaj transakcję",
+D:\FundMind\src\lib\translations.ts:20: budgets: "Budżety",
+D:\FundMind\src\lib\translations.ts:29: goToAI: "AI — zapytaj o finanse",
+D:\FundMind\src\lib\translations.ts:30: monthlyBudget: "Budżet miesiąca",
+D:\FundMind\src\lib\translations.ts:32: travel: "Podróże",
+D:\FundMind\src\lib\translations.ts:63: goToAI: "AI — ask about finances",
+
+---- JSX QUOTED STRINGS WITH NON-ASCII (heuristic hardcodes) ----
+D:\FundMind\.archive\backups\backup-20250919-102713\home\_layout.tsx: Wróć
+D:\FundMind\.archive\backups\backup-20250919-102713\home\_layout.tsx: Wróć
+D:\FundMind\.archive\backups\backup-20250919-102713\settings\_layout.tsx: Wróć
+D:\FundMind\.archive\backups\failed-20250919-102418\__archive-20250918-082600-20250918-101923\home\_layout.tsx: Wróć
+D:\FundMind\.archive\backups\failed-20250919-102418\__archive-20250918-082600-20250918-101923\home\_layout.tsx: Wróć
+D:\FundMind\.archive\backups\failed-20250919-102418\__archive-20250918-082600-20250918-101923\settings\_layout.tsx: Wróć
+D:\FundMind\.archive\backups\failed-20250919-102456\__archive-20250918-082600-20250918-101923\home\_layout.tsx: Wróć
+D:\FundMind\.archive\backups\failed-20250919-102456\__archive-20250918-082600-20250918-101923\home\_layout.tsx: Wróć
+D:\FundMind\.archive\backups\failed-20250919-102456\__archive-20250918-082600-20250918-101923\settings\_layout.tsx: Wróć
+D:\FundMind\.archive\backups\failed-20250919-102459\__archive-20250918-082600-20250918-101923\home\_layout.tsx: Wróć
+D:\FundMind\.archive\backups\failed-20250919-102459\__archive-20250918-082600-20250918-101923\home\_layout.tsx: Wróć
+D:\FundMind\.archive\backups\failed-20250919-102459\__archive-20250918-082600-20250918-101923\settings\_layout.tsx: Wróć
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\(tabs)\calendar.tsx: Tytuł
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\(tabs)\calendar.tsx: Początek
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\(tabs)\calendar.tsx: Nadchodzące wydarzenia
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\(tabs)\calendar.tsx: Brak nadchodzących wydarzeń
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\(tabs)\calendar.tsx: Styczeń
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\(tabs)\calendar.tsx: Kwiecień
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\(tabs)\calendar.tsx: Sierpień
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\(tabs)\calendar.tsx: Wrzesień
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\(tabs)\calendar.tsx: Październik
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\(tabs)\calendar.tsx: Grudzień
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\(tabs)\calendar.tsx: Paź
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\(tabs)\calendar.tsx: Poniedziałek
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\(tabs)\calendar.tsx: Środa
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\(tabs)\calendar.tsx: Piątek
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\(tabs)\calendar.tsx: Śr
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\(tabs)\calendar.tsx: Dziś
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\(tabs)\calendar.tsx:  };
+    Object.keys(events).forEach((d) => {
+      if (!m[d]) m[d] = { marked: true };
+      else m[d].marked = true;
+    });
+    return m;
+  }, [selectedDate, events]);
+
+  // lista nadchodzących (przyszłość, sort rosnąco)
+  const upcoming: EventItem[] = useMemo(() => {
+    const nowISO = new Date().toISOString();
+    const arr: EventItem[] = [];
+    Object.keys(events).forEach((d) => events[d].forEach((e) => { if (e.startISO >= nowISO) arr.push(e); }));
+    arr.sort((a,b) => a.startISO.localeCompare(b.startISO));
+    return arr;
+  }, [events]);
+
+  return (
+    <View style={styles.screen}>
+        <_CalendarTopSpacer />
+      <Stack.Screen options={{ title: t(lang,
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\(tabs)\calendar.tsx: ) }} />
+
+      {/* Kalendarz niżej */}
+      <View style={[styles.card, { marginTop: 32 }]}>
+        <Calendar
+          current={selectedDate}
+          onDayPress={(d) => { setSelectedDate(d.dateString); openAdd(d.dateString); }}
+          markedDates={marked}
+          style={styles.calendar}
+          theme={{
+            todayTextColor: 
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\(tabs)\calendar.tsx: ,
+          }}
+        />
+      </View>
+
+      {/* Nadchodzące wydarzenia */}
+      <Text style={styles.section}>{t(lang,
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\(tabs)\calendar.tsx: )} – {dayjs(item.endISO).format(
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\(tabs)\index.tsx: Do zapłaty
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\(tabs)\index.tsx: Budżety
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\(tabs)\index.tsx: Podróże
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\(tabs)\index.tsx: Dyspozycje stałe
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\(tabs)\index.tsx: Giełda
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\(tabs)\index.tsx: Giełda krypto
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\(tabs)\settings\index.tsx: Włącz powiadomienia
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\(tabs)\settings\index.tsx: Wygląd
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\(tabs)\settings\index.tsx: Język
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\(tabs)\settings\index.tsx: Bezpieczeństwo (wkrótce)
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\rules\index.tsx:  size={22} /></Pressable>
+        <Text style={styles.title}>Dyspozycje stałe</Text>
+        <View style={{ width: 22 }} />
+      </View>
+
+      <ScrollView contentContainerStyle={{ padding: 16 }}>
+        <View style={styles.card}>
+          <Text style={styles.cardTitle}>Nowa reguła</Text>
+          <Text style={styles.help}>Alert, gdy dzienne wydatki przekroczą kwotę:</Text>
+          <View style={styles.row}>
+            <TextInput style={styles.input} value={amount} onChangeText={setAmount} keyboardType=
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\rules\index.tsx:  /><Text style={styles.primaryText}>Dodaj regułę</Text>
+          </Pressable>
+          <Text style={styles.note}>*Integracja z powiadomieniami/analizą transakcji — do podpięcia w następnym kroku.</Text>
+        </View>
+
+        <Text style={styles.section}>Aktywne reguły</Text>
+        {rules.length === 0 ? <Text style={styles.empty}>Brak zdefiniowanych reguł.</Text> :
+          rules.map(r => (
+            <View key={r.id} style={styles.ruleItem}>
+              <MaterialCommunityIcons name=
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\app\rules\index.tsx: }</Text></Pressable>
+              <Pressable onPress={() => removeRule(r.id)} style={[styles.chip, { marginLeft: 8 }]}><Text style={styles.chipText}>Usuń</Text></Pressable>
+            </View>
+          ))
+        }
+        <View style={{ height: 24 }} />
+      </ScrollView>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  page: { flex: 1, backgroundColor: 
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\lib\i18n.ts: Język
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\lib\i18n.ts: Miesiąc
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\lib\i18n.ts: Dzień
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\lib\i18n.ts: Zatwierdź
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\lib\i18n.ts: Wybierz datę
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\src\lib\translations.ts: Nadchodzące
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\src\lib\translations.ts: Giełda
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\src\lib\translations.ts: Giełda krypto
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\src\lib\translations.ts: Dodaj transakcję
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\src\lib\translations.ts: Budżety
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\src\lib\translations.ts: AI — zapytaj o finanse
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\src\lib\translations.ts: Budżet miesiąca
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\src\lib\translations.ts: Podróże
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\src\lib\translations.ts: AI — ask about finances
+D:\FundMind\.archive\backups\kopie zapasowa new-20250929-231027\__tests__\PremiumAiBanner.test.tsx: Twój Asystent AI
+D:\FundMind\app\addTransaction.tsx: ,   // wyśrodkowanie pionowe
+    alignItems: 
+D:\FundMind\app\addTransaction.tsx: ,       // wyśrodkowanie poziome
+    padding: 16,
+  },
+  card: {
+    width: 
+D:\FundMind\app\(tabs)\calendar.tsx: Tytuł
+D:\FundMind\app\(tabs)\calendar.tsx: Początek
+D:\FundMind\app\(tabs)\calendar.tsx: Nadchodzące wydarzenia
+D:\FundMind\app\(tabs)\calendar.tsx: Brak nadchodzących wydarzeń
+D:\FundMind\app\(tabs)\calendar.tsx: Styczeń
+D:\FundMind\app\(tabs)\calendar.tsx: Kwiecień
+D:\FundMind\app\(tabs)\calendar.tsx: Sierpień
+D:\FundMind\app\(tabs)\calendar.tsx: Wrzesień
+D:\FundMind\app\(tabs)\calendar.tsx: Październik
+D:\FundMind\app\(tabs)\calendar.tsx: Grudzień
+D:\FundMind\app\(tabs)\calendar.tsx: Paź
+D:\FundMind\app\(tabs)\calendar.tsx: Poniedziałek
+D:\FundMind\app\(tabs)\calendar.tsx: Środa
+D:\FundMind\app\(tabs)\calendar.tsx: Piątek
+D:\FundMind\app\(tabs)\calendar.tsx: Śr
+D:\FundMind\app\(tabs)\calendar.tsx: Dziś
+D:\FundMind\app\(tabs)\calendar.tsx:  };
+    Object.keys(events).forEach((d) => {
+      if (!m[d]) m[d] = { marked: true };
+      else m[d].marked = true;
+    });
+    return m;
+  }, [selectedDate, events]);
+
+  // lista nadchodzących (przyszłość, sort rosnąco)
+  const upcoming: EventItem[] = useMemo(() => {
+    const nowISO = new Date().toISOString();
+    const arr: EventItem[] = [];
+    Object.keys(events).forEach((d) => events[d].forEach((e) => { if (e.startISO >= nowISO) arr.push(e); }));
+    arr.sort((a,b) => a.startISO.localeCompare(b.startISO));
+    return arr;
+  }, [events]);
+
+  return (
+    <View style={styles.screen}>
+        <_CalendarTopSpacer />
+      <Stack.Screen options={{ title: t(lang,
+D:\FundMind\app\(tabs)\calendar.tsx: ) }} />
+
+      {/* Kalendarz niżej */}
+      <View style={[styles.card, { marginTop: 32 }]}>
+        <Calendar
+          current={selectedDate}
+          onDayPress={(d) => { setSelectedDate(d.dateString); openAdd(d.dateString); }}
+          markedDates={marked}
+          style={styles.calendar}
+          theme={{
+            todayTextColor: 
+D:\FundMind\app\(tabs)\calendar.tsx: ,
+          }}
+        />
+      </View>
+
+      {/* Nadchodzące wydarzenia */}
+      <Text style={styles.section}>{t(lang,
+D:\FundMind\app\(tabs)\calendar.tsx: )} – {dayjs(item.endISO).format(
+D:\FundMind\app\(tabs)\index.tsx: Do zapłaty
+D:\FundMind\app\(tabs)\index.tsx: Budżety
+D:\FundMind\app\(tabs)\index.tsx: Podróże
+D:\FundMind\app\(tabs)\index.tsx: Giełda
+D:\FundMind\app\(tabs)\index.tsx: Giełda krypto
+D:\FundMind\app\(tabs)\settings\index.tsx: Włącz powiadomienia
+D:\FundMind\app\(tabs)\settings\index.tsx: Wygląd
+D:\FundMind\app\(tabs)\settings\index.tsx: Język
+D:\FundMind\app\(tabs)\settings\index.tsx: Bezpieczeństwo (wkrótce)
+D:\FundMind\app\add-transaction\index.tsx: Dodaj transakcję
+D:\FundMind\app\add-transaction\index.tsx: Dodaj fakturę
+D:\FundMind\app\add-transaction\invoice.tsx: Dodaj fakturę
+D:\FundMind\app\rules\index.tsx:  size={22} /></Pressable>
+        <Text style={styles.title}>Dyspozycje stałe</Text>
+        <View style={{ width: 22 }} />
+      </View>
+
+      <ScrollView contentContainerStyle={{ padding: 16 }}>
+        <View style={styles.card}>
+          <Text style={styles.cardTitle}>Nowa reguła</Text>
+          <Text style={styles.help}>Alert, gdy dzienne wydatki przekroczą kwotę:</Text>
+          <View style={styles.row}>
+            <TextInput style={styles.input} value={amount} onChangeText={setAmount} keyboardType=
+D:\FundMind\app\rules\index.tsx:  /><Text style={styles.primaryText}>Dodaj regułę</Text>
+          </Pressable>
+          <Text style={styles.note}>*Integracja z powiadomieniami/analizą transakcji — do podpięcia w następnym kroku.</Text>
+        </View>
+
+        <Text style={styles.section}>Aktywne reguły</Text>
+        {rules.length === 0 ? <Text style={styles.empty}>Brak zdefiniowanych reguł.</Text> :
+          rules.map(r => (
+            <View key={r.id} style={styles.ruleItem}>
+              <MaterialCommunityIcons name=
+D:\FundMind\app\rules\index.tsx: }</Text></Pressable>
+              <Pressable onPress={() => removeRule(r.id)} style={[styles.chip, { marginLeft: 8 }]}><Text style={styles.chipText}>Usuń</Text></Pressable>
+            </View>
+          ))
+        }
+        <View style={{ height: 24 }} />
+      </ScrollView>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  page: { flex: 1, backgroundColor: 
+D:\FundMind\app\_components\TransactionForm.tsx: 
+            value={amount}
+            onChangeText={setAmount}
+          />
+
+          <Text style={styles.label}>Zdjęcie</Text>
+          {imageUri ? (
+            <Image source={{ uri: imageUri }} style={styles.image} />
+          ) : (
+            <Text style={styles.placeholder}>Brak zdjęcia</Text>
+          )}
+
+          <View style={styles.row}>
+            <Pressable style={styles.actionBtn} onPress={() => pickImage(false)}>
+              <Feather name=
+D:\FundMind\app\_components\TransactionForm.tsx:  />
+              <Text style={styles.actionText}>Aparat</Text>
+            </Pressable>
+          </View>
+
+          <Pressable style={styles.saveBtn} onPress={handleSave}>
+            <Text style={styles.saveText}>Zapisz transakcję</Text>
+          </Pressable>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
+  );
+}
+
+const styles = StyleSheet.create({
+  safe: { flex: 1, backgroundColor: 
+D:\FundMind\lib\i18n.ts: Język
+D:\FundMind\lib\i18n.ts: Miesiąc
+D:\FundMind\lib\i18n.ts: Dzień
+D:\FundMind\lib\i18n.ts: Zatwierdź
+D:\FundMind\lib\i18n.ts: Wybierz datę
+D:\FundMind\src\lib\translations.ts: Nadchodzące
+D:\FundMind\src\lib\translations.ts: Giełda
+D:\FundMind\src\lib\translations.ts: Giełda krypto
+D:\FundMind\src\lib\translations.ts: Dodaj transakcję
+D:\FundMind\src\lib\translations.ts: Budżety
+D:\FundMind\src\lib\translations.ts: AI — zapytaj o finanse
+D:\FundMind\src\lib\translations.ts: Budżet miesiąca
+D:\FundMind\src\lib\translations.ts: Podróże
+D:\FundMind\src\lib\translations.ts: AI — ask about finances

@@ -1,0 +1,19 @@
+module.exports = {
+  preset: "jest-expo",
+  transformIgnorePatterns: [
+    "node_modules/(?!(react-native|expo|expo-router|expo-modules-core|@expo|@react-native|react-clone-referenced-element|expo-linear-gradient|lucide-react-native|react-native-svg)/)"
+  ],
+  setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
+  moduleNameMapper: {
+    "react-native-svg": "<rootDir>/__mocks__/react-native-svg.js",
+    "lucide-react-native": "<rootDir>/__mocks__/lucide-react-native.js",
+    "expo-linear-gradient": "<rootDir>/__mocks__/expo-linear-gradient.js",
+    "^@react-native-async-storage/async-storage$": "<rootDir>/__mocks__/AsyncStorage.ts",
+    "react-native/Libraries/Animated/NativeAnimatedHelper": "<rootDir>/__mocks__/NativeAnimatedHelper.js",
+    "\\\\.(png|jpg|jpeg|gif|webp|svg)$": "<rootDir>/__mocks__/fileMock.js"
+  }
+,
+  testPathIgnorePatterns: ["/node_modules/", "/backups/"]
+};
+
+

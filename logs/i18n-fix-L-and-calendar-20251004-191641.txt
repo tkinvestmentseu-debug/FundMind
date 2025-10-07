@@ -1,0 +1,8 @@
+=== FIX L() + CALENDAR DEFAULT EXPORT REPORT ===
+Timestamp: 20251004-191641
+
+Actions:
+- backup: D:\FundMind\lib\i18n.ts.bak.20251004-191641
+- appended L() helper to lib\\i18n.ts
+- backup: D:\FundMind\app\(tabs)\calendar.tsx.bak.20251004-191641
+- calendar.tsx already has default export (no change)

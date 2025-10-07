@@ -1,0 +1,64 @@
+{
+  "HH:mm": "HH:mm",
+  "switches EN -> PL -> EN": "switches EN -> PL -> EN",
+  "Tryb ciemny": "Dark mode",
+  "Zapisano": "Saved",
+  "renders correctly": "renders correctly",
+  "DD": {
+    "MM": {
+      "YYYY HH:mm": "DD.MM.YYYY HH:mm"
+    }
+  },
+  "renders PremiumAiBanner": "renders PremiumAiBanner",
+  "YYYY-MM-DD": "YYYY-MM-DD",
+  "Twój Asystent AI": "Your AI Assistant",
+  "common": {
+    "back": "Back"
+  },
+  "Galeria": "Gallery",
+  "renders PremiumAiBanner without crashing": "renders PremiumAiBanner without crashing",
+  "Błąd": "Błąd",
+  "toggles switches without crashing": "toggles switches without crashing",
+  "1000": "1000",
+  "home": {
+    "tiles": {
+      "toPay": "To pay",
+      "budgets": "Budgets",
+      "investments": "Investments",
+      "goals": "Goals",
+      "cryptoExchange": "Crypto exchange",
+      "cryptocurrencies": "Cryptocurrencies",
+      "fxRates": "Exchange rates",
+      "subscriptions": "Subscriptions",
+      "taxes": "Taxes",
+      "quickSummary": "Quick summary",
+      "analyses": "Analytics",
+      "scanReceipt": "Scan receipt",
+      "travel": "Travel",
+      "stocks": "Stocks",
+      "reports": "Reports"
+    },
+    "todayExpenses": "Today's expenses",
+    "sections": {
+      "additional": "Additional sections"
+    },
+    "cta": {
+      "addTransaction": "Add transaction",
+      "subtitle": "Quickly add a new expense or income"
+    },
+    "upcoming": "Upcoming"
+  },
+  "settings": {
+    "english": "English",
+    "language": "Language",
+    "polish": "Polish"
+  },
+  "lets user add simple budget": "lets user add simple budget",
+  "Aparat": "Camera",
+  "Haptics": "Haptics",
+  "Powiadomienia": "Notifications",
+  "menu": {
+    "add": "Add"
+  },
+  "Budgets": "Budgets"
+}

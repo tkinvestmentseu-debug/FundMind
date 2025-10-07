@@ -1,0 +1,43 @@
+import { Tabs } from "expo-router";
+import { View } from "react-native";
+import React from "react";
+import { Ionicons } from "@expo/vector-icons";
+import AIBanner from "../../components/AIBanner";
+
+export default function TabsLayout() {
+  return (
+    <View style={{ flex: 1 }}>
+      <Tabs
+        screenOptions={({ route }) => ({
+          headerShown: false,
+          tabBarStyle: {
+            position: "absolute",
+            bottom: 80, // podniesione, żeby AI miał miejsce
+            left: 0,
+            right: 0,
+            height: 64,
+          },
+          tabBarIcon: ({ color, size }) => {
+            let iconName: any = "home";
+            if (route.name === "index") iconName = "home";
+            if (route.name === "calendar") iconName = "calendar";
+            if (route.name === "notifications") iconName = "notifications";
+            if (route.name === "settings") iconName = "settings";
+            return <Ionicons name={iconName} size={size} color={color} />;
+          },
+        })}
+      >
+        <Tabs.Screen name="index" options={{ title: "Start" }} />
+        <Tabs.Screen name="calendar" options={{ title: "Kalendarz" }} />
+        <Tabs.Screen name="notifications" options={{ title: "Powiadomienia" }} />
+        <Tabs.Screen name="settings" options={{ title: "Ustawienia" }} />
+      </Tabs>
+      <View
+        pointerEvents="box-none"
+        style={{ position: "absolute", left: 0, right: 0, bottom: 8 }}
+      >
+        <AIBanner />
+      </View>
+    </View>
+  );
+}

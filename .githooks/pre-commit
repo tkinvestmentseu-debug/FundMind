@@ -1,0 +1,4 @@
+#!/usr/bin/env pwsh
+$ErrorActionPreference='Stop'
+npm run typecheck
+npm test --silent

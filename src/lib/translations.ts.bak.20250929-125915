@@ -1,0 +1,74 @@
+export const translations = {
+  pl: {
+    todaysSpending: "Dzisiejsze wydatki",
+    upcoming: "Nadchodzące",
+    extraSections: "Dodatkowe sekcje",
+    crypto: "Kryptowaluty",
+    stocks: "Giełda",
+    cryptomarket: "Giełda krypto",
+    subs: "Subskrypcje",
+    taxes: "Podatki",
+    fx: "Kursy walut",
+    start: "Start",
+    calendar: "Kalendarz",
+    settings: "Ustawienia",
+    notifications: "Powiadomienia",
+    ai: "FundMind AI",
+    addTransaction: "Dodaj transakcję",
+    transactions: "Transakcje",
+    goals: "Cele",
+    budgets: "Budżety",
+    reports: "Raporty",
+    insights: "Analizy",
+
+
+
+
+
+
+    goToAI: "AI — zapytaj o finanse",
+    monthlyBudget: "Budżet miesiąca",
+    quickSummary: "Szybkie podsumowanie",
+    travel: "Podróże",
+    notes: "Notatki",
+    reminders: "Przypomnienia",
+  },
+  en: {
+    todaysSpending: "Today's spending",
+    upcoming: "Upcoming",
+    extraSections: "Extra sections",
+    crypto: "Crypto",
+    stocks: "Stocks",
+    cryptomarket: "Crypto market",
+    subs: "Subscriptions",
+    taxes: "Taxes",
+    fx: "Currency rates",
+    start: "Home",
+    calendar: "Calendar",
+    settings: "Settings",
+    notifications: "Notifications",
+    ai: "FundMind AI",
+    addTransaction: "Add transaction",
+    transactions: "Transactions",
+    goals: "Goals",
+    budgets: "Budgets",
+    reports: "Reports",
+    insights: "Insights",
+
+
+
+
+
+
+    goToAI: "AI — ask about finances",
+    monthlyBudget: "Monthly budget",
+    quickSummary: "Quick summary",
+    travel: "Travel",
+    notes: "Notes",
+    reminders: "Reminders",
+  },
+};
+
+export function t(lang: "pl" | "en", key: keyof typeof translations["pl"]) {
+  return translations[lang][key] ?? key;
+}

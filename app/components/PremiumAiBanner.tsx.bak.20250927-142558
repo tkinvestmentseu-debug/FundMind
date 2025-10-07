@@ -1,0 +1,32 @@
+import { router } from "expo-router";
+import React from "react";
+import { Text, Pressable, StyleSheet } from "react-native";
+export default function PremiumAiBanner() {
+  return (
+    <Pressable style={styles.container} onPress={() => { // @ts-ignore typed routes not generated
+  router.push({ pathname: "/ai" as any }); }}>
+      <Text style={styles.label}>Premium AI</Text>
+    </Pressable>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    alignItems: "center",
+    justifyContent: "center",
+    padding: 12,
+    marginVertical: 4,
+    borderWidth: 1,
+    borderColor: "#E6EDF2",
+    borderRadius: 12,
+    backgroundColor: "#fff"
+  },
+  label: {
+    fontSize: 16,
+    fontWeight: "600",
+    color: "#000"
+  }
+});
+
+
+

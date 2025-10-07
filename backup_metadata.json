@@ -1,0 +1,11 @@
+{
+  "label": "Bezpieczna kopia 2809-1631",
+  "createdAt": "2025-09-28T16:32:13",
+  "source": "D:\\FundMind",
+  "dest": "C:\\FundMind_Backups\\Bezpieczna kopia 2809-1631",
+  "metroIP": "192.168.0.16",
+  "node": "C:\\Program Files\\nodejs\\node.exe",
+  "pnpm": null,
+  "npm": "C:\\Program Files\\nodejs\\npm.cmd",
+  "expo": null
+}

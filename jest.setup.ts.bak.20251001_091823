@@ -1,0 +1,135 @@
+/* eslint-disable */
+/* @ts-nocheck */
+import "@testing-library/jest-native/extend-expect";
+
+// act env + dev
+(globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
+(globalThis as any).__DEV__ = true;
+(globalThis as any).__fbBatchedBridgeConfig = { remoteModuleConfig: [] };
+
+// Uciszanie helpera animacji
+jest.mock("react-native/Libraries/Animated/NativeAnimatedHelper");
+
+// NativeEventEmitter bez natywnego modułu
+jest.mock("react-native/Libraries/EventEmitter/NativeEventEmitter", () => {
+  const EventEmitter = require("events");
+  return function () { return new EventEmitter(); };
+});
+
+// Dimensions / PixelRatio
+jest.mock("react-native/Libraries/Utilities/Dimensions", () => {
+  const base = { width: 360, height: 640, scale: 2, fontScale: 1 };
+  const listeners = new Set();
+  return {
+    get: () => ({ window: base, screen: base }),
+    addEventListener: (_t, fn) => { listeners.add(fn); return { remove: () => listeners.delete(fn) }; },
+    removeEventListener: (_t, fn) => { listeners.delete(fn); },
+    set: () => {}
+  };
+});
+
+jest.mock("react-native/Libraries/Utilities/PixelRatio", () => ({
+  get: () => 2,
+  getFontScale: () => 1,
+  roundToNearestPixel: (v) => Math.round(v),
+  getPixelSizeForLayoutSize: (l) => Math.round(l * 2)
+}));
+
+// TurboModuleRegistry: UIManager, PlatformConstants, SourceCode, ImageLoader, KeyboardObserver
+jest.mock("react-native/Libraries/TurboModule/TurboModuleRegistry", () => {
+  const modules = {
+    UIManager: {
+      getConstants: () => ({}),
+      getViewManagerConfig: () => ({}),
+      setLayoutAnimationEnabledExperimental: () => {}
+    },
+    PlatformConstants: {
+      getConstants: () => ({
+        isTesting: true,
+        reactNativeVersion: { major: 0, minor: 73, patch: 6 },
+        interfaceIdiom: "handset",
+        systemName: "iOS",
+        isHermes: false,
+        osVersion: "test"
+      })
+    },
+    SourceCode: { getConstants: () => ({ scriptURL: "about:blank" }) },
+    ImageLoader: {
+      preload: () => {},
+      abortRequest: () => {},
+      getSize: () => {},
+      queryCache: () => Promise.resolve({})
+    },
+    KeyboardObserver: { startObserving: () => {}, stopObserving: () => {} },
+  };
+  return {
+    get: (name) => modules[name],
+    getEnforcing: (name) => {
+      const m = modules[name];
+      if (!m) throw new Error("TurboModule not found: " + name);
+      return m;
+    }
+  };
+});
+
+// NativeModules minimal
+jest.mock("react-native/Libraries/BatchedBridge/NativeModules", () => ({
+  I18nManager: { isRTL: false, doLeftAndRightSwapInRTL: false }
+}));
+
+// setImmediate synchronicznie – unikasz teardown race
+global.setImmediate = (cb) => { if (cb) cb(); };
+global.clearImmediate = () => {};
+
+// Publiczny RN: Animated no-op + Appearance/IM/LayoutAnimation
+jest.mock("react-native", () => {
+  const RN = jest.requireActual("react-native");
+
+  const immediate = {
+    start: (cb) => { if (cb) cb({ finished: true }); return { finished: true }; },
+    stop: () => {},
+    reset: () => {}
+  };
+
+  RN.Animated = { ...(RN.Animated || {}) };
+
+  class Value {
+    constructor(v){ this._value = v; }
+    setValue(v){ this._value = v; }
+    addListener(){ return 1; }
+    removeListener(){ }
+    removeAllListeners(){ }
+    stopAnimation(){ }
+    interpolate(){ return {}; }
+  }
+
+  RN.Animated.Value   = Value;
+  RN.Animated.timing  = () => immediate;
+  RN.Animated.spring  = () => immediate;
+  RN.Animated.loop    = () => immediate;
+  RN.Animated.sequence= () => immediate;
+  RN.Animated.parallel= () => immediate;
+  RN.Animated.stagger = () => immediate;
+  RN.Animated.delay   = () => immediate;
+
+  RN.Appearance = RN.Appearance || {
+    getColorScheme: () => "light",
+    addChangeListener: jest.fn(),
+    removeChangeListener: jest.fn()
+  };
+  RN.useColorScheme = () => "light";
+
+  RN.InteractionManager = RN.InteractionManager || {};
+  RN.InteractionManager.runAfterInteractions = (cb) => { if (cb) cb(); return Promise.resolve(); };
+  RN.InteractionManager.createInteractionHandle = () => 1;
+  RN.InteractionManager.clearInteractionHandle = () => {};
+  RN.InteractionManager.setDeadline = () => {};
+
+  RN.LayoutAnimation = RN.LayoutAnimation || {
+    configureNext: jest.fn(),
+    create: jest.fn(),
+    Types: {}, Properties: {}, Presets: {}
+  };
+
+  return RN;
+});

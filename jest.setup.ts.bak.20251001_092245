@@ -1,0 +1,136 @@
+// eslint-disable
+// @ts-nocheck
+
+import "@testing-library/jest-native/extend-expect";
+// --- Safe setImmediate polyfill (asynchronous) ---
+if (typeof (globalThis as any).setImmediate !== "function") {
+  (globalThis as any).setImmediate = (cb: any, ...args: any[]) => setTimeout(cb, 0, ...args);
+}
+if (typeof (globalThis as any).clearImmediate !== "function") {
+  (globalThis as any).clearImmediate = (h: any) => clearTimeout(h as any);
+}
+// --- end polyfill ---
+
+
+/** Act env + stabilne makra czasu */
+(globalThis).IS_REACT_ACT_ENVIRONMENT = true;
+(globalThis).__DEV__ = true;
+(globalThis).__fbBatchedBridgeConfig = { remoteModuleConfig: [] };
+
+/** NativeEventEmitter bez natywnego modułu */
+jest.mock("react-native/Libraries/EventEmitter/NativeEventEmitter", () => {
+  const EventEmitter = require("events");
+  return function () { return new EventEmitter(); };
+});
+
+/** UTLs MUSZĄ być PRZED mockiem "react-native" — to naprawia PixelRatio */
+jest.mock("react-native/Libraries/Utilities/Dimensions", () => {
+  const base = { width: 360, height: 640, scale: 2, fontScale: 1 };
+  const listeners = new Set();
+  return {
+    get: () => ({ window: base, screen: base }),
+    addEventListener: (_t, fn) => { listeners.add(fn); return { remove: () => listeners.delete(fn) }; },
+    removeEventListener: (_t, fn) => { listeners.delete(fn); },
+    set: () => {}
+  };
+});
+
+jest.mock("react-native/Libraries/Utilities/PixelRatio", () => {
+  const PixelRatio = {
+    get: () => 2,
+    getFontScale: () => 1,
+    roundToNearestPixel: (v) => Math.round(v),
+    getPixelSizeForLayoutSize: (l) => Math.round(l * 2),
+  };
+  return { __esModule: true, default: PixelRatio, ...PixelRatio };
+});
+
+/** Pomocnik Animated — no-op */
+jest.mock("react-native/Libraries/Animated/NativeAnimatedHelper", () => ({}));
+
+/** TurboModuleRegistry — najczęściej używane moduły */
+jest.mock("react-native/Libraries/TurboModule/TurboModuleRegistry", () => {
+  const UIManager = {
+    getConstants: () => ({}),
+    getViewManagerConfig: () => ({}),
+    setLayoutAnimationEnabledExperimental: () => {},
+    createView: () => {}, updateView: () => {},
+    dispatchViewManagerCommand: () => {},
+    measure: () => {}, measureInWindow: () => {}, measureLayout: () => {},
+  };
+  const PlatformConstants = {
+    getConstants: () => ({
+      isTesting: true,
+      reactNativeVersion: { major: 0, minor: 73, patch: 6 },
+      interfaceIdiom: "handset",
+      isHermes: false,
+      osVersion: "test",
+      systemName: "iOS",
+    }),
+  };
+  const SourceCode = { getConstants: () => ({ scriptURL: "http://localhost" }) };
+  const ImageLoader = { getConstants: () => ({}) };
+  const KeyboardObserver = { addListener: () => {}, removeListeners: () => {} };
+  const modules = { UIManager, PlatformConstants, SourceCode, ImageLoader, KeyboardObserver };
+  return {
+    get: (name) => modules[name],
+    getEnforcing: (name) => {
+      const m = modules[name];
+      if(!m) throw new Error("TurboModule not found: " + name);
+      return m;
+    },
+  };
+});
+
+/** Publiczny RN — deterministyczne Animated.Value, brak side-effectów */
+jest.mock("react-native", () => {
+  const RN = jest.requireActual("react-native");
+
+  const timeline = {
+    start: (cb) => { if (cb) cb({ finished: true }); return { finished: true }; },
+    stop: () => {},
+    reset: () => {},
+  };
+
+  RN.Animated = { ...(RN.Animated || {}) };
+
+  class Value {
+    constructor(v){ this._value = v; }
+    setValue(v){ this._value = v; }
+    addListener(){ return 1; }
+    removeListener() {}
+    removeAllListeners() {}
+    stopAnimation() {}
+    interpolate(){ return {}; }
+  }
+
+  RN.Animated.Value    = Value;
+  RN.Animated.timing   = () => timeline;
+  RN.Animated.spring   = () => timeline;
+  RN.Animated.loop     = () => timeline;
+  RN.Animated.sequence = () => timeline;
+  RN.Animated.parallel = () => timeline;
+  RN.Animated.stagger  = () => timeline;
+  RN.Animated.delay    = () => timeline;
+
+  RN.Appearance = RN.Appearance || {
+    getColorScheme: () => "light",
+    addChangeListener: jest.fn(),
+    removeChangeListener: jest.fn(),
+  };
+  RN.useColorScheme = () => "light";
+
+  RN.InteractionManager = RN.InteractionManager || {};
+  RN.InteractionManager.runAfterInteractions = (cb) => { if (cb) cb(); return Promise.resolve(); };
+  RN.InteractionManager.createInteractionHandle = () => 1;
+  RN.InteractionManager.clearInteractionHandle = () => {};
+  RN.InteractionManager.setDeadline = () => {};
+
+  RN.LayoutAnimation = RN.LayoutAnimation || {
+    configureNext: jest.fn(), create: jest.fn(),
+    Types: {}, Properties: {}, Presets: {}
+  };
+
+  return RN;
+});
+

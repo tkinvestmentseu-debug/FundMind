@@ -1,0 +1,1023 @@
+FundMind app inventory
+Generated: 2025-09-30 13:41:14
+
+
+=== TREE: app directory (files and folders) ===
+[DIR]  _components
+[FILE] _components\AiBanner.tsx.bak.20250926-162633  (725 bytes, 2025-09-26 16:21:48)
+[FILE] _components\AiBanner.tsx.bak.20250926-162829  (758 bytes, 2025-09-26 16:26:33)
+[FILE] _components\AiBanner.tsx.bak.20250926-163118  (758 bytes, 2025-09-26 16:28:29)
+[FILE] _components\AiBanner.tsx.bak.20250926-163545  (783 bytes, 2025-09-26 16:31:18)
+[FILE] _components\AiBanner.tsx.bak.20250926-163901  (975 bytes, 2025-09-26 16:35:45)
+[FILE] _components\AiBanner.tsx.bak.20250926-164327  (1015 bytes, 2025-09-26 16:39:01)
+[FILE] _components\AiBanner.tsx.bak.20250926-164517  (981 bytes, 2025-09-26 16:43:27)
+[FILE] _components\AiBanner.tsx.bak.20250926-194625  (911 bytes, 2025-09-26 16:45:17)
+[FILE] _components\AiBanner.tsx.bak.20250926-195959  (1131 bytes, 2025-09-26 19:46:25)
+[FILE] _components\AiBanner.tsx.bak.20250926-201438  (1133 bytes, 2025-09-26 19:59:59)
+[FILE] _components\AiBanner.tsx.bak.20250926-202143  (1142 bytes, 2025-09-26 20:14:48)
+[FILE] _components\AiBanner.tsx.bak.20250926-204103  (1151 bytes, 2025-09-26 20:21:53)
+[FILE] _components\AiBanner.tsx.bak.20250926-204258  (937 bytes, 2025-09-26 20:41:03)
+[FILE] _components\AiBanner.tsx.bak.20250926215641  (1122 bytes, 2025-09-26 20:42:58)
+[FILE] _components\FloatingAiBanner.tsx  (82 bytes, 2025-09-27 15:34:07)
+[FILE] _components\FloatingAiBanner.tsx.bak.20250927-142558  (788 bytes, 2025-09-27 13:46:35)
+[FILE] _components\FloatingAiBanner.tsx.bak.20250927-143459  (788 bytes, 2025-09-27 14:25:58)
+[FILE] _components\FloatingAiBanner.tsx.bak.20250927-153407  (789 bytes, 2025-09-27 14:34:59)
+[FILE] _components\FloatingAiBanner.tsx.bak.20250927202933  (82 bytes, 2025-09-27 15:34:07)
+[FILE] _components\PremiumAiBanner.tsx  (5687 bytes, 2025-09-27 22:11:39)
+[FILE] _components\PremiumAiBanner.tsx.bak.20250926-201438  (1155 bytes, 2025-09-26 20:14:38)
+[FILE] _components\PremiumAiBanner.tsx.bak.20250926-202143  (1155 bytes, 2025-09-26 20:21:43)
+[FILE] _components\PremiumAiBanner.tsx.bak.20250926-203053  (1153 bytes, 2025-09-26 20:28:16)
+[FILE] _components\PremiumAiBanner.tsx.bak.20250926-213511  (1073 bytes, 2025-09-26 20:30:53)
+[FILE] _components\PremiumAiBanner.tsx.bak.20250926-213652  (914 bytes, 2025-09-26 21:35:11)
+[FILE] _components\PremiumAiBanner.tsx.bak.20250926-214129  (886 bytes, 2025-09-26 21:36:52)
+[FILE] _components\PremiumAiBanner.tsx.bak.20250926214734  (886 bytes, 2025-09-26 21:41:29)
+[FILE] _components\PremiumAiBanner.tsx.bak.20250926214926  (1450 bytes, 2025-09-26 21:47:34)
+[FILE] _components\PremiumAiBanner.tsx.bak.20250926215131  (1450 bytes, 2025-09-26 21:49:26)
+[FILE] _components\PremiumAiBanner.tsx.bak.20250926215327  (1450 bytes, 2025-09-26 21:51:31)
+[FILE] _components\PremiumAiBanner.tsx.bak.20250926215641  (1450 bytes, 2025-09-26 21:53:27)
+[FILE] _components\PremiumAiBanner.tsx.bak.20250926215910  (1450 bytes, 2025-09-26 21:56:41)
+[FILE] _components\PremiumAiBanner.tsx.bak.20250926220818  (1450 bytes, 2025-09-26 21:59:10)
+[FILE] _components\PremiumAiBanner.tsx.bak.20250926221733  (1449 bytes, 2025-09-26 22:15:06)
+[FILE] _components\PremiumAiBanner.tsx.bak.20250927-135043  (1448 bytes, 2025-09-27 13:46:35)
+[FILE] _components\PremiumAiBanner.tsx.bak.20250927-135126  (1450 bytes, 2025-09-27 13:50:56)
+[FILE] _components\PremiumAiBanner.tsx.bak.20250927-135917  (1452 bytes, 2025-09-27 13:51:38)
+[FILE] _components\PremiumAiBanner.tsx.bak.20250927-140037  (1462 bytes, 2025-09-27 13:59:31)
+[FILE] _components\PremiumAiBanner.tsx.bak.20250927-140310  (1501 bytes, 2025-09-27 14:00:51)
+[FILE] _components\PremiumAiBanner.tsx.bak.20250927-140857  (1495 bytes, 2025-09-27 14:03:28)
+[FILE] _components\PremiumAiBanner.tsx.bak.20250927-140921  (1495 bytes, 2025-09-27 14:08:57)
+[FILE] _components\PremiumAiBanner.tsx.bak.20250927-141024  (1498 bytes, 2025-09-27 14:09:21)
+[FILE] _components\PremiumAiBanner.tsx.bak.20250927-141158  (1454 bytes, 2025-09-27 14:10:24)
+[FILE] _components\PremiumAiBanner.tsx.bak.20250927-141250  (667 bytes, 2025-09-27 14:11:58)
+[FILE] _components\PremiumAiBanner.tsx.bak.20250927-141331  (675 bytes, 2025-09-27 14:12:50)
+[FILE] _components\PremiumAiBanner.tsx.bak.20250927-142410  (677 bytes, 2025-09-27 14:13:31)
+[FILE] _components\PremiumAiBanner.tsx.bak.20250927-142558  (735 bytes, 2025-09-27 14:24:14)
+[FILE] _components\PremiumAiBanner.tsx.bak.20250927-143459  (736 bytes, 2025-09-27 14:25:58)
+[FILE] _components\PremiumAiBanner.tsx.bak.20250927-153407  (3326 bytes, 2025-09-27 15:28:23)
+[FILE] _components\PremiumAiBanner.tsx.bak.20250927152650  (729 bytes, 2025-09-27 14:57:31)
+[FILE] _components\PremiumAiBanner.tsx.bak.20250927152823  (3326 bytes, 2025-09-27 15:26:50)
+[FILE] _components\PremiumAiBanner.tsx.bak.20250927202933  (3088 bytes, 2025-09-27 15:34:07)
+[FILE] _components\PremiumAiBanner.tsx.bak.20250927203136  (3088 bytes, 2025-09-27 15:34:07)
+[FILE] _components\PremiumAiBanner.tsx.bak.20250927204332  (3186 bytes, 2025-09-27 20:41:05)
+[FILE] _components\PremiumAiBanner.tsx.bak.20250927205508  (3186 bytes, 2025-09-27 20:43:32)
+[FILE] _components\PremiumAiBanner.tsx.bak.20250927205510  (3186 bytes, 2025-09-27 20:43:32)
+[FILE] _components\PremiumAiBanner.tsx.bak.20250927205759  (3186 bytes, 2025-09-27 20:43:32)
+[FILE] _components\PremiumAiBanner.tsx.bak.20250927205945  (3186 bytes, 2025-09-27 20:43:32)
+[FILE] _components\PremiumAiBanner.tsx.bak.20250927210150  (3186 bytes, 2025-09-27 20:43:32)
+[FILE] _components\PremiumAiBanner.tsx.bak.20250927210350  (3186 bytes, 2025-09-27 20:43:32)
+[FILE] _components\PremiumAiBanner.tsx.bak.20250927214519  (3228 bytes, 2025-09-27 21:03:50)
+[FILE] _components\PremiumAiBanner.tsx.bak.20250927214750  (4753 bytes, 2025-09-27 21:45:19)
+[FILE] _components\PremiumAiBanner.tsx.bak.20250927214932  (4753 bytes, 2025-09-27 21:45:19)
+[FILE] _components\PremiumAiBanner.tsx.bak.20250927215306  (5907 bytes, 2025-09-27 21:49:32)
+[FILE] _components\PremiumAiBanner.tsx.bak.20250927215526  (5907 bytes, 2025-09-27 21:49:32)
+[FILE] _components\PremiumAiBanner.tsx.bak.20250927215720  (5859 bytes, 2025-09-27 21:55:26)
+[FILE] _components\PremiumAiBanner.tsx.bak.20250927215819  (5770 bytes, 2025-09-27 21:57:20)
+[FILE] _components\PremiumAiBanner.tsx.bak.20250927220035  (5770 bytes, 2025-09-27 21:57:20)
+[FILE] _components\PremiumAiBanner.tsx.bak.20250927220300  (5770 bytes, 2025-09-27 21:57:20)
+[FILE] _components\PremiumAiBanner.tsx.bak.20250927220623  (5699 bytes, 2025-09-27 22:03:00)
+[FILE] _components\PremiumAiBanner.tsx.bak.20250927220758  (5699 bytes, 2025-09-27 22:03:00)
+[FILE] _components\PremiumAiBanner.tsx.bak.20250927221139  (5751 bytes, 2025-09-27 22:07:58)
+[FILE] _components\PremiumAiBannerDark.tsx.bak.20250926215131  (995 bytes, 2025-09-26 20:25:03)
+[FILE] _components\PremiumAiBannerGold.tsx.bak.20250926215131  (995 bytes, 2025-09-26 20:25:03)
+[FILE] _components\PremiumAiBannerPurple.tsx.bak.20250926215131  (997 bytes, 2025-09-26 20:25:03)
+[FILE] _layout.tsx  (372 bytes, 2025-09-29 22:13:45)
+[FILE] _layout.tsx.bak.20250924-103913  (264 bytes, 2025-09-19 15:52:08)
+[FILE] _layout.tsx.bak.20250926-142427  (252 bytes, 2025-09-24 10:39:13)
+[FILE] _layout.tsx.bak.20250926-144143  (252 bytes, 2025-09-24 10:39:13)
+[FILE] _layout.tsx.bak.20250926-150744  (414 bytes, 2025-09-26 14:49:38)
+[FILE] _layout.tsx.bak.20250926-150907  (416 bytes, 2025-09-26 15:07:44)
+[FILE] _layout.tsx.bak.20250926-151025  (418 bytes, 2025-09-26 15:09:07)
+[FILE] _layout.tsx.bak.20250926-151306  (420 bytes, 2025-09-26 15:10:25)
+[FILE] _layout.tsx.bak.20250926-151714  (675 bytes, 2025-09-26 15:13:06)
+[FILE] _layout.tsx.bak.20250926-152145  (675 bytes, 2025-09-26 15:17:14)
+[FILE] _layout.tsx.bak.20250926-152725  (675 bytes, 2025-09-26 15:17:14)
+[FILE] _layout.tsx.bak.20250926-162907  (293 bytes, 2025-09-26 15:27:25)
+[FILE] _layout.tsx.bak.20250926-163118  (398 bytes, 2025-09-26 16:29:07)
+[FILE] _layout.tsx.bak.20250926-163901  (438 bytes, 2025-09-26 16:31:18)
+[FILE] _layout.tsx.bak.20250926-164517  (558 bytes, 2025-09-26 16:39:01)
+[FILE] _layout.tsx.bak.20250927-142558  (626 bytes, 2025-09-26 16:45:17)
+[FILE] _layout.tsx.bak.20250927-143459  (615 bytes, 2025-09-27 14:25:58)
+[FILE] _layout.tsx.bak.20250927201011  (166 bytes, 2025-09-27 14:57:31)
+[FILE] _layout.tsx.bak.20250927201229  (168 bytes, 2025-09-27 20:10:11)
+[FILE] _layout.tsx.bak.20250927201357  (168 bytes, 2025-09-27 20:10:11)
+[FILE] _layout.tsx.bak.20250927201708  (239 bytes, 2025-09-27 20:13:57)
+[FILE] _layout.tsx.bak.20250929-220842  (225 bytes, 2025-09-27 20:17:08)
+[FILE] _layout.tsx.bak.20250929-221345  (334 bytes, 2025-09-29 22:08:42)
+[FILE] _layout.tsx.bak.20254926-144937  (433 bytes, 2025-09-26 14:41:43)
+[FILE] _layout.tsx.broken.20250926-152314  (675 bytes, 2025-09-26 15:21:45)
+[DIR]  (tabs)
+[FILE] (tabs)\_layout.tsx  (1474 bytes, 2025-09-27 20:13:57)
+[FILE] (tabs)\_layout.tsx.bak.20250924-141143  (1827 bytes, 2025-09-24 13:54:52)
+[FILE] (tabs)\_layout.tsx.bak.20250924-224308  (2246 bytes, 2025-09-24 22:37:07)
+[FILE] (tabs)\_layout.tsx.bak.20250925-085832  (1312 bytes, 2025-09-24 22:43:08)
+[FILE] (tabs)\_layout.tsx.bak.20250926-142427  (1293 bytes, 2025-09-25 09:07:52)
+[FILE] (tabs)\_layout.tsx.bak.20250926-152725  (1293 bytes, 2025-09-25 09:07:52)
+[FILE] (tabs)\_layout.tsx.bak.20250926-153753  (566 bytes, 2025-09-26 15:27:25)
+[FILE] (tabs)\_layout.tsx.bak.20250926-154237  (1512 bytes, 2025-09-26 15:37:53)
+[FILE] (tabs)\_layout.tsx.bak.20250926-154534  (1437 bytes, 2025-09-26 15:42:37)
+[FILE] (tabs)\_layout.tsx.bak.20250926-154818  (1422 bytes, 2025-09-26 15:45:34)
+[FILE] (tabs)\_layout.tsx.bak.20250926-195959  (1515 bytes, 2025-09-26 15:48:18)
+[FILE] (tabs)\_layout.tsx.bak.20250926-200133  (1467 bytes, 2025-09-26 19:59:59)
+[FILE] (tabs)\_layout.tsx.bak.20250926-200325  (1469 bytes, 2025-09-26 20:01:33)
+[FILE] (tabs)\_layout.tsx.bak.20250926-201438  (1443 bytes, 2025-09-26 20:03:25)
+[FILE] (tabs)\_layout.tsx.bak.20250926-202143  (1452 bytes, 2025-09-26 20:14:48)
+[FILE] (tabs)\_layout.tsx.bak.20250927-142558  (1461 bytes, 2025-09-26 20:21:53)
+[FILE] (tabs)\_layout.tsx.bak.20250927-143459  (1457 bytes, 2025-09-27 14:25:58)
+[FILE] (tabs)\_layout.tsx.bak.20250927-143928  (1205 bytes, 2025-09-27 14:34:59)
+[FILE] (tabs)\_layout.tsx.bak.20250927201357  (1400 bytes, 2025-09-27 14:57:31)
+[FILE] (tabs)\calendar.tsx  (11232 bytes, 2025-09-29 23:07:44)
+[FILE] (tabs)\calendar.tsx.bak.20250927-142558  (10858 bytes, 2025-09-25 09:18:47)
+[FILE] (tabs)\calendar.tsx.bak.20250927-143459  (10866 bytes, 2025-09-27 14:25:58)
+[FILE] (tabs)\calendar.tsx.bak.20250928_150225  (10859 bytes, 2025-09-27 14:34:59)
+[FILE] (tabs)\calendar.tsx.bak.20250928_150600  (10870 bytes, 2025-09-28 15:02:25)
+[FILE] (tabs)\calendar.tsx.bak.20250929-221938  (10960 bytes, 2025-09-28 15:06:00)
+[FILE] (tabs)\calendar.tsx.bak.20250929-230450  (10960 bytes, 2025-09-28 15:06:00)
+[FILE] (tabs)\calendar.tsx.bak.20250929-230744  (10960 bytes, 2025-09-28 15:06:00)
+[FILE] (tabs)\calendar.tsx.replaced.20250929-223950  (2294 bytes, 2025-09-29 22:19:38)
+[FILE] (tabs)\index.tsx  (7988 bytes, 2025-09-30 13:37:15)
+[FILE] (tabs)\index.tsx.bak.20250924-141143  (7983 bytes, 2025-09-24 13:54:52)
+[FILE] (tabs)\index.tsx.bak.20250925-092217  (8040 bytes, 2025-09-24 14:11:43)
+[FILE] (tabs)\index.tsx.bak.20250925-104112  (8088 bytes, 2025-09-25 09:22:17)
+[FILE] (tabs)\index.tsx.bak.20250926-164517  (5463 bytes, 2025-09-26 09:05:33)
+[FILE] (tabs)\index.tsx.bak.20250926-164824  (5546 bytes, 2025-09-26 16:45:17)
+[FILE] (tabs)\index.tsx.bak.20250926-164854  (5546 bytes, 2025-09-26 16:45:17)
+[FILE] (tabs)\index.tsx.bak.20250926-165207  (5588 bytes, 2025-09-26 16:48:54)
+[FILE] (tabs)\index.tsx.bak.20250926-191429  (5626 bytes, 2025-09-26 16:52:07)
+[FILE] (tabs)\index.tsx.bak.20250926-191828  (5664 bytes, 2025-09-26 19:14:29)
+[FILE] (tabs)\index.tsx.bak.20250926-191829  (5606 bytes, 2025-09-26 19:18:28)
+[FILE] (tabs)\index.tsx.bak.20250926-191939  (5620 bytes, 2025-09-26 19:18:29)
+[FILE] (tabs)\index.tsx.bak.20250926-192433  (5552 bytes, 2025-09-26 19:19:39)
+[FILE] (tabs)\index.tsx.bak.20250926-192458  (5554 bytes, 2025-09-26 19:24:33)
+[FILE] (tabs)\index.tsx.bak.20250926-192520  (5624 bytes, 2025-09-26 19:24:58)
+[FILE] (tabs)\index.tsx.bak.20250926-192541  (5624 bytes, 2025-09-26 19:25:20)
+[FILE] (tabs)\index.tsx.bak.20250926-192649  (5638 bytes, 2025-09-26 19:25:41)
+[FILE] (tabs)\index.tsx.bak.20250926-192746  (5580 bytes, 2025-09-26 19:26:49)
+[FILE] (tabs)\index.tsx.bak.20250926-192809  (5580 bytes, 2025-09-26 19:26:49)
+[FILE] (tabs)\index.tsx.bak.20250926-192833  (5620 bytes, 2025-09-26 19:28:09)
+[FILE] (tabs)\index.tsx.bak.20250926-192946  (5660 bytes, 2025-09-26 19:28:33)
+[FILE] (tabs)\index.tsx.bak.20250926-193007  (5654 bytes, 2025-09-26 19:29:46)
+[FILE] (tabs)\index.tsx.bak.20250926-193231  (5664 bytes, 2025-09-26 19:30:07)
+[FILE] (tabs)\index.tsx.bak.20250926-193358  (5730 bytes, 2025-09-26 19:32:31)
+[FILE] (tabs)\index.tsx.bak.20250926-193543  (5636 bytes, 2025-09-26 19:33:58)
+[FILE] (tabs)\index.tsx.bak.20250926-193546  (5650 bytes, 2025-09-26 19:35:43)
+[FILE] (tabs)\index.tsx.bak.20250926-193617  (5664 bytes, 2025-09-26 19:35:46)
+[FILE] (tabs)\index.tsx.bak.20250926-193822  (5666 bytes, 2025-09-26 19:36:17)
+[FILE] (tabs)\index.tsx.bak.20250926-194138  (5662 bytes, 2025-09-26 19:38:22)
+[FILE] (tabs)\index.tsx.bak.20250926-194310  (39 bytes, 2025-09-26 19:41:38)
+[FILE] (tabs)\index.tsx.bak.20250926-194625  (5437 bytes, 2025-09-26 19:43:10)
+[FILE] (tabs)\index.tsx.bak.20250926-194904  (5435 bytes, 2025-09-26 19:46:25)
+[FILE] (tabs)\index.tsx.bak.20250926-195441  (5699 bytes, 2025-09-26 19:49:04)
+[FILE] (tabs)\index.tsx.bak.20250926-195627  (5653 bytes, 2025-09-26 19:54:41)
+[FILE] (tabs)\index.tsx.bak.20250926-202503  (5655 bytes, 2025-09-26 19:56:27)
+[FILE] (tabs)\index.tsx.bak.20250926-202816  (5655 bytes, 2025-09-26 19:56:27)
+[FILE] (tabs)\index.tsx.bak.20250926-204258  (5749 bytes, 2025-09-26 20:28:16)
+[FILE] (tabs)\index.tsx.bak.20250926-204444  (5631 bytes, 2025-09-26 20:42:58)
+[FILE] (tabs)\index.tsx.bak.20250926-204721  (5452 bytes, 2025-09-26 20:44:44)
+[FILE] (tabs)\index.tsx.bak.20250926-204821  (5456 bytes, 2025-09-26 20:47:21)
+[FILE] (tabs)\index.tsx.bak.20250926-205128  (5458 bytes, 2025-09-26 20:48:21)
+[FILE] (tabs)\index.tsx.bak.20250926-205432  (5460 bytes, 2025-09-26 20:51:28)
+[FILE] (tabs)\index.tsx.bak.20250926-205818  (5277 bytes, 2025-09-26 20:54:32)
+[FILE] (tabs)\index.tsx.bak.20250926-212924  (5221 bytes, 2025-09-26 20:58:18)
+[FILE] (tabs)\index.tsx.bak.20250926-213205  (5251 bytes, 2025-09-26 21:29:24)
+[FILE] (tabs)\index.tsx.bak.20250927-100810  (5252 bytes, 2025-09-27 09:57:38)
+[FILE] (tabs)\index.tsx.bak.20250927-101300  (5508 bytes, 2025-09-27 10:08:10)
+[FILE] (tabs)\index.tsx.bak.20250927-101749  (5576 bytes, 2025-09-27 10:13:00)
+[FILE] (tabs)\index.tsx.bak.20250927-102220  (5662 bytes, 2025-09-27 10:17:49)
+[FILE] (tabs)\index.tsx.bak.20250927-102507  (5662 bytes, 2025-09-27 10:17:49)
+[FILE] (tabs)\index.tsx.bak.20250927-102705  (5625 bytes, 2025-09-27 10:25:07)
+[FILE] (tabs)\index.tsx.bak.20250927-102858  (5740 bytes, 2025-09-27 10:27:05)
+[FILE] (tabs)\index.tsx.bak.20250927-103116  (5849 bytes, 2025-09-27 10:28:58)
+[FILE] (tabs)\index.tsx.bak.20250927-103340  (5835 bytes, 2025-09-27 10:31:16)
+[FILE] (tabs)\index.tsx.bak.20250927-103512  (5947 bytes, 2025-09-27 10:33:40)
+[FILE] (tabs)\index.tsx.bak.20250927-103530  (5986 bytes, 2025-09-27 10:35:12)
+[FILE] (tabs)\index.tsx.bak.20250927-103911  (6000 bytes, 2025-09-27 10:35:30)
+[FILE] (tabs)\index.tsx.bak.20250927-133312  (5991 bytes, 2025-09-27 10:39:11)
+[FILE] (tabs)\index.tsx.bak.20250927-133449  (5978 bytes, 2025-09-27 13:33:12)
+[FILE] (tabs)\index.tsx.bak.20250927-133619  (5980 bytes, 2025-09-27 13:34:49)
+[FILE] (tabs)\index.tsx.bak.20250927-133752  (5972 bytes, 2025-09-27 13:36:19)
+[FILE] (tabs)\index.tsx.bak.20250927-134301  (5969 bytes, 2025-09-27 13:37:52)
+[FILE] (tabs)\index.tsx.bak.20250927-134635  (6034 bytes, 2025-09-27 13:43:01)
+[FILE] (tabs)\index.tsx.bak.20250927-142558  (5763 bytes, 2025-09-27 13:46:35)
+[FILE] (tabs)\index.tsx.bak.20250927-143459  (5773 bytes, 2025-09-27 14:25:58)
+[FILE] (tabs)\index.tsx.bak.20250927-170550  (5764 bytes, 2025-09-27 14:34:59)
+[FILE] (tabs)\index.tsx.bak.20250927-171117  (5909 bytes, 2025-09-27 17:05:50)
+[FILE] (tabs)\index.tsx.bak.20250927-171348  (5880 bytes, 2025-09-27 17:11:17)
+[FILE] (tabs)\index.tsx.bak.20250927-172143  (5913 bytes, 2025-09-27 17:13:48)
+[FILE] (tabs)\index.tsx.bak.20250927-172847  (5956 bytes, 2025-09-27 17:21:43)
+[FILE] (tabs)\index.tsx.bak.20250927-173451  (5974 bytes, 2025-09-27 17:28:47)
+[FILE] (tabs)\index.tsx.bak.20250927-173949  (6005 bytes, 2025-09-27 17:34:51)
+[FILE] (tabs)\index.tsx.bak.20250927-174216  (6371 bytes, 2025-09-27 17:39:49)
+[FILE] (tabs)\index.tsx.bak.20250927-192725  (6414 bytes, 2025-09-27 17:42:16)
+[FILE] (tabs)\index.tsx.bak.20250927-193319  (6414 bytes, 2025-09-27 17:42:16)
+[FILE] (tabs)\index.tsx.bak.20250927202933  (6318 bytes, 2025-09-27 19:33:19)
+[FILE] (tabs)\index.tsx.bak.20250927211327  (6318 bytes, 2025-09-27 19:33:19)
+[FILE] (tabs)\index.tsx.bak.20250927211523  (6318 bytes, 2025-09-27 19:33:19)
+[FILE] (tabs)\index.tsx.bak.20250927212138  (6612 bytes, 2025-09-27 21:15:24)
+[FILE] (tabs)\index.tsx.bak.20250927212356  (6974 bytes, 2025-09-27 21:21:38)
+[FILE] (tabs)\index.tsx.bak.20250927212803  (6912 bytes, 2025-09-27 21:23:56)
+[FILE] (tabs)\index.tsx.bak.20250927213123  (7872 bytes, 2025-09-27 21:28:03)
+[FILE] (tabs)\index.tsx.bak.20250927213329  (8105 bytes, 2025-09-27 21:31:24)
+[FILE] (tabs)\index.tsx.bak.20250927213546  (8047 bytes, 2025-09-27 21:33:29)
+[FILE] (tabs)\index.tsx.bak.20250928_150225  (8047 bytes, 2025-09-27 21:35:46)
+[FILE] (tabs)\index.tsx.bak.20250928_150600  (8049 bytes, 2025-09-28 15:02:25)
+[FILE] (tabs)\index.tsx.bak.20250928151535  (8229 bytes, 2025-09-28 15:06:00)
+[FILE] (tabs)\index.tsx.bak.20250928151643  (8229 bytes, 2025-09-28 15:06:00)
+[FILE] (tabs)\index.tsx.bak.20250928152112  (8306 bytes, 2025-09-28 15:16:43)
+[FILE] (tabs)\index.tsx.bak.20250928152528  (8350 bytes, 2025-09-28 15:21:12)
+[FILE] (tabs)\index.tsx.bak.20250928152743  (8350 bytes, 2025-09-28 15:21:12)
+[FILE] (tabs)\index.tsx.bak.20250928153100  (8350 bytes, 2025-09-28 15:21:12)
+[FILE] (tabs)\index.tsx.bak.20250928153324  (8350 bytes, 2025-09-28 15:21:12)
+[FILE] (tabs)\index.tsx.bak.20250928154046  (8366 bytes, 2025-09-28 15:37:00)
+[FILE] (tabs)\index.tsx.bak.20250928155251  (8291 bytes, 2025-09-28 15:40:46)
+[FILE] (tabs)\index.tsx.bak.20250928160323  (8291 bytes, 2025-09-28 15:40:46)
+[FILE] (tabs)\index.tsx.bak.20250928161033  (8425 bytes, 2025-09-28 16:03:23)
+[FILE] (tabs)\index.tsx.bak.20250928161953  (8425 bytes, 2025-09-28 16:03:23)
+[FILE] (tabs)\index.tsx.bak.20250928162921  (8498 bytes, 2025-09-28 16:19:53)
+[FILE] (tabs)\index.tsx.bak.20250929-125915  (8499 bytes, 2025-09-28 16:29:21)
+[FILE] (tabs)\index.tsx.bak.20250929-130402  (8499 bytes, 2025-09-29 12:59:18)
+[FILE] (tabs)\index.tsx.bak.20250929-130744  (8503 bytes, 2025-09-29 13:04:04)
+[FILE] (tabs)\index.tsx.bak.20250929-131605  (8503 bytes, 2025-09-29 13:07:47)
+[FILE] (tabs)\index.tsx.bak.20250929-141930  (8507 bytes, 2025-09-29 13:16:05)
+[FILE] (tabs)\index.tsx.bak.20250929-223304  (8508 bytes, 2025-09-29 18:04:58)
+[FILE] (tabs)\index.tsx.bak.20250930-111547  (8508 bytes, 2025-09-29 18:04:58)
+[FILE] (tabs)\index.tsx.bak.20250930-111834  (8589 bytes, 2025-09-30 11:15:48)
+[FILE] (tabs)\index.tsx.bak.20250930-132705  (8595 bytes, 2025-09-30 11:18:34)
+[FILE] (tabs)\index.tsx.bak.20250930-133701  (8144 bytes, 2025-09-30 13:27:05)
+[FILE] (tabs)\index.tsx.bak.20250930-133715  (7988 bytes, 2025-09-30 13:37:01)
+[FILE] (tabs)\index.tsx.replaced.20250929-223950  (940 bytes, 2025-09-29 22:33:04)
+[FILE] (tabs)\index.tsx.replaced.20250929-230022  (8839 bytes, 2025-09-29 22:39:50)
+[DIR]  (tabs)\notifications
+[FILE] (tabs)\notifications\index.tsx  (476 bytes, 2025-09-28 15:02:25)
+[FILE] (tabs)\notifications\index.tsx.bak.20250924-141143  (472 bytes, 2025-09-19 15:52:08)
+[FILE] (tabs)\notifications\index.tsx.bak.20250927-142558  (472 bytes, 2025-09-19 15:52:08)
+[FILE] (tabs)\notifications\index.tsx.bak.20250927-143459  (472 bytes, 2025-09-27 14:25:58)
+[FILE] (tabs)\notifications\index.tsx.bak.20250928_150225  (473 bytes, 2025-09-27 14:34:59)
+[DIR]  (tabs)\settings
+[FILE] (tabs)\settings\index.tsx  (3981 bytes, 2025-09-28 15:06:00)
+[FILE] (tabs)\settings\index.tsx.bak.20250924-102810  (382 bytes, 2025-09-19 15:52:08)
+[FILE] (tabs)\settings\index.tsx.bak.20250924-103350  (2792 bytes, 2025-09-24 10:31:57)
+[FILE] (tabs)\settings\index.tsx.bak.20250924-104346  (2840 bytes, 2025-09-24 10:33:50)
+[FILE] (tabs)\settings\index.tsx.bak.20250924-141143  (3887 bytes, 2025-09-24 13:54:52)
+[FILE] (tabs)\settings\index.tsx.bak.20250927-142558  (3887 bytes, 2025-09-24 13:54:52)
+[FILE] (tabs)\settings\index.tsx.bak.20250927-143459  (3884 bytes, 2025-09-27 14:25:58)
+[FILE] (tabs)\settings\index.tsx.bak.20250928_150225  (3885 bytes, 2025-09-27 14:34:59)
+[FILE] (tabs)\settings\index.tsx.bak.20250928_150600  (3891 bytes, 2025-09-28 15:02:25)
+[FILE] ai.tsx  (496 bytes, 2025-09-28 15:02:25)
+[FILE] ai.tsx.bak.20250927-142558  (536 bytes, 2025-09-27 14:07:12)
+[FILE] ai.tsx.bak.20250927-143459  (543 bytes, 2025-09-27 14:25:58)
+[FILE] ai.tsx.bak.20250928_150225  (491 bytes, 2025-09-27 14:57:31)
+[DIR]  exchange-rates
+[FILE] exchange-rates\index.tsx  (560 bytes, 2025-09-29 13:16:05)
+[FILE] exchange-rates\index.tsx.bak.20250929-130744  (560 bytes, 2025-09-29 13:04:04)
+[FILE] exchange-rates\index.tsx.bak.20250929-131605  (560 bytes, 2025-09-29 13:07:47)
+[FILE] index.tsx  (202 bytes, 2025-09-27 20:10:11)
+[FILE] index.tsx.bak.20250925-092217  (112 bytes, 2025-09-19 15:52:08)
+[FILE] index.tsx.bak.20250925-104112  (114 bytes, 2025-09-25 09:22:17)
+[FILE] index.tsx.bak.20250926-162148  (116 bytes, 2025-09-25 10:41:12)
+[FILE] index.tsx.bak.20250926-163637  (213 bytes, 2025-09-26 16:21:48)
+[FILE] index.tsx.bak.20250926-164327  (520 bytes, 2025-09-26 16:36:37)
+[FILE] index.tsx.bak.20250926-164517  (538 bytes, 2025-09-26 16:43:27)
+[FILE] index.tsx.bak.20250926-164824  (538 bytes, 2025-09-26 16:43:27)
+[FILE] index.tsx.bak.20250926-164854  (540 bytes, 2025-09-26 16:48:24)
+[FILE] index.tsx.bak.20250926-165125  (542 bytes, 2025-09-26 16:48:54)
+[FILE] index.tsx.bak.20250926-165207  (544 bytes, 2025-09-26 16:51:25)
+[FILE] index.tsx.bak.20250926-190803  (546 bytes, 2025-09-26 16:52:07)
+[FILE] index.tsx.bak.20250926-190840  (546 bytes, 2025-09-26 16:52:07)
+[FILE] index.tsx.bak.20250926-190938  (546 bytes, 2025-09-26 16:52:07)
+[FILE] index.tsx.bak.20250926-190941  (546 bytes, 2025-09-26 16:52:07)
+[FILE] index.tsx.bak.20250926-191429  (546 bytes, 2025-09-26 16:52:07)
+[FILE] index.tsx.bak.20250926-193358  (502 bytes, 2025-09-26 19:14:29)
+[FILE] index.tsx.bak.20250927-135917  (116 bytes, 2025-09-26 19:33:58)
+[FILE] index.tsx.bak.20250927-140037  (126 bytes, 2025-09-27 13:59:31)
+[FILE] index.tsx.bak.20250927-140229  (165 bytes, 2025-09-27 14:00:52)
+[FILE] index.tsx.bak.20250927-142558  (159 bytes, 2025-09-27 14:02:41)
+[FILE] index.tsx.bak.20250927-143459  (128 bytes, 2025-09-27 14:25:58)
+[FILE] index.tsx.bak.20250927-165746  (115 bytes, 2025-09-27 14:57:31)
+[FILE] index.tsx.bak.20250927193633  (115 bytes, 2025-09-27 14:57:31)
+[FILE] index.tsx.bak.20250927194200  (115 bytes, 2025-09-27 14:57:31)
+[FILE] index.tsx.bak.20250927194351  (117 bytes, 2025-09-27 19:42:00)
+[FILE] index.tsx.bak.20250927194558  (117 bytes, 2025-09-27 19:42:00)
+[FILE] index.tsx.bak.20250927194627  (117 bytes, 2025-09-27 19:42:00)
+[FILE] index.tsx.bak.20250927194659  (117 bytes, 2025-09-27 19:42:00)
+[FILE] index.tsx.bak.20250927194818  (117 bytes, 2025-09-27 19:42:00)
+[FILE] index.tsx.bak.20250927194935  (117 bytes, 2025-09-27 19:42:00)
+[FILE] index.tsx.bak.20250927195418  (120 bytes, 2025-09-27 19:49:35)
+[FILE] index.tsx.bak.20250927195508  (120 bytes, 2025-09-27 19:49:35)
+[FILE] index.tsx.bak.20250927195557  (120 bytes, 2025-09-27 19:49:35)
+[FILE] index.tsx.bak.20250927195941  (120 bytes, 2025-09-27 19:55:57)
+[FILE] index.tsx.bak.20250927200003  (120 bytes, 2025-09-27 19:59:41)
+[FILE] index.tsx.bak.20250927200006  (120 bytes, 2025-09-27 19:59:41)
+[FILE] index.tsx.bak.20250927200054  (120 bytes, 2025-09-27 19:59:41)
+[FILE] index.tsx.bak.20250927202059  (202 bytes, 2025-09-27 20:10:11)
+[FILE] index.tsx.bak.20250927202305  (202 bytes, 2025-09-27 20:10:11)
+[FILE] index.tsx.bak.20250927202354  (202 bytes, 2025-09-27 20:10:11)
+[FILE] index.tsx.bak.20250927202445  (202 bytes, 2025-09-27 20:10:11)
+[FILE] index.tsx.bak.20250927202611  (202 bytes, 2025-09-27 20:10:11)
+[FILE] index.tsx.bak.20250927202735  (202 bytes, 2025-09-27 20:10:11)
+[FILE] index.tsx.bak.repair.20250927200317  (549 bytes, 2025-09-27 20:00:54)
+[FILE] index.tsx.bak.shrink.20250927201946  (202 bytes, 2025-09-27 20:10:11)
+[DIR]  investments
+[FILE] investments\index.tsx  (564 bytes, 2025-09-29 15:00:41)
+[FILE] investments\index.tsx.bak.20250929-130744  (560 bytes, 2025-09-29 12:59:19)
+[FILE] investments\index.tsx.bak.20250929-131127  (560 bytes, 2025-09-29 13:07:47)
+[FILE] investments\index.tsx.bak.20250929-132335  (560 bytes, 2025-09-29 13:11:27)
+[FILE] investments\index.tsx.bak.20250929-132855  (560 bytes, 2025-09-29 13:23:35)
+[FILE] investments\index.tsx.bak.20250929-150041  (560 bytes, 2025-09-29 13:28:55)
+[FILE] kalendarz.tsx  (2271 bytes, 2025-09-29 23:21:03)
+[FILE] kalendarz.tsx.bak.20250929-220326  (1403 bytes, 2025-09-29 21:52:28)
+[FILE] kalendarz.tsx.bak.20250929-220842  (2265 bytes, 2025-09-29 22:03:26)
+[FILE] kalendarz.tsx.bak.20250929-221345  (2348 bytes, 2025-09-29 22:08:42)
+[FILE] kalendarz.tsx.bak.20250929-232103  (2269 bytes, 2025-09-29 22:13:45)
+[DIR]  rules
+[FILE] rules\index.tsx  (5676 bytes, 2025-09-28 16:03:23)
+[FILE] scan.tsx  (1185 bytes, 2025-09-28 15:31:00)
+
+=== FILE COUNTS BY EXT ===
+.tsx: 15
+.20250927-143459: 10
+.20250927-142558: 10
+.20250928_150225: 5
+.20250926215131: 4
+.20250926-164517: 4
+.20250924-141143: 4
+.20250929-130744: 3
+.20250926-201438: 3
+.20250926-202143: 3
+.20250927202933: 3
+.20250928_150600: 3
+.20250927201357: 2
+.20250926-193358: 2
+.20250926-191429: 2
+.20250926215641: 2
+.20250927-153407: 2
+.20250926-165207: 2
+.20250926-194625: 2
+.20250926-164854: 2
+.20250926-164824: 2
+.20250926-204258: 2
+.20250926-164327: 2
+.20250926-163118: 2
+.20250929-131605: 2
+.20250926-163901: 2
+.20250927-135917: 2
+.20250927-140037: 2
+.20250926-195959: 2
+.20250926-142427: 2
+.20250929-220842: 2
+.20250926-152725: 2
+.20250929-221345: 2
+.20250925-092217: 2
+.20250925-104112: 2
+.20250929-223950: 2
+.20250927202735: 1
+.20250927205508: 1
+.20250927201708: 1
+.20250927201946: 1
+.20250927202059: 1
+.20250927202305: 1
+.20250927204332: 1
+.20250927202445: 1
+.20250927203136: 1
+.20250927205759: 1
+.20250927202611: 1
+.20250927205945: 1
+.20250927202354: 1
+.20250927205510: 1
+.20250927194935: 1
+.20250927201011: 1
+.20250927-172143: 1
+.20250927-172847: 1
+.20250927-173451: 1
+.20250927-173949: 1
+.20250927-174216: 1
+.20250927-192725: 1
+.20250927-193319: 1
+.20250927152650: 1
+.20250927152823: 1
+.20250927193633: 1
+.20250927194200: 1
+.20250927194351: 1
+.20250927194558: 1
+.20250927194627: 1
+.20250927194659: 1
+.20250927194818: 1
+.20250927210150: 1
+.20250927195418: 1
+.20250927195508: 1
+.20250927195557: 1
+.20250927195941: 1
+.20250927200003: 1
+.20250927200006: 1
+.20250927200054: 1
+.20250927200317: 1
+.20250927201229: 1
+.20250927210350: 1
+.20250927214519: 1
+.20250927211523: 1
+.20250928160323: 1
+.20250928161033: 1
+.20250928161953: 1
+.20250928162921: 1
+.20250929-125915: 1
+.20250929-130402: 1
+.20250929-131127: 1
+.20250929-132335: 1
+.20250929-132855: 1
+.20250929-141930: 1
+.20250929-150041: 1
+.20250929-220326: 1
+.20250929-221938: 1
+.20250929-223304: 1
+.20250929-230022: 1
+.20250929-230450: 1
+.20250929-230744: 1
+.20250929-232103: 1
+.20250930-111547: 1
+.20250930-111834: 1
+.20250930-132705: 1
+.20250930-133701: 1
+.20250930-133715: 1
+.20250928155251: 1
+.20250927211327: 1
+.20250928154046: 1
+.20250928153100: 1
+.20250927212138: 1
+.20250927212356: 1
+.20250927212803: 1
+.20250927213123: 1
+.20250927213329: 1
+.20250927213546: 1
+.20250927-171348: 1
+.20250927214750: 1
+.20250927214932: 1
+.20250927215306: 1
+.20250927215526: 1
+.20250927215720: 1
+.20250927215819: 1
+.20250927220035: 1
+.20250927220300: 1
+.20250927220623: 1
+.20250927220758: 1
+.20250927221139: 1
+.20250928151535: 1
+.20250928151643: 1
+.20250928152112: 1
+.20250928152528: 1
+.20250928152743: 1
+.20250928153324: 1
+.20250927-171117: 1
+.20250927-140857: 1
+.20250927-165746: 1
+.20250926-190941: 1
+.20250926-191828: 1
+.20250926-191829: 1
+.20250926-191939: 1
+.20250926-192433: 1
+.20250926-192458: 1
+.20250926-192520: 1
+.20250926-192541: 1
+.20250926-192649: 1
+.20250926-192746: 1
+.20250926-192809: 1
+.20250926-192833: 1
+.20250926-192946: 1
+.20250926-193007: 1
+.20250926-193231: 1
+.20250926-193543: 1
+.20250926-193546: 1
+.20250926-193617: 1
+.20250926-193822: 1
+.20250926-194138: 1
+.20250926-194310: 1
+.20250926-194904: 1
+.20250926-195441: 1
+.20250926-190938: 1
+.20250926-195627: 1
+.20250926-190840: 1
+.20250926-165125: 1
+.20250924-103350: 1
+.20250924-103913: 1
+.20250924-104346: 1
+.20250924-224308: 1
+.20250925-085832: 1
+.20250926-144143: 1
+.20250926-150744: 1
+.20250926-150907: 1
+.20250926-151025: 1
+.20250926-151306: 1
+.20250926-151714: 1
+.20250926-152145: 1
+.20250926-152314: 1
+.20250926-153753: 1
+.20250926-154237: 1
+.20250926-154534: 1
+.20250926-154818: 1
+.20250926-162148: 1
+.20250926-162633: 1
+.20250926-162829: 1
+.20250926-162907: 1
+.20250926-163545: 1
+.20250926-163637: 1
+.20250926-190803: 1
+.20250927-170550: 1
+.20250926-200133: 1
+.20250926-202503: 1
+.20250927-103116: 1
+.20250927-103340: 1
+.20250927-103512: 1
+.20250927-103530: 1
+.20250927-103911: 1
+.20250927-133312: 1
+.20250927-133449: 1
+.20250927-133619: 1
+.20250927-133752: 1
+.20250927-134301: 1
+.20250927-134635: 1
+.20250927-135043: 1
+.20250927-135126: 1
+.20250927-140229: 1
+.20250927-140310: 1
+.20254926-144937: 1
+.20250927-140921: 1
+.20250927-141024: 1
+.20250927-141158: 1
+.20250927-141250: 1
+.20250927-141331: 1
+.20250927-142410: 1
+.20250927-143928: 1
+.20250927-102858: 1
+.20250926-200325: 1
+.20250927-102705: 1
+.20250927-102220: 1
+.20250926-202816: 1
+.20250926-203053: 1
+.20250926-204103: 1
+.20250926-204444: 1
+.20250926-204721: 1
+.20250926-204821: 1
+.20250926-205128: 1
+.20250926-205432: 1
+.20250926-205818: 1
+.20250926-212924: 1
+.20250926-213205: 1
+.20250926-213511: 1
+.20250926-213652: 1
+.20250926-214129: 1
+.20250926214734: 1
+.20250926214926: 1
+.20250926215327: 1
+.20250926215910: 1
+.20250926220818: 1
+.20250926221733: 1
+.20250927-100810: 1
+.20250927-101300: 1
+.20250927-101749: 1
+.20250927-102507: 1
+.20250924-102810: 1
+
+=== HEURISTIC SEARCH (with 2 lines of context) ===
+
+--- PATTERN: PremiumBudgetWidget / PremiumBudgetWidget ---
+(no matches)
+
+--- PATTERN: LinearGradient / LinearGradient ---
+FILE: D:\FundMind\app\_components\PremiumAiBanner.tsx
+LINE: 3  TEXT: import { LinearGradient } from "expo-linear-gradient";
+  PRE: import React, { useEffect, useRef } from "react";
+  PRE: import { Pressable, Text, StyleSheet, Animated, View , Easing } from "react-native";
+  POST: import { Sparkles } from "lucide-react-native";
+  POST: 
+
+FILE: D:\FundMind\app\_components\PremiumAiBanner.tsx
+LINE: 109  TEXT: <LinearGradient
+  PRE:           style={[styles.container, { transform: [{ translateY: -8 }] } ]}
+  PRE:         >
+  POST:             colors={["#9c6eff", "#cdb9ff"]}
+  POST:             start={{ x: 0, y: 0 }}
+
+FILE: D:\FundMind\app\_components\PremiumAiBanner.tsx
+LINE: 119  TEXT: </LinearGradient>
+  PRE: 
+  PRE:             <Animated.View style={[styles.shine, { transform: [{ skewX: "25deg" }, { translateX }] }]} />
+  POST:         </Pressable>
+  POST:       </Animated.View>
+
+FILE: D:\FundMind\app\(tabs)\index.tsx
+LINE: 12  TEXT: import { LinearGradient } from "expo-linear-gradient";
+  PRE: import PagerView from "react-native-pager-view";
+  PRE: import FloatingAiBanner from "../_components/FloatingAiBanner";
+  POST: 
+  POST: const BRAND = "#7C4DFF";
+
+FILE: D:\FundMind\app\(tabs)\index.tsx
+LINE: 40  TEXT: <LinearGradient
+  PRE:       <View style={styles.cardHeader}>
+  PRE: 
+  POST:           style={styles.chip}
+  POST:           colors={["#9C6EFF","#CDB9FF"]}
+
+FILE: D:\FundMind\app\(tabs)\index.tsx
+LINE: 46  TEXT: </LinearGradient>
+  PRE:         >
+  PRE:           <Text style={styles.chipText}>Miesiąc</Text>
+  POST:       </View>
+  POST:       <LinearGradient style={styles.accentLine} colors={["#E9E1FF","#FFFFFF"]} start={{x:0,y:0}} end={{x:1,y:0}} />
+
+FILE: D:\FundMind\app\(tabs)\index.tsx
+LINE: 48  TEXT: <LinearGradient style={styles.accentLine} colors={["#E9E1FF","#FFFFFF"]} start={{x:0,y:0}} end={{x:1,y:0}} />
+  PRE:         </LinearGradient>
+  PRE:       </View>
+  POST:             <View style={styles.progressBar}>
+  POST:               <LinearGradient style={[styles.progressFill, { width: "44%" }]}  colors={["#9C6EFF","#CDB9FF"]} start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} />
+
+FILE: D:\FundMind\app\(tabs)\index.tsx
+LINE: 50  TEXT: <LinearGradient style={[styles.progressFill, { width: "44%" }]}  colors={["#9C6EFF","#CDB9FF"]} start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} />
+  PRE:       <LinearGradient style={styles.accentLine} colors={["#E9E1FF","#FFFFFF"]} start={{x:0,y:0}} end={{x:1,y:0}} />
+  PRE:             <View style={styles.progressBar}>
+  POST:             </View>
+  POST:             <Text style={styles.cardValue}>1750.00 / 4000.00 PLN</Text>
+
+
+--- PATTERN: WalletIcon / wallet-outline ---
+(no matches)
+
+--- PATTERN: PLN / PLN ---
+FILE: D:\FundMind\app\(tabs)\index.tsx
+LINE: 52  TEXT: <Text style={styles.cardValue}>1750.00 / 4000.00 PLN</Text>
+  PRE:               <LinearGradient style={[styles.progressFill, { width: "44%" }]}  colors={["#9C6EFF","#CDB9FF"]} start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} />
+  PRE:             </View>
+  POST:           </View>
+  POST: 
+
+FILE: D:\FundMind\app\(tabs)\index.tsx
+LINE: 85  TEXT: <Text style={styles.cardValue}>63.50 PLN</Text>
+  PRE:           <View style={styles.card}>
+  PRE:             <Text style={styles.cardTitle}>Dzisiejsze wydatki</Text>
+  POST:           </View>
+  POST: 
+
+FILE: D:\FundMind\app\rules\index.tsx
+LINE: 45  TEXT: <Text style={styles.currency}>PLN</Text>
+  PRE:           <View style={styles.row}>
+  PRE:             <TextInput style={styles.input} value={amount} onChangeText={setAmount} keyboardType="decimal-pad" placeholder="Kwota, np. 1000" />
+  POST:           </View>
+  POST:           <TextInput style={styles.input} value={category} onChangeText={setCategory} placeholder="Kategoria (opcjonalnie)" />
+
+FILE: D:\FundMind\app\rules\index.tsx
+LINE: 60  TEXT: <Text style={styles.ruleLine}>Dzienne wydatki &gt; {r.amount.toFixed(2)} PLN {r.category ? `(${r.category})` : ""}</Text>
+  PRE:               <MaterialCommunityIcons name="alert-decagram-outline" size={20} />
+  PRE:               <View style={{ flex: 1 }}>
+  POST:                 <Text style={styles.ruleSub}>{r.active ? "Aktywna" : "Wstrzymana"}</Text>
+  POST:               </View>
+
+
+--- PATTERN: Budzet / Bud(?:\u017C|z)et ---
+FILE: D:\FundMind\app\(tabs)\index.tsx
+LINE: 59  TEXT: <Tile icon={<Feather name="pie-chart" size={28} color="black" />} label="Budżety" />
+  PRE:             <Tile icon={<Feather name="bar-chart-2" size={28} color="black" />} label="Analizy" />
+  PRE:             <Tile icon={<Feather name="award" size={28} color="black" />} label="Cele" />
+  POST:             <Tile icon={<Feather name="file-text" size={28} color="black" />} label="Raporty" />
+  POST:             <Tile icon={<Feather name="zap" size={28} color="black" />} label="Szybkie podsumowanie" />
+
+
+--- PATTERN: Miesiac / Miesi(?:\u0105|a)c ---
+FILE: D:\FundMind\app\(tabs)\index.tsx
+LINE: 45  TEXT: <Text style={styles.chipText}>Miesiąc</Text>
+  PRE:           start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }}
+  PRE:         >
+  POST:         </LinearGradient>
+  POST:       </View>
+
+
+--- PATTERN: Progress / progress|ProgressBar|Animated\.View ---
+FILE: D:\FundMind\app\_components\PremiumAiBanner.tsx
+LINE: 101  TEXT: <Animated.View needsOffscreenAlphaCompositing style={[ { opacity: fade, transform: [{ translateY: slide }] } ]}>
+  PRE: 
+  PRE:   return (
+  POST:       <Animated.View style={{ opacity: pulse }}>
+  POST:         <Pressable
+
+FILE: D:\FundMind\app\_components\PremiumAiBanner.tsx
+LINE: 102  TEXT: <Animated.View style={{ opacity: pulse }}>
+  PRE:   return (
+  PRE:     <Animated.View needsOffscreenAlphaCompositing style={[ { opacity: fade, transform: [{ translateY: slide }] } ]}>
+  POST:         <Pressable
+  POST:           onPress={props.onPress || (() => {})}
+
+FILE: D:\FundMind\app\_components\PremiumAiBanner.tsx
+LINE: 115  TEXT: <Animated.View style={{ transform: [ { rotate: twinkle.interpolate({ inputRange: [0,1], outputRange: ['-8deg','8deg'] }) } ] }}><Sparkles vectorEffect="non-scaling-stroke" absoluteStrokeWidth strokeWidth={2.2} size={26} color="#FFFFFF" style={{ marginRight: 8 }} /></Animated.View>
+  PRE:             style={styles.gradient}
+  PRE:           >
+  POST:             <Text style={styles.text}>FundMind AI (Premium)</Text>
+  POST: 
+
+FILE: D:\FundMind\app\_components\PremiumAiBanner.tsx
+LINE: 118  TEXT: <Animated.View style={[styles.shine, { transform: [{ skewX: "25deg" }, { translateX }] }]} />
+  PRE:             <Text style={styles.text}>FundMind AI (Premium)</Text>
+  PRE: 
+  POST:           </LinearGradient>
+  POST:         </Pressable>
+
+FILE: D:\FundMind\app\_components\PremiumAiBanner.tsx
+LINE: 121  TEXT: </Animated.View>
+  PRE:           </LinearGradient>
+  PRE:         </Pressable>
+  POST:     </Animated.View>
+  POST:   );
+
+FILE: D:\FundMind\app\_components\PremiumAiBanner.tsx
+LINE: 122  TEXT: </Animated.View>
+  PRE:         </Pressable>
+  PRE:       </Animated.View>
+  POST:   );
+  POST: }
+
+FILE: D:\FundMind\app\(tabs)\index.tsx
+LINE: 49  TEXT: <View style={styles.progressBar}>
+  PRE:       </View>
+  PRE:       <LinearGradient style={styles.accentLine} colors={["#E9E1FF","#FFFFFF"]} start={{x:0,y:0}} end={{x:1,y:0}} />
+  POST:               <LinearGradient style={[styles.progressFill, { width: "44%" }]}  colors={["#9C6EFF","#CDB9FF"]} start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} />
+  POST:             </View>
+
+FILE: D:\FundMind\app\(tabs)\index.tsx
+LINE: 50  TEXT: <LinearGradient style={[styles.progressFill, { width: "44%" }]}  colors={["#9C6EFF","#CDB9FF"]} start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} />
+  PRE:       <LinearGradient style={styles.accentLine} colors={["#E9E1FF","#FFFFFF"]} start={{x:0,y:0}} end={{x:1,y:0}} />
+  PRE:             <View style={styles.progressBar}>
+  POST:             </View>
+  POST:             <Text style={styles.cardValue}>1750.00 / 4000.00 PLN</Text>
+
+FILE: D:\FundMind\app\(tabs)\index.tsx
+LINE: 142  TEXT: progressBar: { height: 12, backgroundColor: "#EAF0F6", borderRadius: 14, overflow: "hidden", marginVertical: 8 },
+  PRE:   cardTitle: { fontSize: 16, fontWeight: "700", marginBottom: 6 },
+  PRE:   cardValue: { fontSize: 15, fontWeight: "500", color: "#111827" },
+  POST:   progressFill: { height: "100%", backgroundColor: BRAND },
+  POST:   sectionTitle: { fontSize: 18, fontWeight: "800", color: "#111827", marginBottom: 10 },
+
+FILE: D:\FundMind\app\(tabs)\index.tsx
+LINE: 143  TEXT: progressFill: { height: "100%", backgroundColor: BRAND },
+  PRE:   cardValue: { fontSize: 15, fontWeight: "500", color: "#111827" },
+  PRE:   progressBar: { height: 12, backgroundColor: "#EAF0F6", borderRadius: 14, overflow: "hidden", marginVertical: 8 },
+  POST:   sectionTitle: { fontSize: 18, fontWeight: "800", color: "#111827", marginBottom: 10 },
+  POST:   grid: { flexDirection: "row", flexWrap: "wrap", justifyContent: "space-between" },
+
+
+--- PATTERN: cardTitleText / cardTitleText ---
+FILE: D:\FundMind\app\(tabs)\index.tsx
+LINE: 165  TEXT: cardTitleText: { fontSize: 19, fontWeight: "900", color: "#111827" },
+  PRE:   tileLabel: { marginTop: 6, fontSize: 12, fontWeight: "600", textAlign: "center" },
+  PRE:   cardHeader: { flexDirection: "row", alignItems: "center", gap: 8, marginBottom: 8, justifyContent: "space-between" },
+  POST:   headerLeft: { flexDirection: "row", alignItems: "center", gap: 8 },
+  POST:   chip: { paddingHorizontal: 10, paddingVertical: 6, borderRadius: 999, shadowColor: "#000", shadowOpacity: 0.06, shadowRadius: 6, shadowOffset: { width: 0, height: 3 }, elevation: 2 },
+
+
+--- PATTERN: StartScreen / export\s+default\s+function\s+StartScreen ---
+FILE: D:\FundMind\app\(tabs)\index.tsx
+LINE: 18  TEXT: export default function StartScreen() {
+  PRE: const CARD_BG = "#FFFFFF";
+  PRE: 
+  POST:   const router = useRouter();
+  POST: 
+
+
+=== HEAD OF CANDIDATE INDEX FILES (first 60 lines) ===
+
+--- D:\FundMind\app\(tabs)\index.tsx ---
+   1: import { useRouter } from 'expo-router';
+   2: import { router } from "expo-router";
+   3: 
+   4: import HeaderLogo from '../../components/HeaderLogo';
+   5: 
+   6: import React from "react";
+   7: import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Image } from "react-native";
+   8: import { Feather, MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
+   9: 
+  10: import PagerView from "react-native-pager-view";
+  11: import FloatingAiBanner from "../_components/FloatingAiBanner";
+  12: import { LinearGradient } from "expo-linear-gradient";
+  13: 
+  14: const BRAND = "#7C4DFF";
+  15: const BORDER = "#E6EDF2";
+  16: const CARD_BG = "#FFFFFF";
+  17: 
+  18: export default function StartScreen() {
+  19:   const router = useRouter();
+  20: 
+  21:   return (
+  22:     <>
+  23:       <PagerView style={{ flex: 1 }} initialPage={0}>
+  24:         {/* Page 1 */}
+  25:         <ScrollView scrollEnabled={false} bounces={false} alwaysBounceVertical={false} overScrollMode="never" key="1" contentContainerStyle={styles.scroll} style={{ backgroundColor: "#F6F8FB" }}>
+  26:       {/* FM-INJECT-HEADER-PREMIUM */}
+  27:       <View style={{alignItems:'center',marginTop:4,marginBottom:8}}><HeaderLogo /></View>
+  28:       
+  29:       {/* END FM-INJECT-HEADER-PREMIUM */}
+  30:       
+  31:       
+  32:       
+  33:           <View style={styles.logoBox}>
+  34:             <Image source={require("../../assets/logo_premium.png")} style={styles.logo} />
+  35:           </View>
+  36: 
+  37:           <View style={styles.card}>
+  38:       <View style={styles.cardHeader}>
+  39: 
+  40:         <LinearGradient
+  41:           style={styles.chip}
+  42:           colors={["#9C6EFF","#CDB9FF"]}
+  43:           start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }}
+  44:         >
+  45:           <Text style={styles.chipText}>Miesiąc</Text>
+  46:         </LinearGradient>
+  47:       </View>
+  48:       <LinearGradient style={styles.accentLine} colors={["#E9E1FF","#FFFFFF"]} start={{x:0,y:0}} end={{x:1,y:0}} />
+  49:             <View style={styles.progressBar}>
+  50:               <LinearGradient style={[styles.progressFill, { width: "44%" }]}  colors={["#9C6EFF","#CDB9FF"]} start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} />
+  51:             </View>
+  52:             <Text style={styles.cardValue}>1750.00 / 4000.00 PLN</Text>
+  53:           </View>
+  54: 
+  55:           <View style={styles.grid}><Tile icon={<MaterialCommunityIcons name="receipt-text" size={28} color="black" />} label="Skan paragonu" />
+  56:             <Tile icon={<MaterialCommunityIcons name="calendar-clock" size={28} color="black" />} label="Do zapłaty" />
+  57:             <Tile icon={<Feather name="bar-chart-2" size={28} color="black" />} label="Analizy" />
+  58:             <Tile icon={<Feather name="award" size={28} color="black" />} label="Cele" />
+  59:             <Tile icon={<Feather name="pie-chart" size={28} color="black" />} label="Budżety" />
+  60:             <Tile icon={<Feather name="file-text" size={28} color="black" />} label="Raporty" />
+
+--- D:\FundMind\app\(tabs)\notifications\index.tsx ---
+   1: import { SafeAreaView } from "react-native-safe-area-context";
+   2: import { View, Text } from "react-native";
+   3: export default function NotificationsScreen() {
+   4:   return (
+   5:     <SafeAreaView style={{ flex: 1, backgroundColor: "#F4F7FA" }}>
+   6:       <View style={{ padding: 16 }}>
+   7:         <Text style={{ fontSize: 22, fontWeight: "800" }}>Powiadomienia</Text>
+   8:         <Text style={{ opacity: 0.7, marginTop: 8 }}>Brak nowych alertów.</Text>
+   9:       </View>
+  10:     </SafeAreaView>
+  11:   );
+  12: }
+  13: 
+
+--- D:\FundMind\app\(tabs)\settings\index.tsx ---
+   1: import { t } from "../../../src/lib/translations";
+   2: import React from "react";
+   3: import { SafeAreaView, View, Text, Pressable, Switch, ScrollView } from "react-native";
+   4: import { Ionicons } from "@expo/vector-icons";
+   5: import { useSettings } from "../../../src/contexts/SettingsContext";
+   6: 
+   7: export default function Settings() {
+   8:   const { theme, setTheme, lang, setLang } = useSettings();
+   9:   const L = (pl: string, en: string) => (lang === "pl" ? pl : en);
+  10: 
+  11:   const SectionCard: React.FC<{ title: string; children: React.ReactNode }> = ({ title, children }) => (
+  12:     <View
+  13:       style={{
+  14:         backgroundColor: "#F4F7FA",
+  15:         borderRadius: 16,
+  16:         borderWidth: 1,
+  17:         borderColor: "#E6EDF2",
+  18:         padding: 16,
+  19:         marginBottom: 16,
+  20:         shadowColor: "#000",
+  21:         shadowOpacity: 0.06,
+  22:         shadowRadius: 8,
+  23:         shadowOffset: { width: 0, height: 4 },
+  24:       }}
+  25:     >
+  26:       <Text style={{ fontSize: 16, fontWeight: "700", marginBottom: 12 }}>{title}</Text>
+  27:       {children}
+  28:     </View>
+  29:   );
+  30: 
+  31:   const Pill: React.FC<{ label: string; selected: boolean; onPress: () => void; flex?: number }> = ({
+  32:     label,
+  33:     selected,
+  34:     onPress,
+  35:     flex = 1,
+  36:   }) => (
+  37:     <Pressable
+  38:       onPress={onPress}
+  39:       style={{
+  40:         flex,
+  41:         paddingVertical: 12,
+  42:         borderRadius: 12,
+  43:         backgroundColor: selected ? "#6D4AFF" : "#F2F4F7",
+  44:         alignItems: "center",
+  45:         marginHorizontal: 6,
+  46:       }}
+  47:     >
+  48:       <Text style={{ color: selected ? "#fff" : "#0F172A", fontWeight: "700" }}>{label}</Text>
+  49:     </Pressable>
+  50:   );
+  51: 
+  52:   return (
+  53:     <SafeAreaView style={{ flex: 1, backgroundColor: "#F4F7FA" }}>
+  54:       <ScrollView scrollEnabled={false} bounces={false} alwaysBounceVertical={false} overScrollMode="never" contentContainerStyle={{ padding: 16, paddingBottom: 28 }}>
+  55:         {/* Header */}
+  56:         <Text style={{ fontSize: 32, fontWeight: "900", color: "#6D4AFF", marginBottom: 12 }}>
+  57:           {L("Ustawienia", "Settings")}
+  58:         </Text>
+  59: 
+  60:         {/* Notifications */}
+
+--- D:\FundMind\app\exchange-rates\index.tsx ---
+   1: import React from "react";
+   2: import { View, Text } from "react-native";
+   3: import { Stack } from "expo-router";
+   4: 
+   5: export default function ExchangeRatesScreen() {
+   6:   return (
+   7:     <>
+   8:       <Stack.Screen options={{ title: "Kursy walut" }} />
+   9:       <View style={{ flex: 1, alignItems: "center", justifyContent: "center", padding: 24 }}>
+  10:         <Text testID="ExchangeRatesScreen-Title" style={{ fontSize: 22, fontWeight: "700" }}>Kursy walut</Text>
+  11:         <Text style={{ marginTop: 8, fontSize: 14 }}>Wkrotce: tabele i alerty walut.</Text>
+  12:       </View>
+  13:     </>
+  14:   );
+  15: }
+
+--- D:\FundMind\app\index.tsx ---
+   1: import { View, Text, TouchableOpacity, ScrollView, SafeAreaView } from "react-native";
+   2: import { Redirect } from "expo-router";
+   3: export default function Index() { return <Redirect href="/(tabs)"/>; }
+   4: 
+
+--- D:\FundMind\app\investments\index.tsx ---
+   1: import React from "react";
+   2: import { View, Text } from "react-native";
+   3: import { Stack } from "expo-router";
+   4: 
+   5: export default function InvestmentsScreen() {
+   6:   return (
+   7:     <>
+   8:       <Stack.Screen options={{ title: "Kursy walut" }} />
+   9:       <View style={{ flex: 1, alignItems: "center", justifyContent: "center", padding: 24 }}>
+  10:         <Text testID="InvestmentsScreen-Title" style={{ fontSize: 22, fontWeight: "700" }}>Kursy walut</Text>
+  11:         <Text style={{ marginTop: 8, fontSize: 14 }}>Wkrotce: portfel, akcje, ETF, krypto.</Text>
+  12:       </View>
+  13:     </>
+  14:   );
+  15: }
+  16: 
+
+--- D:\FundMind\app\rules\index.tsx ---
+   1: import React, { useEffect, useState } from "react";
+   2: import { View, Text, StyleSheet, ScrollView, Pressable, TextInput, Alert } from "react-native";
+   3: import AsyncStorage from "@react-native-async-storage/async-storage";
+   4: import { MaterialCommunityIcons } from "@expo/vector-icons";
+   5: import { router } from "expo-router";
+   6: 
+   7: type Rule = { id: string; type: "daily_spend_over"; amount: number; category?: string | null; active: boolean; };
+   8: const STORAGE_KEY = "fm_rules";
+   9: 
+  10: export default function RulesScreen() {
+  11:   const [rules, setRules] = useState<Rule[]>([]);
+  12:   const [amount, setAmount] = useState("1000");
+  13:   const [category, setCategory] = useState("");
+  14: 
+  15:   useEffect(() => { (async () => {
+  16:     try { const raw = await AsyncStorage.getItem(STORAGE_KEY); if (raw) setRules(JSON.parse(raw)); } catch {}
+  17:   })(); }, []);
+  18: 
+  19:   const saveRules = async (next: Rule[]) => { setRules(next); try { await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(next)); } catch {} };
+  20: 
+  21:   const addRule = () => {
+  22:     const val = Number(String(amount).replace(",", "."));
+  23:     if (!isFinite(val) || val <= 0) { Alert.alert("Błąd", "Podaj poprawną kwotę progu."); return; }
+  24:     const r: Rule = { id: String(Date.now()), type: "daily_spend_over", amount: val, category: category?.trim() || null, active: true };
+  25:     saveRules([r, ...rules]); setAmount("1000"); setCategory("");
+  26:   };
+  27: 
+  28:   const toggleActive = (id: string) => saveRules(rules.map(r => r.id === id ? ({...r, active: !r.active}) : r));
+  29:   const removeRule  = (id: string) => saveRules(rules.filter(r => r.id !== id));
+  30: 
+  31:   return (
+  32:     <View style={styles.page}>
+  33:       <View style={styles.header}>
+  34:         <Pressable onPress={() => router.back()} style={styles.backBtn}><MaterialCommunityIcons name="arrow-left" size={22} /></Pressable>
+  35:         <Text style={styles.title}>Dyspozycje stałe</Text>
+  36:         <View style={{ width: 22 }} />
+  37:       </View>
+  38: 
+  39:       <ScrollView contentContainerStyle={{ padding: 16 }}>
+  40:         <View style={styles.card}>
+  41:           <Text style={styles.cardTitle}>Nowa reguła</Text>
+  42:           <Text style={styles.help}>Alert, gdy dzienne wydatki przekroczą kwotę:</Text>
+  43:           <View style={styles.row}>
+  44:             <TextInput style={styles.input} value={amount} onChangeText={setAmount} keyboardType="decimal-pad" placeholder="Kwota, np. 1000" />
+  45:             <Text style={styles.currency}>PLN</Text>
+  46:           </View>
+  47:           <TextInput style={styles.input} value={category} onChangeText={setCategory} placeholder="Kategoria (opcjonalnie)" />
+  48:           <Pressable onPress={addRule} style={styles.primary}>
+  49:             <MaterialCommunityIcons name="plus-circle-outline" size={20} color="#fff" /><Text style={styles.primaryText}>Dodaj regułę</Text>
+  50:           </Pressable>
+  51:           <Text style={styles.note}>*Integracja z powiadomieniami/analizą transakcji — do podpięcia w następnym kroku.</Text>
+  52:         </View>
+  53: 
+  54:         <Text style={styles.section}>Aktywne reguły</Text>
+  55:         {rules.length === 0 ? <Text style={styles.empty}>Brak zdefiniowanych reguł.</Text> :
+  56:           rules.map(r => (
+  57:             <View key={r.id} style={styles.ruleItem}>
+  58:               <MaterialCommunityIcons name="alert-decagram-outline" size={20} />
+  59:               <View style={{ flex: 1 }}>
+  60:                 <Text style={styles.ruleLine}>Dzienne wydatki &gt; {r.amount.toFixed(2)} PLN {r.category ? `(${r.category})` : ""}</Text>

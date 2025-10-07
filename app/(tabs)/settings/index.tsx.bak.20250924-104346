@@ -1,0 +1,75 @@
+import { useSettings } from "../../../src/contexts/SettingsContext";
+import { t } from "../../../src/lib/translations";
+import React from "react";
+import { View, Text, Pressable, Switch, ScrollView } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
+
+export default function Settings() {
+  const { theme, setTheme, lang, setLang } = useSettings();
+
+  return (
+    <ScrollView style={{ flex: 1, backgroundColor: "#F9FAFB" }} contentContainerStyle={{ padding: 16 }}>
+      <Text style={{ fontSize: 28, fontWeight: "900", color: "#4F46E5", marginBottom: 24 }}>
+        Ustawienia
+      </Text>
+
+      {/* Język */}
+      <View style={{ marginBottom: 24 }}>
+        <Text style={{ fontSize: 18, fontWeight: "700", marginBottom: 8 }}>Język / Language</Text>
+        <View style={{ flexDirection: "row", justifyContent: "space-around" }}>
+          <Pressable
+            onPress={() => setLang("pl")}
+            style={{
+              padding: 12,
+              borderRadius: 8,
+              backgroundColor: lang === "pl" ? "#4F46E5" : "#E6EDF2",
+            }}
+          >
+            <Text style={{ color: lang === "pl" ? "#fff" : "#000", fontWeight: "600" }}>Polski</Text>
+          </Pressable>
+          <Pressable
+            onPress={() => setLang("en")}
+            style={{
+              padding: 12,
+              borderRadius: 8,
+              backgroundColor: lang === "en" ? "#4F46E5" : "#E6EDF2",
+            }}
+          >
+            <Text style={{ color: lang === "en" ? "#fff" : "#000", fontWeight: "600" }}>English</Text>
+          </Pressable>
+        </View>
+      </View>
+
+      {/* Motyw */}
+      <View style={{ marginBottom: 24 }}>
+        <Text style={{ fontSize: 18, fontWeight: "700", marginBottom: 8 }}>Motyw</Text>
+        <View style={{ flexDirection: "row", justifyContent: "space-around" }}>
+          {["light", "dark", "auto"].map((mode) => (
+            <Pressable
+              key={mode}
+              onPress={() => setTheme(mode as "light" | "dark" | "auto")}
+              style={{
+                padding: 12,
+                borderRadius: 8,
+                backgroundColor: theme === mode ? "#4F46E5" : "#E6EDF2",
+              }}
+            >
+              <Text style={{ color: theme === mode ? "#fff" : "#000", fontWeight: "600" }}>
+                {mode === "light" ? "Jasny" : mode === "dark" ? "Ciemny" : "Auto"}
+              </Text>
+            </Pressable>
+          ))}
+        </View>
+      </View>
+
+      {/* Placeholder na inne ustawienia */}
+      <View style={{ marginBottom: 24 }}>
+        <Text style={{ fontSize: 18, fontWeight: "700", marginBottom: 8 }}>Inne</Text>
+        <Text style={{ color: "gray" }}>Tutaj dodamy więcej opcji.</Text>
+      </View>
+    </ScrollView>
+  );
+}
+
+
+

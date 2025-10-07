@@ -1,0 +1,31 @@
+const reactPath = require.resolve("react");
+
+module.exports = {
+  preset: "jest-expo",
+
+  // Skanuj tylko kod i testy (bez backups/)
+  roots: ["<rootDir>/app", "<rootDir>/__tests__", "<rootDir>/__mocks__"],
+
+  modulePathIgnorePatterns: ["<rootDir>/backups/"],
+  watchPathIgnorePatterns: ["<rootDir>/backups/"],
+  testPathIgnorePatterns: ["/node_modules/", "/backups/"],
+
+  moduleDirectories: ["node_modules", "<rootDir>"],
+  testEnvironment: "node",
+
+  transformIgnorePatterns: [
+    "node_modules/(?!(react-native|@react-native|react-clone-referenced-element|expo|expo-router|expo-modules-core|@expo|@react-native-community)/)"
+  ],
+
+  setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
+
+  moduleNameMapper: {
+    "^react$": reactPath,
+    "^@react-native-async-storage/async-storage$": "<rootDir>/__mocks__/AsyncStorage.ts",
+    "react-native/Libraries/Animated/NativeAnimatedHelper": "<rootDir>/__mocks__/NativeAnimatedHelper.js",
+    "expo-linear-gradient": "<rootDir>/__mocks__/expo-linear-gradient.js",
+    "lucide-react-native": "<rootDir>/__mocks__/lucide-react-native.js",
+    "react-native-svg": "<rootDir>/__mocks__/react-native-svg.js",
+    "\\.(png|jpg|jpeg|gif|webp|svg)$": "<rootDir>/__mocks__/fileMock.js"
+  }
+};

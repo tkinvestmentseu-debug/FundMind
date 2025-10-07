@@ -1,0 +1,53 @@
+import React from "react";
+import { Pressable, View, Text, StyleSheet } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
+
+type Props = { onPress?: () => void };
+
+export default function AddTransactionTile({ onPress }: Props) {
+  return (
+    <Pressable
+      onPress={onPress}
+      style={({ pressed }) => [styles.card, pressed && styles.pressed]}
+      testID="AddTransactionTile"
+      accessibilityRole="button"
+      accessibilityLabel="Dodaj transakcje"
+    >
+      <View style={styles.row}>
+        <View style={styles.iconWrap}>
+          <Ionicons name="add" size={28} color="#FFFFFF" />
+        </View>
+        <View style={styles.textWrap}>
+          <Text style={styles.title}>Dodaj transakcje</Text>
+          <Text style={styles.subtitle}>paragon, fakture, rachunek</Text>
+        </View>
+      </View>
+    </Pressable>
+  );
+}
+
+const styles = StyleSheet.create({
+  card: {
+    backgroundColor: "#1677FF",
+    borderRadius: 24,
+    padding: 20,
+    minHeight: 100,
+    justifyContent: "center",
+    shadowColor: "#000000",
+    shadowOpacity: 0.12,
+    shadowRadius: 20,
+    shadowOffset: { width: 0, height: 10 },
+    elevation: 3
+  },
+  pressed: { opacity: 0.92 },
+  row: { flexDirection: "row", alignItems: "center" },
+  iconWrap: {
+    width: 52, height: 52, borderRadius: 26,
+    backgroundColor: "rgba(255,255,255,0.25)",
+    alignItems: "center", justifyContent: "center",
+    marginRight: 16
+  },
+  textWrap: { flex: 1 },
+  title: { fontSize: 20, fontWeight: "800", color: "#FFFFFF" },
+  subtitle: { fontSize: 14, color: "rgba(255,255,255,0.95)", marginTop: 2 }
+});

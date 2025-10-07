@@ -1,0 +1,167 @@
+import { useRouter } from 'expo-router';
+import { router } from "expo-router";
+
+import HeaderLogo from '../../components/HeaderLogo';
+
+import React from "react";
+import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Image } from "react-native";
+import { Feather, MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
+
+import PagerView from "react-native-pager-view";
+import FloatingAiBanner from "@/components/FloatingAiBanner";
+import { LinearGradient } from "expo-linear-gradient";
+const BRAND = "#7C4DFF";
+const BORDER = "#E6EDF2";
+const CARD_BG = "#FFFFFF";
+
+export default function StartScreen() {
+  const router = useRouter();
+
+  return (
+    <>
+      <PagerView style={{ flex: 1 }} initialPage={0}>
+        {/* Page 1 */}
+        <ScrollView scrollEnabled={false} bounces={false} alwaysBounceVertical={false} overScrollMode="never" key="1" contentContainerStyle={styles.scroll} style={{ backgroundColor: "#F6F8FB" }}>
+      {/* FM-INJECT-HEADER-PREMIUM */}
+      {/* FUNDLOGO_WRAP_v2 START */}
+<View style={{ transform:[{ scale:1.5 }], marginTop:-16, alignSelf:'center' }}>
+  <HeaderLogo />
+        <View style={{ paddingHorizontal: 16, marginTop: 8 }}>
+        </View>
+</View>
+
+      
+      {/* END FM-INJECT-HEADER-PREMIUM */}
+      
+      
+      
+          <View style={styles.logoBox}>
+            <Image source={require("../../assets/logo_premium.png")} style={styles.logo} />
+          </View>
+
+          <View style={styles.grid}><Tile icon={<MaterialCommunityIcons name="receipt-text" size={28} color="black" />} label="Skan paragonu" />
+            <Tile icon={<MaterialCommunityIcons name="calendar-clock" size={28} color="black" />} label="Do zapłaty" />
+            <Tile icon={<Feather name="bar-chart-2" size={28} color="black" />} label="Analizy" />
+            <Tile icon={<Feather name="award" size={28} color="black" />} label="Cele" />
+            <Tile icon={<Feather name="pie-chart" size={28} color="black" />} label="Budżety" />
+            <Tile icon={<Feather name="file-text" size={28} color="black" />} label="Raporty" />
+            <Tile icon={<Feather name="zap" size={28} color="black" />} label="Szybkie podsumowanie" />
+            <Tile icon={<MaterialCommunityIcons name="currency-usd" size={28} color="black" />} label="Inwestycje" />
+            <Tile icon={<Feather name="airplay" size={28} color="black" />} label="Podróże" />
+            <Tile icon={<Feather name="file" size={28} color="black" />} label="Notatki" />
+            <Tile icon={<MaterialCommunityIcons name="tune-vertical" size={28} color="black" />} label="Dyspozycje stałe" onPress={() => router.push("/rules")} />
+            <Tile icon={<Feather name="bell" size={28} color="black" />} label="Przypomnienia" />
+          </View>
+        </ScrollView>
+
+        {/* Page 2 */}
+        <ScrollView scrollEnabled={false} bounces={false} alwaysBounceVertical={false} overScrollMode="never" key="2" contentContainerStyle={styles.scroll} style={{ backgroundColor: "#F6F8FB" }}>
+      {/* FM-INJECT-HEADER-PREMIUM */}
+      {/* FUNDLOGO_WRAP_v2 START */}
+<View style={{ transform:[{ scale:1.5 }], marginTop:-16, alignSelf:'center' }}>
+  <HeaderLogo />
+        <View style={{ paddingHorizontal: 16, marginTop: 8 }}>
+        </View>
+</View>
+
+      
+      {/* END FM-INJECT-HEADER-PREMIUM */}
+      
+      
+      
+          <View style={styles.logoBox}>
+            <Image source={require("../../assets/logo_premium.png")} style={styles.logo} />
+          </View>
+
+          <View style={styles.card}>
+            <Text style={styles.cardTitle}>Dzisiejsze wydatki</Text>
+            <Text style={styles.cardValue}>63.50 PLN</Text>
+          </View>
+
+          <View style={styles.card}>
+            <Text style={styles.cardTitle}>Nadchodzące</Text>
+            <Text>Rata kredytu - jutro 10:00</Text>
+            <Text>Faktura #102 - pt 14:00</Text>
+            <Text>Wizyta u dentysty - pn 09:30</Text>
+          </View>
+
+          <Text style={styles.sectionTitle}>Dodatkowe sekcje</Text>
+          <View style={styles.grid}>
+            <Tile icon={<MaterialCommunityIcons name="bitcoin" size={28} color="black" />} label="Kryptowaluty" />
+            <Tile icon={<Feather name="trending-up" size={28} color="black" />} label="Giełda" />
+            <Tile icon={<MaterialCommunityIcons name="swap-horizontal" size={28} color="black" />} label="Giełda krypto" />
+            <Tile icon={<Feather name="credit-card" size={28} color="black" />} label="Subskrypcje" />
+            <Tile icon={<MaterialIcons name="receipt-long" size={28} color="black" />} label="Podatki" />
+            <Tile icon={<MaterialCommunityIcons name="cash" size={28} color="black" />} label="Kursy Walut" />
+          </View>
+        </ScrollView>
+      </PagerView>
+
+      {/* Pływający premium pasek AI – delikatnie nad dolnym menu (na obu stronach) */}
+      <FloatingAiBanner />
+    </>
+  );
+}
+
+type TileProps = {   onPress?: () => void;
+  icon: React.ReactNode; label: string };
+function Tile({ icon, label }: TileProps) {
+  return (
+    <TouchableOpacity style={styles.tile}>
+      {icon}
+      <Text style={styles.tileLabel}>{label}</Text>
+    </TouchableOpacity>
+  );
+}
+
+const styles = StyleSheet.create({
+  scroll: { paddingHorizontal: 16, paddingTop: 8, paddingBottom: 16, backgroundColor: "#F4F7FA"},
+  logoBox: { alignItems: "center", marginVertical: 8 },
+  logo: { width: 96, height: 96, resizeMode: "contain", marginBottom: 8 },
+  card: {
+    backgroundColor: CARD_BG,
+    borderRadius: 16,
+    borderWidth: 1,
+    borderColor: BORDER,
+    padding: 16,
+    marginBottom: 16,
+    shadowColor: "#000",
+    shadowOpacity: 0.05,
+    shadowRadius: 6,
+    shadowOffset: { width: 0, height: 3 },
+    elevation: 2,
+  },
+  cardTitle: { fontSize: 16, fontWeight: "700", marginBottom: 6 },
+  cardValue: { fontSize: 15, fontWeight: "500", color: "#111827" },
+  progressBar: { height: 12, backgroundColor: "#EAF0F6", borderRadius: 14, overflow: "hidden", marginVertical: 8 },
+  progressFill: { height: "100%", backgroundColor: BRAND },
+  sectionTitle: { fontSize: 18, fontWeight: "800", color: "#111827", marginBottom: 10 },
+  grid: { flexDirection: "row", flexWrap: "wrap", justifyContent: "space-between" },
+
+  tile: {
+    width: "30%",
+    aspectRatio: 1,
+    backgroundColor: CARD_BG,
+    borderRadius: 16,
+    borderWidth: 1,
+    borderColor: BORDER,
+    marginBottom: 14,
+    justifyContent: "center",
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOpacity: 0.04,
+    shadowRadius: 6,
+    shadowOffset: { width: 0, height: 3 },
+    elevation: 1,
+  },
+  tileLabel: { marginTop: 6, fontSize: 12, fontWeight: "600", textAlign: "center" },
+  cardHeader: { flexDirection: "row", alignItems: "center", gap: 8, marginBottom: 8, justifyContent: "space-between" },
+  cardTitleText: { fontSize: 19, fontWeight: "900", color: "#111827" },
+  headerLeft: { flexDirection: "row", alignItems: "center", gap: 8 },
+  chip: { paddingHorizontal: 10, paddingVertical: 6, borderRadius: 999, shadowColor: "#000", shadowOpacity: 0.06, shadowRadius: 6, shadowOffset: { width: 0, height: 3 }, elevation: 2 },
+  chipText: { color: "#fff", fontSize: 12, fontWeight: "700", letterSpacing: 0.3 },
+  accentLine: { height: 2, borderRadius: 999, marginTop: 4, marginBottom: 8, opacity: 0.9 },
+  iconWrap: { width: 28, height: 28, borderRadius: 14, alignItems: "center", justifyContent: "center", backgroundColor: "#EEF2FF", borderWidth: 1, borderColor: "#E4E9F5" },
+});
+
+

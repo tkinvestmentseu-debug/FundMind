@@ -1,0 +1,143 @@
+import AiBanner from "../_components/AiBanner";
+import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Image } from "react-native";
+import { useRouter } from "expo-router";
+import { Feather, MaterialIcons, MaterialCommunityIcons } from "@expo/vector-icons";
+import PagerView from "react-native-pager-view";
+
+const BRAND = "#7C4DFF";
+const BORDER = "#E6EDF2";
+const CARD_BG = "#FFFFFF";
+
+export default function StartScreen() {
+  const router = useRouter();
+
+  return (
+    <PagerView style={{ flex: 1 }} initialPage={0}>
+      {/* Page 1 */}
+      <ScrollView key="1" contentContainerStyle={styles.scroll}>`r`n    <AiBanner />`r`n    <AiBanner />
+    
+          <Image source={require("../../assets/logo_premium.png")} style={styles.logo} />
+        </View>
+
+
+
+        <View style={styles.card}>
+          <Text style={styles.cardTitle}>Budżet miesiąca</Text>
+          <View style={styles.progressBar}>
+            <View style={[styles.progressFill, { width: "44%" }]} />
+          </View>
+          <Text style={styles.cardValue}>1750.00 / 4000.00 PLN</Text>
+        </View>
+
+        <View style={styles.grid}>
+          <Tile icon={<Feather name="plus-circle" size={28} color="black" />} label="Dodaj transakcję" />
+          <Tile icon={<Feather name="list" size={28} color="black" />} label="Transakcje" />
+          <Tile icon={<Feather name="briefcase" size={28} color="black" />} label="Budżet miesiąca" />
+          <Tile icon={<Feather name="bar-chart-2" size={28} color="black" />} label="Analizy" />
+          <Tile icon={<Feather name="award" size={28} color="black" />} label="Cele" />
+          <Tile icon={<Feather name="pie-chart" size={28} color="black" />} label="Budżety" />
+          <Tile icon={<Feather name="file-text" size={28} color="black" />} label="Raporty" />
+          <Tile icon={<Feather name="zap" size={28} color="black" />} label="Szybkie podsumowanie" />
+          <Tile icon={<Feather name="calendar" size={28} color="black" />} label="Kalendarz" />
+          <Tile icon={<Feather name="airplay" size={28} color="black" />} label="Podróże" />
+          <Tile icon={<Feather name="file" size={28} color="black" />} label="Notatki" />
+          <Tile icon={<Feather name="bell" size={28} color="black" />} label="Przypomnienia" />
+        </View>
+        
+</ScrollView>
+
+      <ScrollView key="2" contentContainerStyle={styles.scroll}>`r`n    <AiBanner />`r`n    <AiBanner />
+    
+          <Image source={require("../../assets/logo_premium.png")} style={styles.logo} />
+        </View>
+
+
+
+        <View style={styles.card}>
+          <Text style={styles.cardTitle}>Dzisiejsze wydatki</Text>
+          <Text style={styles.cardValue}>63.50 PLN</Text>
+        </View>
+
+        <View style={styles.card}>
+          <Text style={styles.cardTitle}>Nadchodzące</Text>
+          <Text>Rata kredytu - jutro 10:00</Text>
+          <Text>Faktura #102 - pt 14:00</Text>
+          <Text>Wizyta u dentysty - pn 09:30</Text>
+        </View>
+
+        <Text style={styles.sectionTitle}>Dodatkowe sekcje</Text>
+        <View style={styles.grid}>
+          <Tile icon={<MaterialCommunityIcons name="bitcoin" size={28} color="black" />} label="Kryptowaluty" />
+          <Tile icon={<Feather name="trending-up" size={28} color="black" />} label="Giełda" />
+          <Tile icon={<MaterialCommunityIcons name="swap-horizontal" size={28} color="black" />} label="Giełda krypto" />
+          <Tile icon={<Feather name="credit-card" size={28} color="black" />} label="Subskrypcje" />
+          <Tile icon={<MaterialIcons name="receipt-long" size={28} color="black" />} label="Podatki" />
+          <Tile icon={<MaterialCommunityIcons name="cash" size={28} color="black" />} label="Kursy walut" />
+        </View>
+        
+</ScrollView>
+    </PagerView>
+  );
+}
+
+function Tile({ icon, label }) {
+  return (
+    <TouchableOpacity style={styles.tile}>
+      {icon}
+      <Text style={styles.tileLabel}>{label}</Text>
+    </TouchableOpacity>
+  );
+}
+
+const styles = StyleSheet.create({
+  scroll: { padding: 16, backgroundColor: "#F9FBFC" },
+  logoBox: { alignItems: "center", marginVertical: 8 },
+  logo: { width: 96, height: 96, resizeMode: "contain", marginBottom: 8 },
+  title: { fontSize: 24, fontWeight: "800", color: BRAND, textAlign: "center", marginBottom: 12 },
+  card: {
+    backgroundColor: CARD_BG,
+    borderRadius: 16,
+    borderWidth: 1,
+    borderColor: BORDER,
+    padding: 16,
+    marginBottom: 16,
+    shadowColor: "#000",
+    shadowOpacity: 0.05,
+    shadowRadius: 6,
+    shadowOffset: { width: 0, height: 3 },
+    elevation: 2,
+  },
+  cardTitle: { fontSize: 16, fontWeight: "700", marginBottom: 6 },
+  cardValue: { fontSize: 15, fontWeight: "500", color: "#111827" },
+  progressBar: { height: 8, backgroundColor: "#E5E7EB", borderRadius: 4, overflow: "hidden", marginVertical: 8 },
+  progressFill: { height: 8, backgroundColor: BRAND },
+  sectionTitle: { fontSize: 18, fontWeight: "800", color: "#111827", marginBottom: 10 },
+  grid: { flexDirection: "row", flexWrap: "wrap", justifyContent: "space-between" },
+  tile: {
+    width: "30%",
+    aspectRatio: 1,
+    backgroundColor: CARD_BG,
+    borderRadius: 16,
+    borderWidth: 1,
+    borderColor: BORDER,
+    marginBottom: 14,
+    justifyContent: "center",
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOpacity: 0.04,
+    shadowRadius: 6,
+    shadowOffset: { width: 0, height: 3 },
+    elevation: 1,
+  },
+  tileLabel: { marginTop: 6, fontSize: 12, fontWeight: "600", textAlign: "center" },
+});
+
+
+
+
+
+
+
+
+
+

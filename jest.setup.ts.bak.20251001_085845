@@ -1,0 +1,166 @@
+// eslint-disable
+// @ts-nocheck
+
+import "@testing-library/jest-native/extend-expect";
+
+(globalThis as any).__DEV__ = true;
+(globalThis as any).__fbBatchedBridgeConfig = { remoteModuleConfig: [] };
+
+// BRIDGE: NativeModules + TurboModuleRegistry (UIManager, PlatformConstants, SourceCode)
+jest.mock("react-native/Libraries/BatchedBridge/NativeModules", () => ({
+  I18nManager: { isRTL: false, doLeftAndRightSwapInRTL: false },
+}));
+
+jest.mock("react-native/Libraries/TurboModule/TurboModuleRegistry", () => {
+  const UIManager = {
+    getConstants: () => ({}),
+    getViewManagerConfig: () => ({}),
+    setLayoutAnimationEnabledExperimental: () => {},
+    createView: () => {},
+    updateView: () => {},
+    dispatchViewManagerCommand: () => {},
+    measure: () => {},
+    measureInWindow: () => {},
+    measureLayout: () => {},
+  };
+  const PlatformConstants = {
+    getConstants: () => ({
+      isTesting: true,
+      reactNativeVersion: { major: 0, minor: 73, patch: 6 },
+      interfaceIdiom: "handset",
+      isHermes: false,
+      osVersion: "test",
+      systemName: "iOS",
+    }),
+  };
+  const SourceCode = { getConstants: () => ({ scriptURL: "about:blank" }) };
+  const ImageLoader = {
+    getSize: (_uri, success) => { if (success) success(100, 100); },
+    prefetchImage: () => Promise.resolve(true),
+    queryCache: async () => ({}),
+    loadImage: () => ({ abort: () => {} }),
+    abortRequest: () => {},
+  };
+  // NOWE: dostarcz KeyboardObserver, żeby NativeEventEmitter dostał nie-null
+  const KeyboardObserver = {};
+
+  const modules = { UIManager, PlatformConstants, SourceCode, ImageLoader, KeyboardObserver };
+
+  return {
+    get: (name) => modules[name],
+    getEnforcing: (name) => {
+      const m = modules[name];
+      if (!m) throw new Error("TurboModule not found: " + name);
+      return m;
+    },
+  };
+});
+
+// Helpers
+jest.mock("react-native/Libraries/Animated/NativeAnimatedHelper");
+
+jest.mock("react-native/Libraries/Utilities/Dimensions", () => {
+  const base = { width: 360, height: 640, scale: 2, fontScale: 1 };
+  const listeners = new Set();
+  return {
+    get: () => ({ window: base, screen: base }),
+    addEventListener: (_t:any, fn:any) => { listeners.add(fn); return { remove: () => listeners.delete(fn) }; },
+    removeEventListener: (_t:any, fn:any) => { listeners.delete(fn); },
+    set: () => {},
+  };
+});
+
+jest.mock("react-native/Libraries/Utilities/PixelRatio", () => {
+  const PixelRatio = {
+    get: () => 2,
+    getFontScale: () => 1,
+    roundToNearestPixel: (v:number) => Math.round(v),
+    getPixelSizeForLayoutSize: (l:number) => Math.round(l * 2),
+    startDetecting: () => {},
+  };
+  return { __esModule: true, default: PixelRatio, ...PixelRatio };
+});
+
+// Patch public RN: zgaś animacje/IM/LayoutAnimation/Appearance
+jest.mock("react-native", () => {
+  const RN = jest.requireActual("react-native");
+  const immediate = { start: (cb?:Function) => { cb && cb(); }, stop: jest.fn(), reset: jest.fn() };
+  if (RN.Animated) {
+    RN.Animated.timing   = () => immediate;
+    RN.Animated.spring   = () => immediate;
+    RN.Animated.loop     = () => immediate;
+    RN.Animated.sequence = () => immediate;
+    RN.Animated.parallel = () => immediate;
+    RN.Animated.stagger  = () => immediate;
+    RN.Animated.delay    = () => immediate;
+  }
+  RN.InteractionManager = RN.InteractionManager || {};
+  RN.InteractionManager.runAfterInteractions = (cb?:Function) => { cb && cb(); return { then: (r:any)=>r&&r() } };
+  RN.LayoutAnimation = RN.LayoutAnimation || { configureNext: jest.fn(), create: jest.fn(), Types:{},Properties:{},Presets:{} };
+  RN.Appearance = RN.Appearance || { getColorScheme: () => "light", addChangeListener: jest.fn(), removeChangeListener: jest.fn() };
+  RN.useColorScheme = () => "light";
+  return RN;
+});
+
+// Wycisz wyłącznie linie zaczynające się od "Warning:" (React -> act AggregateError)
+beforeAll(() => {
+  const pass = (fn:any, args:any[]) => {
+    const msg = String(args[0] ?? "");
+    if (msg.startsWith("Warning:")) return; // ignoruj tylko ostrzeżenia Reacta
+    fn(...args);
+  };
+  const origErr = console.error.bind(console);
+  const origWarn = console.warn.bind(console);
+  jest.spyOn(console, "error").mockImplementation((...a:any[]) => pass(origErr, a));
+  jest.spyOn(console, "warn").mockImplementation((...a:any[]) => pass(origWarn, a));
+});
+
+afterAll(() => {
+  (console.error as any).mockRestore && (console.error as any).mockRestore();
+  (console.warn as any).mockRestore && (console.warn as any).mockRestore();
+});
+
+// FM_ACT_FILTER_START
+const __origConsoleError = console.error;
+beforeAll(() => {
+  jest.spyOn(console, "error").mockImplementation((...args: any[]) => {
+    const msg = String(args[0] ?? "");
+    if (msg.includes("not wrapped in act")) return; // wycisz tylko szum z act()
+    // zostaw resztę błędów/ostrzeżeń
+    // @ts-ignore
+    __origConsoleError(...args);
+  });
+});
+afterAll(() => {
+  // @ts-ignore
+  console.error.mockRestore && console.error.mockRestore();
+});
+// FM_ACT_FILTER_END
+// FM_ANIMATED_NOOP_START
+// Uspokojenie animacji RN bez ingerencji w cały moduł react-native
+jest.mock("react-native/Libraries/Animated/Animated", () => {
+  const Actual = jest.requireActual("react-native/Libraries/Animated/Animated");
+  const immediate = { start: (cb?: (r?: any)=>void) => { try { cb && cb({ finished: true }); } catch(_) {} }, stop: jest.fn(), reset: jest.fn() };
+  return {
+    ...Actual,
+    timing:   () => immediate,
+    spring:   () => immediate,
+    loop:     () => immediate,
+    sequence: () => immediate,
+    parallel: () => immediate,
+    delay:    () => immediate,
+    decay:    () => immediate,
+  };
+});
+// FM_ANIMATED_NOOP_END
+
+jest.mock("react-native/Libraries/EventEmitter/NativeEventEmitter", () => {
+  const { EventEmitter } = require("events");
+  class NativeEventEmitter extends EventEmitter {
+    constructor() { super(); }
+    addListener() { return { remove() {} }; }
+    removeListener() {}
+  }
+  return { __esModule: true, default: NativeEventEmitter, NativeEventEmitter };
+});
+

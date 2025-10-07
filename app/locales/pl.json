@@ -1,0 +1,26 @@
+{
+  "home": {
+    "tiles": {
+      "toPay": "Do zapłaty",
+      "investments": "Inwestycje",
+      "goals": "Cele",
+      "reports": "Raporty",
+      "cryptoExchange": "Giełda krypto",
+      "cryptocurrencies": "Kryptowaluty",
+      "fxRates": "Kursy walut",
+      "subscriptions": "Subskrypcje",
+      "taxes": "Podatki",
+      "quickSummary": "Szybkie podsumowanie",
+      "analyses": "Analizy",
+      "scanReceipt": "Skan paragonu",
+      "travel": "Podróże",
+      "stocks": "Giełda",
+      "budgets": "Budżety"
+    },
+    "upcoming": "Nadchodzące",
+    "sections": {
+      "additional": "Dodatkowe sekcje"
+    },
+    "todayExpenses": "Dzisiejsze wydatki"
+  }
+}

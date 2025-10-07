@@ -1,0 +1,9 @@
+import "@testing-library/jest-native/extend-expect";
+(globalThis as any).__DEV__ = true;jest.mock("react-native/Libraries/Animated/NativeAnimatedHelper");jest.mock("react-native/Libraries/TurboModule/TurboModuleRegistry", () => {
+  return {
+    get: () => undefined,
+    getEnforcing: () => { throw new Error("TurboModule not found"); }
+  };
+});jest.mock("react-native/Libraries/BatchedBridge/NativeModules", () => ({}));jest.mock("react-native-gesture-handler", () => ({}));
+(globalThis as any).__fbBatchedBridgeConfig = { remoteModuleConfig: [] };
+

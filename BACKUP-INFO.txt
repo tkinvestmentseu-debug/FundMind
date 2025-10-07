@@ -1,0 +1,4 @@
+FundMind backup
+Source: D:\FundMind
+Target: C:\Ostatnia dzialajaca kopia 0310-2211\FundMind
+Timestamp: 20251003-221343

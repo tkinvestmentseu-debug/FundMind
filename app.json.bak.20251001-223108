@@ -1,0 +1,23 @@
+{
+  "expo": {
+    "name": "FundMind",
+    "slug": "fundmind",
+    "version": "1.0.0",
+    "sdkVersion": "54.0.0",
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    },
+    "plugins": [
+      "expo-router"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "scheme": "FundMind",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ]
+  }
+}

@@ -1,0 +1,9 @@
+=== I18N WIRE FIX REPORT ===
+Layout path: D:\FundMind\app\_layout.tsx
+Timestamp: 20251004-185921
+
+Actions:
+- backup created: D:\FundMind\app\_layout.tsx.bak.20251004-185921
+- inserted i18n import at top
+- inserted Stack import
+- RootLayout export already present

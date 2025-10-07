@@ -9,10 +9,10 @@ import { Feather } from "@expo/vector-icons";
 
 import { addTransaction, TransactionKind } from "../_data/transactions";
 
-export default function TransactionForm(props: TransactionFormProps) {
-  const [kind, setKind] = useState<TransactionKind>(() => ("receipt" as TransactionKind));
-const { kind: initialKind, onSaved } = props;  const [name, setName] = useState("");
-const [amount, setAmount] = useState("");
+export default function TransactionForm(props: TransactionFormProps) {const [kind, setKind] = useState<TransactionKind>(() => (kindProp ?? "receipt") as TransactionKind);
+
+  const { kind: initialKind, onSaved } = props;  const [name, setName] = useState("");
+  const [amount, setAmount] = useState("");const [kind, setKind] = useState<TransactionKind>(() => (kindProp ?? "receipt") as TransactionKind);
 const [imageUri, setImageUri] = useState<string | null>(null);
 
   async function pickImage(fromCamera = false) {
@@ -29,7 +29,7 @@ const [imageUri, setImageUri] = useState<string | null>(null);
       Alert.alert("Błąd", "Wprowadź nazwę i kwotę");
       return;
     }
-    addTransaction({ title: name, amount: parseFloat(amount), kind: (kind as TransactionKind), dateISO: new Date().toISOString(), imageUri });
+    addTransaction({ name, amount: parseFloat(amount), kind, note, imageUri });
     onSaved?.();
   }
 
@@ -130,12 +130,6 @@ const styles = StyleSheet.create({
   },
   saveText: { color: "#fff", fontWeight: "800", fontSize: 16 }
 });
-
-
-
-
-
-
 
 
 

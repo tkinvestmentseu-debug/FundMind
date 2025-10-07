@@ -9,11 +9,8 @@ import { Feather } from "@expo/vector-icons";
 
 import { addTransaction, TransactionKind } from "../_data/transactions";
 
-export default function TransactionForm(props: TransactionFormProps) {
-  const [kind, setKind] = useState<TransactionKind>(() => ("receipt" as TransactionKind));
-const { kind: initialKind, onSaved } = props;  const [name, setName] = useState("");
-const [amount, setAmount] = useState("");
-const [imageUri, setImageUri] = useState<string | null>(null);
+export default function TransactionForm(props: TransactionFormProps) {const { kind: initialKind, onSaved } = props;  const [name, setName] = useState("");
+  const [amount, setAmount] = useState("");const [imageUri, setImageUri] = useState<string | null>(null);
 
   async function pickImage(fromCamera = false) {
     const res = fromCamera
@@ -29,7 +26,7 @@ const [imageUri, setImageUri] = useState<string | null>(null);
       Alert.alert("Błąd", "Wprowadź nazwę i kwotę");
       return;
     }
-    addTransaction({ title: name, amount: parseFloat(amount), kind: (kind as TransactionKind), dateISO: new Date().toISOString(), imageUri });
+    addTransaction({  title: name, amount: parseFloat(amount), kind: (kind as TransactionKind), dateISO: new Date().toISOString(), imageUri  });
     onSaved?.();
   }
 
@@ -130,8 +127,6 @@ const styles = StyleSheet.create({
   },
   saveText: { color: "#fff", fontWeight: "800", fontSize: 16 }
 });
-
-
 
 
 

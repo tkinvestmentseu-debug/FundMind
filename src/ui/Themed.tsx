@@ -1,0 +1,33 @@
+import * as React from "react";
+import { View, Text, ScrollView, useColorScheme, type ViewProps, type TextProps, type ScrollViewProps } from "react-native";
+
+type DimTextProps = TextProps & { dim?: boolean };
+
+export const ThemedView: React.FC<React.PropsWithChildren<ViewProps>> = ({ children, ...rest }) => {
+  return <View {...rest}>{children}</View>;
+};
+
+export const ThemedText: React.FC<React.PropsWithChildren<DimTextProps>> = ({ children, dim, style, ...rest }) => {
+  const base = Array.isArray(style) ? style : [style].filter(Boolean);
+  const extra = dim ? [{ opacity: 0.6 }] : [];
+  return <Text {...rest} style={[...base, ...extra]}>{children}</Text>;
+};
+
+export const ThemedScrollView: React.FC<React.PropsWithChildren<ScrollViewProps>> = ({ children, ...rest }) => {
+  return <ScrollView {...rest}>{children}</ScrollView>;
+};
+
+/** Minimalne tokeny kolorystyczne dla komponentów Themed* */
+export function useColorTokens() {
+  const scheme = useColorScheme();
+  const dark = scheme === "dark";
+  return {
+    bg: dark ? "#0B1220" : "#FFFFFF",
+    text: dark ? "#E6EDF2" : "#0B1220",
+    border: dark ? "#1E293B" : "#E6EDF2",
+    muted: dark ? "#94A3B8" : "#6B7280",
+    primary: "#2563EB",
+    chipBg: dark ? "#0F172A" : "#F1F5F9",
+    chipActiveBg: dark ? "#111827" : "#E2E8F0",
+  } as const;
+}

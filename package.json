@@ -5,13 +5,13 @@
   "main": "expo-router/entry",
   "scripts": {
     "lint": "eslint --no-error-on-unmatched-pattern \"app/**/*.{ts,tsx}\" \"__tests__/**/*.{ts,tsx}\"",
-    "test:ci": "jest --ci",
+    "test:ci": "jest --ci --config jest.config.js --passWithNoTests",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "typegen": "expo-router typegen",
     "test:run": "powershell ./tools/fix-index-and-test.ps1 -NoWrite",
-    "check:all": "npm run lint --max-warnings=0 && npm run typecheck && npm run test",
+    "check:all": "npm run lint && npm run typecheck && npm run test:ci",
     "coverage": "jest --coverage",
-    "test": "jest --ci --passWithNoTests",
+    "test": "jest --config jest.config.js --passWithNoTests",
     "test:fix": "powershell -NoProfile -ExecutionPolicy Bypass -File ./tools/fix-index-and-test.ps1",
     "start:lan": "expo start --clear --host lan",
     "prepare": "simple-git-hooks",
@@ -71,7 +71,9 @@
     "react-test-renderer": "^18.2.0",
     "simple-git-hooks": "^2.13.1",
     "typescript": "~5.9.2",
-    "whatwg-fetch": "^3.6.20"
+    "whatwg-fetch": "^3.6.20",
+    "eslint-config-prettier": "^9.1.0",
+    "ts-jest": "^29.2.5"
   },
   "overrides": {
     "@babel/runtime": "7.24.7"

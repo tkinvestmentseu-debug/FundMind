@@ -1,0 +1,6 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Zhengqbbb/cz-git/main/packages/config/lib/index.json",
+  "path": "cz-git",
+  "emoji": false,
+  "scopes": ["theme","settings","tabs","investments","ai","tests","build","deps","ci","docs","release","misc"]
+}

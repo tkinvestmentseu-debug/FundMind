@@ -1,39 +1,16 @@
 import React from "react";
-import { SafeAreaView, StyleSheet } from "react-native";
-import { ThemedText as Text } from "../../src/ui/Themed";
+import { ThemedView as View, ThemedText as Text } from "../../../src/ui/Themed";
+import { useColorTokens } from "../../../src/providers/theme";
 
-import { MaterialCommunityIcons } from "@expo/vector-icons";
-
-// Premium design for Notifications screen
 export default function NotificationsScreen() {
+  const t = useColorTokens();
   return (
-    <SafeAreaView style={styles.container}>
-      <MaterialCommunityIcons name="bell" size={80} color="#7C4DFF" style={styles.icon} />
-      <Text style={styles.title}>Powiadomienia</Text>
-      <Text style={styles.subtitle}>Brak nowych alertów.</Text>
-    </SafeAreaView>
+    <View
+      variant="screen"
+      style={{ flex: 1, alignItems: "center", justifyContent: "center", padding: 24 }}
+    >
+      <Text style={{ fontSize: 20, fontWeight: "800", marginBottom: 6 }}>Powiadomienia</Text>
+      <Text dim>Brak nowych alertów.</Text>
+    </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#F7F9FC",
-    padding: 20,
-  },
-  icon: {
-    marginBottom: 24,
-  },
-  title: {
-    fontSize: 28,
-    fontWeight: "700",
-    marginBottom: 8,
-  },
-  subtitle: {
-    fontSize: 16,
-    color: "#7C8A96",
-  },
-});
-

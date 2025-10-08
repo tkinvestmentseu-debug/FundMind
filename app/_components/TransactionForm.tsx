@@ -1,10 +1,13 @@
 type TransactionFormProps = { onSaved?: () => void; kind?: TransactionKind | string };
-import { SafeAreaView } from 'react-native-safe-area-context';
-
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import React, { useState } from "react";
-import {  TextInput, Image, StyleSheet, Pressable, Alert } from "react-native";
-import { ThemedView as View, ThemedText as Text, ThemedScrollView as ScrollView } from "../src/ui/Themed";
+import { TextInput, Image, StyleSheet, Pressable, Alert } from "react-native";
+import {
+  ThemedView as View,
+  ThemedText as Text,
+  ThemedScrollView as ScrollView,
+} from "../../src/ui/Themed";
 
 import * as ImagePicker from "expo-image-picker";
 import { Feather } from "@expo/vector-icons";
@@ -12,10 +15,11 @@ import { Feather } from "@expo/vector-icons";
 import { addTransaction, TransactionKind } from "../_data/transactions";
 
 export default function TransactionForm(props: TransactionFormProps) {
-  const [kind, setKind] = useState<TransactionKind>(() => ("receipt" as TransactionKind));
-const { kind: initialKind, onSaved } = props;  const [name, setName] = useState("");
-const [amount, setAmount] = useState("");
-const [imageUri, setImageUri] = useState<string | null>(null);
+  const [kind, setKind] = useState<TransactionKind>(() => "receipt" as TransactionKind);
+  const { kind: initialKind, onSaved } = props;
+  const [name, setName] = useState("");
+  const [amount, setAmount] = useState("");
+  const [imageUri, setImageUri] = useState<string | null>(null);
 
   async function pickImage(fromCamera = false) {
     const res = fromCamera
@@ -31,13 +35,27 @@ const [imageUri, setImageUri] = useState<string | null>(null);
       Alert.alert("Błąd", "Wprowadź nazwę i kwotę");
       return;
     }
-    addTransaction({ title: name, amount: parseFloat(amount), kind: (kind as TransactionKind), dateISO: new Date().toISOString(), imageUri });
+    addTransaction({
+      title: name,
+      amount: parseFloat(amount),
+      kind: kind as TransactionKind,
+      dateISO: new Date().toISOString(),
+      imageUri,
+    });
     onSaved?.();
   }
 
   return (
     <SafeAreaView style={styles.safe}>
-      <ScrollView contentContainerStyle={{ flexGrow: 1, justifyContent: 'center', alignItems: 'stretch', padding: 20 }}>
+      <ScrollView
+        variant="screen"
+        contentContainerStyle={{
+          flexGrow: 1,
+          justifyContent: "center",
+          alignItems: "stretch",
+          padding: 20,
+        }}
+      >
         <View style={styles.card}>
           <Text style={styles.label}>Nazwa</Text>
           <TextInput
@@ -84,17 +102,16 @@ const [imageUri, setImageUri] = useState<string | null>(null);
 }
 
 const styles = StyleSheet.create({
-  safe: { flex: 1, },
+  safe: { flex: 1 },
   scroll: { padding: 16 },
   card: {
-    backgroundColor: "#fff",
     borderRadius: 16,
     padding: 20,
     shadowColor: "#000",
     shadowOpacity: 0.06,
     shadowOffset: { width: 0, height: 4 },
     shadowRadius: 8,
-    elevation: 3
+    elevation: 3,
   },
   label: { fontWeight: "700", marginTop: 16, fontSize: 15, color: "#111" },
   input: {
@@ -104,7 +121,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     paddingHorizontal: 14,
     paddingVertical: 12,
-    backgroundColor: "#FCFCFD"
+    backgroundColor: "#FCFCFD",
   },
   image: { marginTop: 12, height: 160, borderRadius: 12 },
   placeholder: { marginTop: 12, color: "#999", fontSize: 13 },
@@ -120,7 +137,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 14,
     backgroundColor: "#F9F9FB",
     flex: 1,
-    marginHorizontal: 4
+    marginHorizontal: 4,
   },
   actionText: { fontWeight: "600", color: "#7C4DFF" },
   saveBtn: {
@@ -128,25 +145,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#7C4DFF",
     borderRadius: 14,
     paddingVertical: 16,
-    alignItems: "center"
+    alignItems: "center",
   },
-  saveText: { color: "#fff", fontWeight: "800", fontSize: 16 }
+  saveText: { color: "#fff", fontWeight: "800", fontSize: 16 },
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

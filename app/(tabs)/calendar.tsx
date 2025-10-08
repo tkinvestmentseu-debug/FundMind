@@ -1,42 +1,113 @@
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { Stack } from "expo-router";
 import React, { useMemo, useState } from "react";
-import {  StyleSheet, Modal, TextInput, Pressable, Platform, FlatList } from "react-native";
-import { ThemedView as View, ThemedText as Text } from "../src/ui/Themed";
+import { StyleSheet, Modal, TextInput, Pressable, Platform, FlatList } from "react-native";
+import { ThemedView as View, ThemedText as Text } from "../../src/ui/Themed";
 
 import { Calendar, LocaleConfig } from "react-native-calendars";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import dayjs from "dayjs";
 import { Ionicons } from "@expo/vector-icons";
 
-
 type Lang = "pl" | "en";
-const dict: Record<Lang, Record<string,string>> = {
-  pl: { calendar:"Kalendarz", newEvent:"Nowe wydarzenie", title:"Tytuł", start:"Początek", end:"Koniec", cancel:"Anuluj", save:"Zapisz", upcoming:"Nadchodzące wydarzenia", empty:"Brak nadchodzących wydarzeń" },
-  en: { calendar:"Calendar",  newEvent:"New event",       title:"Title", start:"Start",    end:"End",   cancel:"Cancel", save:"Save", upcoming:"Upcoming events", empty:"No upcoming events" }
+const dict: Record<Lang, Record<string, string>> = {
+  pl: {
+    calendar: "Kalendarz",
+    newEvent: "Nowe wydarzenie",
+    title: "Tytuł",
+    start: "Początek",
+    end: "Koniec",
+    cancel: "Anuluj",
+    save: "Zapisz",
+    upcoming: "Nadchodzące wydarzenia",
+    empty: "Brak nadchodzących wydarzeń",
+  },
+  en: {
+    calendar: "Calendar",
+    newEvent: "New event",
+    title: "Title",
+    start: "Start",
+    end: "End",
+    cancel: "Cancel",
+    save: "Save",
+    upcoming: "Upcoming events",
+    empty: "No upcoming events",
+  },
 };
 const lang: Lang = "pl";
-const t = (l:Lang, k:string) => (dict[l][k] ?? k);
+const t = (l: Lang, k: string) => dict[l][k] ?? k;
 
 // Locale (PL/EN)
 LocaleConfig.locales.pl = {
-  monthNames: ["Styczeń","Luty","Marzec","Kwiecień","Maj","Czerwiec","Lipiec","Sierpień","Wrzesień","Październik","Listopad","Grudzień"],
-  monthNamesShort: ["Sty","Lut","Mar","Kwi","Maj","Cze","Lip","Sie","Wrz","Paź","Lis","Gru"],
-  dayNames: ["Niedziela","Poniedziałek","Wtorek","Środa","Czwartek","Piątek","Sobota"],
-  dayNamesShort: ["Nd","Pn","Wt","Śr","Czw","Pt","So"],
+  monthNames: [
+    "Styczeń",
+    "Luty",
+    "Marzec",
+    "Kwiecień",
+    "Maj",
+    "Czerwiec",
+    "Lipiec",
+    "Sierpień",
+    "Wrzesień",
+    "Październik",
+    "Listopad",
+    "Grudzień",
+  ],
+  monthNamesShort: [
+    "Sty",
+    "Lut",
+    "Mar",
+    "Kwi",
+    "Maj",
+    "Cze",
+    "Lip",
+    "Sie",
+    "Wrz",
+    "Paź",
+    "Lis",
+    "Gru",
+  ],
+  dayNames: ["Niedziela", "Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota"],
+  dayNamesShort: ["Nd", "Pn", "Wt", "Śr", "Czw", "Pt", "So"],
   today: "Dziś",
 };
 LocaleConfig.locales.en = {
-  monthNames: ["January","February","March","April","May","June","July","August","September","October","November","December"],
-  monthNamesShort: ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
-  dayNames: ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
-  dayNamesShort: ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],
+  monthNames: [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ],
+  monthNamesShort: [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ],
+  dayNames: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+  dayNamesShort: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
   today: "Today",
 };
 LocaleConfig.defaultLocale = lang;
 
-type EventItem = { id: string; title: string; startISO: string; endISO: string; };
+type EventItem = { id: string; title: string; startISO: string; endISO: string };
 
 export default function CalendarScreen() {
   const [selectedDate, setSelectedDate] = useState<string>(dayjs().format("YYYY-MM-DD"));
@@ -55,8 +126,10 @@ export default function CalendarScreen() {
     setSelectedDate(d);
     const base = dayjs(d).toDate();
     const now = new Date();
-    const st = new Date(base); st.setHours(now.getHours(), now.getMinutes(), 0, 0);
-    const et = new Date(st); et.setMinutes(et.getMinutes() + 60);
+    const st = new Date(base);
+    st.setHours(now.getHours(), now.getMinutes(), 0, 0);
+    const et = new Date(st);
+    et.setMinutes(et.getMinutes() + 60);
     setTitle("");
     setStartTime(st);
     setEndTime(et);
@@ -65,11 +138,29 @@ export default function CalendarScreen() {
 
   function saveEvent() {
     const d = selectedDate;
-    if (!title.trim()) { setModalVisible(false); return; }
-    const sISO = dayjs(d).hour(startTime.getHours()).minute(startTime.getMinutes()).second(0).millisecond(0).toISOString();
-    const eISO = dayjs(d).hour(endTime.getHours()).minute(endTime.getMinutes()).second(0).millisecond(0).toISOString();
-    const ev: EventItem = { id: String(Date.now()), title: title.trim(), startISO: sISO, endISO: eISO };
-    setEvents(prev => {
+    if (!title.trim()) {
+      setModalVisible(false);
+      return;
+    }
+    const sISO = dayjs(d)
+      .hour(startTime.getHours())
+      .minute(startTime.getMinutes())
+      .second(0)
+      .millisecond(0)
+      .toISOString();
+    const eISO = dayjs(d)
+      .hour(endTime.getHours())
+      .minute(endTime.getMinutes())
+      .second(0)
+      .millisecond(0)
+      .toISOString();
+    const ev: EventItem = {
+      id: String(Date.now()),
+      title: title.trim(),
+      startISO: sISO,
+      endISO: eISO,
+    };
+    setEvents((prev) => {
       const list = prev[d] ? prev[d].slice() : [];
       list.push(ev);
       return { ...prev, [d]: list };
@@ -78,10 +169,10 @@ export default function CalendarScreen() {
   }
 
   function removeEvent(id: string) {
-    setEvents(prev => {
+    setEvents((prev) => {
       const next: Record<string, EventItem[]> = {};
       Object.keys(prev).forEach((k) => {
-        const left = prev[k].filter(e => e.id !== id);
+        const left = prev[k].filter((e) => e.id !== id);
         if (left.length) next[k] = left;
       });
       return next;
@@ -103,21 +194,28 @@ export default function CalendarScreen() {
   const upcoming: EventItem[] = useMemo(() => {
     const nowISO = new Date().toISOString();
     const arr: EventItem[] = [];
-    Object.keys(events).forEach((d) => events[d].forEach((e) => { if (e.startISO >= nowISO) arr.push(e); }));
-    arr.sort((a,b) => a.startISO.localeCompare(b.startISO));
+    Object.keys(events).forEach((d) =>
+      events[d].forEach((e) => {
+        if (e.startISO >= nowISO) arr.push(e);
+      }),
+    );
+    arr.sort((a, b) => a.startISO.localeCompare(b.startISO));
     return arr;
   }, [events]);
 
   return (
     <View style={styles.screen}>
-        <_CalendarTopSpacer />
-      <Stack.Screen options={{ title: t(lang,"calendar") }} />
+      <_CalendarTopSpacer />
+      <Stack.Screen options={{ title: t(lang, "calendar") }} />
 
       {/* Kalendarz niżej */}
       <View style={[styles.card, { marginTop: 32 }]}>
         <Calendar
           current={selectedDate}
-          onDayPress={(d) => { setSelectedDate(d.dateString); openAdd(d.dateString); }}
+          onDayPress={(d) => {
+            setSelectedDate(d.dateString);
+            openAdd(d.dateString);
+          }}
           markedDates={marked}
           style={styles.calendar}
           theme={{
@@ -128,18 +226,23 @@ export default function CalendarScreen() {
       </View>
 
       {/* Nadchodzące wydarzenia */}
-      <Text style={styles.section}>{t(lang,"upcoming")}</Text>
-      <FlatList scrollEnabled={false} bounces={false} alwaysBounceVertical={false} overScrollMode="never"
+      <Text style={styles.section}>{t(lang, "upcoming")}</Text>
+      <FlatList
+        scrollEnabled={false}
+        bounces={false}
+        alwaysBounceVertical={false}
+        overScrollMode="never"
         contentContainerStyle={{ paddingHorizontal: 16, paddingBottom: 88 }}
         data={upcoming}
         keyExtractor={(it) => it.id}
-        ListEmptyComponent={<Text style={styles.empty}>{t(lang,"empty")}</Text>}
+        ListEmptyComponent={<Text style={styles.empty}>{t(lang, "empty")}</Text>}
         renderItem={({ item }) => (
           <View style={styles.eventCard}>
             <View style={{ flex: 1 }}>
               <Text style={styles.eventTitle}>{item.title}</Text>
               <Text style={styles.eventTime}>
-                {dayjs(item.startISO).format("DD.MM.YYYY HH:mm")} – {dayjs(item.endISO).format("HH:mm")}
+                {dayjs(item.startISO).format("DD.MM.YYYY HH:mm")} –{" "}
+                {dayjs(item.endISO).format("HH:mm")}
               </Text>
             </View>
             <Pressable onPress={() => removeEvent(item.id)} hitSlop={8} style={styles.trashBtn}>
@@ -158,15 +261,20 @@ export default function CalendarScreen() {
       <Modal visible={modalVisible} transparent animationType="slide">
         <View style={styles.modalBackdrop}>
           <View style={styles.modalCard}>
-            <Text style={styles.modalTitle}>{t(lang,"newEvent")}</Text>
-            <TextInput placeholder={t(lang,"title")} value={title} onChangeText={setTitle} style={styles.input} />
+            <Text style={styles.modalTitle}>{t(lang, "newEvent")}</Text>
+            <TextInput
+              placeholder={t(lang, "title")}
+              value={title}
+              onChangeText={setTitle}
+              style={styles.input}
+            />
             <View style={styles.timeRow}>
               <Pressable style={styles.timeBtn} onPress={() => setShowStartPicker(true)}>
-                <Text style={styles.timeLabel}>{t(lang,"start")}</Text>
+                <Text style={styles.timeLabel}>{t(lang, "start")}</Text>
                 <Text style={styles.timeValue}>{dayjs(startTime).format("HH:mm")}</Text>
               </Pressable>
               <Pressable style={styles.timeBtn} onPress={() => setShowEndPicker(true)}>
-                <Text style={styles.timeLabel}>{t(lang,"end")}</Text>
+                <Text style={styles.timeLabel}>{t(lang, "end")}</Text>
                 <Text style={styles.timeValue}>{dayjs(endTime).format("HH:mm")}</Text>
               </Pressable>
             </View>
@@ -177,7 +285,10 @@ export default function CalendarScreen() {
                 mode="time"
                 is24Hour
                 display={Platform.OS === "ios" ? "spinner" : "default"}
-                onChange={(e, d) => { if (Platform.OS !== "ios") setShowStartPicker(false); if (d) setStartTime(d); }}
+                onChange={(e, d) => {
+                  if (Platform.OS !== "ios") setShowStartPicker(false);
+                  if (d) setStartTime(d);
+                }}
               />
             )}
             {showEndPicker && (
@@ -186,16 +297,22 @@ export default function CalendarScreen() {
                 mode="time"
                 is24Hour
                 display={Platform.OS === "ios" ? "spinner" : "default"}
-                onChange={(e, d) => { if (Platform.OS !== "ios") setShowEndPicker(false); if (d) setEndTime(d); }}
+                onChange={(e, d) => {
+                  if (Platform.OS !== "ios") setShowEndPicker(false);
+                  if (d) setEndTime(d);
+                }}
               />
             )}
 
             <View style={styles.actions}>
-              <Pressable style={[styles.btn, styles.btnSecondary]} onPress={() => setModalVisible(false)}>
-                <Text style={styles.btnSecondaryText}>{t(lang,"cancel")}</Text>
+              <Pressable
+                style={[styles.btn, styles.btnSecondary]}
+                onPress={() => setModalVisible(false)}
+              >
+                <Text style={styles.btnSecondaryText}>{t(lang, "cancel")}</Text>
               </Pressable>
               <Pressable style={[styles.btn, styles.btnPrimary]} onPress={saveEvent}>
-                <Text style={styles.btnPrimaryText}>{t(lang,"save")}</Text>
+                <Text style={styles.btnPrimaryText}>{t(lang, "save")}</Text>
               </Pressable>
             </View>
           </View>
@@ -206,11 +323,11 @@ export default function CalendarScreen() {
 }
 
 const styles = StyleSheet.create({
-  screen: { flex: 1, },
+  screen: { flex: 1 },
   card: {
     marginHorizontal: 16,
     borderRadius: 16,
-    
+
     padding: 8,
     shadowColor: "#000",
     shadowOpacity: 0.06,
@@ -224,7 +341,7 @@ const styles = StyleSheet.create({
   empty: { marginTop: 8, marginHorizontal: 16, color: "#6B7280" },
   eventCard: {
     marginTop: 8,
-    
+
     borderRadius: 12,
     padding: 12,
     shadowColor: "#000",
@@ -255,15 +372,24 @@ const styles = StyleSheet.create({
     elevation: 4,
   },
 
-  modalBackdrop: { flex: 1, backgroundColor: "rgba(0,0,0,0.35)", padding: 16, justifyContent: "center" },
-  modalCard: {  borderRadius: 16, padding: 16 },
+  modalBackdrop: {
+    flex: 1,
+    backgroundColor: "rgba(0,0,0,0.35)",
+    padding: 16,
+    justifyContent: "center",
+  },
+  modalCard: { borderRadius: 16, padding: 16 },
   modalTitle: { fontSize: 18, fontWeight: "700", marginBottom: 12 },
   input: {
-    borderWidth: 1, borderColor: "#E1E8EF", borderRadius: 10,
-    paddingHorizontal: 12, paddingVertical: 10, marginBottom: 12, 
+    borderWidth: 1,
+    borderColor: "#E1E8EF",
+    borderRadius: 10,
+    paddingHorizontal: 12,
+    paddingVertical: 10,
+    marginBottom: 12,
   },
   timeRow: { flexDirection: "row", gap: 12, marginBottom: 8 },
-  timeBtn: { flex: 1, borderWidth: 1, borderColor: "#E1E8EF", borderRadius: 10, padding: 12, },
+  timeBtn: { flex: 1, borderWidth: 1, borderColor: "#E1E8EF", borderRadius: 10, padding: 12 },
   timeLabel: { fontSize: 12, color: "#6B7280" },
   timeValue: { fontSize: 16, fontWeight: "600", marginTop: 2 },
 
@@ -275,13 +401,8 @@ const styles = StyleSheet.create({
   btnPrimaryText: { color: "#fff", fontWeight: "700" },
 });
 
-function _CalendarTopSpacer(){
+function _CalendarTopSpacer() {
   const insets = useSafeAreaInsets();
   const top = Math.max(Math.ceil(insets.top) + 32, 32);
   return <View style={{ height: top }} />;
 }
-
-
-
-
-

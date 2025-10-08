@@ -1,7 +1,7 @@
 import React from "react";
 import { Tabs } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
-import { useThemeMode, useColorTokens, getStatusBarStyle } from "../src/providers/theme";
+import { useThemeMode, useColorTokens, getStatusBarStyle } from "../../src/providers/theme";
 import { StatusBar } from "expo-status-bar";
 
 export default function TabsLayout() {
@@ -24,22 +24,40 @@ export default function TabsLayout() {
           tabBarIcon: ({ color, focused, size }) => {
             const s = route.name;
             const icon =
-              s === "index" ? (focused ? "home" : "home-outline") :
-              s === "calendar" ? (focused ? "calendar" : "calendar-outline") :
-              s === "notifications/index" ? (focused ? "notifications" : "notifications-outline") :
-              s === "settings/index" ? (focused ? "settings" : "settings-outline") :
-              (focused ? "apps" : "apps-outline");
+              s === "index"
+                ? focused
+                  ? "home"
+                  : "home-outline"
+                : s === "calendar"
+                  ? focused
+                    ? "calendar"
+                    : "calendar-outline"
+                  : s === "notifications/index"
+                    ? focused
+                      ? "notifications"
+                      : "notifications-outline"
+                    : s === "settings/index"
+                      ? focused
+                        ? "settings"
+                        : "settings-outline"
+                      : focused
+                        ? "apps"
+                        : "apps-outline";
             return <Ionicons name={icon as any} size={size} color={color} />;
           },
           title:
-            route.name === "index" ? "Start" :
-            route.name === "calendar" ? "Kalendarz" :
-            route.name === "notifications/index" ? "Powiadomienia" :
-            route.name === "settings/index" ? "Ustawienia" :
-            route.name,
+            route.name === "index"
+              ? "Start"
+              : route.name === "calendar"
+                ? "Kalendarz"
+                : route.name === "notifications/index"
+                  ? "Powiadomienia"
+                  : route.name === "settings/index"
+                    ? "Ustawienia"
+                    : route.name,
         })}
       >
-        <Tabs.Screen name="index" />
+        <Tabs.Screen name="index" options={{ headerShown: false, title: "Start" }} />
         <Tabs.Screen name="calendar" />
         <Tabs.Screen name="notifications/index" />
         <Tabs.Screen name="settings/index" />
@@ -47,4 +65,3 @@ export default function TabsLayout() {
     </>
   );
 }
-

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
-import {  Pressable, StyleSheet, Animated, Easing, Platform } from "react-native";
-import { ThemedView as View, ThemedText as Text } from "../src/ui/Themed";
+import { Pressable, StyleSheet, Animated, Easing, Platform } from "react-native";
+import { ThemedView as View, ThemedText as Text } from "../../src/ui/Themed";
 
 import { Link } from "expo-router";
 import { LinearGradient } from "expo-linear-gradient";
@@ -15,12 +15,19 @@ export default function AddTransactionCTA() {
   useEffect(() => {
     const loop = Animated.loop(
       Animated.sequence([
-        Animated.timing(shine, { toValue: 1, duration: 2200, easing: Easing.inOut(Easing.cubic), useNativeDriver: true }),
-        Animated.timing(shine, { toValue: 0, duration: 0, useNativeDriver: true })
-      ])
+        Animated.timing(shine, {
+          toValue: 1,
+          duration: 2200,
+          easing: Easing.inOut(Easing.cubic),
+          useNativeDriver: true,
+        }),
+        Animated.timing(shine, { toValue: 0, duration: 0, useNativeDriver: true }),
+      ]),
     );
     loop.start();
-    return () => { loop.stop(); };
+    return () => {
+      loop.stop();
+    };
   }, [shine]);
 
   const translate = shine.interpolate({ inputRange: [0, 1], outputRange: [-120, 320] });
@@ -82,36 +89,36 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginTop: 28,
     marginBottom: 44,
-    paddingHorizontal: 20
+    paddingHorizontal: 20,
   },
   pressable: {
     width: "100%",
     borderRadius: RADIUS_OUTER,
-    overflow: "hidden"
+    overflow: "hidden",
   },
   pressablePressed: {
     opacity: 0.96,
-    transform: [{ scale: 0.985 }]
+    transform: [{ scale: 0.985 }],
   },
   outline: {
     borderRadius: RADIUS_OUTER,
-    padding: 2
+    padding: 2,
   },
   inner: {
     borderRadius: RADIUS_INNER,
-    
+
     paddingVertical: 20,
     paddingHorizontal: 20,
     overflow: "hidden",
     shadowColor: "#000",
-    shadowOpacity: 0.10,
+    shadowOpacity: 0.1,
     shadowRadius: 14,
     shadowOffset: { width: 0, height: 6 },
-    ...(Platform.OS === "android" ? { elevation: 4 } : {})
+    ...(Platform.OS === "android" ? { elevation: 4 } : {}),
   },
   content: {
     alignItems: "center",
-    zIndex: 1
+    zIndex: 1,
   },
   iconWrap: {
     width: 40,
@@ -119,7 +126,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     alignItems: "center",
     justifyContent: "center",
-    marginBottom: 10
+    marginBottom: 10,
   },
   title: {
     fontSize: 19,
@@ -127,12 +134,12 @@ const styles = StyleSheet.create({
     color: "#0F172A",
     textAlign: "center",
     letterSpacing: 0.2,
-    marginBottom: 6
+    marginBottom: 6,
   },
   subtitle: {
     fontSize: 14,
     color: "#667085",
-    textAlign: "center"
+    textAlign: "center",
   },
   shine: {
     position: "absolute",
@@ -141,10 +148,6 @@ const styles = StyleSheet.create({
     left: -80,
     width: 140,
     opacity: 0.25,
-    transform: [{ rotate: "14deg" }]
-  } as any
+    transform: [{ rotate: "14deg" }],
+  } as any,
 });
-
-
-
-

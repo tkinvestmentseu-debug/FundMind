@@ -2,47 +2,69 @@ import React, { createContext, useContext, useEffect, useMemo, useState } from "
 import { Appearance, ColorSchemeName } from "react-native";
 
 export type ThemeMode = "light" | "dark" | "system";
-export type Tokens = { bg:string; card:string; text:string; muted:string; border:string; tint:string; };
+export type Tokens = {
+  bg: string;
+  card: string;
+  text: string;
+  muted: string;
+  border: string;
+  tint: string;
+};
 
 function tokensFor(s: "light" | "dark"): Tokens {
-  return s === "dark"
-    ? { bg:"#0B1220", card:"#111827", text:"#E5E7EB", muted:"#9CA3AF", border:"#1F2937", tint:"#7C8CFF" }
-    : { bg:"#FFFFFF", card:"#FFFFFF", text:"#0F172A", muted:"#64748B", border:"#E6EDF2", tint:"#6C5CE7" };
+  if (s === "dark") {
+    return {
+      bg: "#0B1220",
+      card: "#121826",
+      text: "#E7ECF4",
+      muted: "#B3C0CF",
+      border: "#263244",
+      tint: "#8B7CFF",
+    };
+  }
+  return {
+    bg: "#FFFFFF",
+    card: "#FFFFFF",
+    text: "#0F172A",
+    muted: "#64748B",
+    border: "#E6EDF2",
+    tint: "#6C5CE7",
+  };
 }
 
-export type ThemeContextValue = { mode:ThemeMode; setMode:(m:ThemeMode)=>void; scheme:"light"|"dark"; tokens:Tokens; };
+export type ThemeContextValue = {
+  mode: ThemeMode;
+  setMode: (m: ThemeMode) => void;
+  scheme: "light" | "dark";
+  tokens: Tokens;
+};
 const ThemeCtx = createContext<ThemeContextValue | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [mode, setMode] = useState<ThemeMode>("system");
   const [sys, setSys] = useState<ColorSchemeName>(Appearance.getColorScheme());
-
   useEffect(() => {
     const sub = Appearance.addChangeListener(({ colorScheme }) => setSys(colorScheme));
     return () => sub.remove();
   }, []);
-
-  const scheme: "light" | "dark" = useMemo(() => {
-    if (mode === "light") return "light";
-    if (mode === "dark") return "dark";
-    return sys === "dark" ? "dark" : "light";
-  }, [mode, sys]);
-
+  const scheme: "light" | "dark" = useMemo(
+    () =>
+      mode === "light" ? "light" : mode === "dark" ? "dark" : sys === "dark" ? "dark" : "light",
+    [mode, sys],
+  );
   const tokens = useMemo(() => tokensFor(scheme), [scheme]);
   const value = useMemo(() => ({ mode, setMode, scheme, tokens }), [mode, scheme, tokens]);
-
   return <ThemeCtx.Provider value={value}>{children}</ThemeCtx.Provider>;
 }
-
 export function useThemeMode(): ThemeContextValue {
-  const ctx = useContext(ThemeCtx);
-  if (!ctx) throw new Error("useThemeMode must be used within ThemeProvider");
-  return ctx;
+  const c = useContext(ThemeCtx);
+  if (!c) throw new Error("useThemeMode must be used within ThemeProvider");
+  return c;
 }
 export function useColorTokens(): Tokens {
-  const ctx = useContext(ThemeCtx);
-  if (!ctx) throw new Error("useColorTokens must be used within ThemeProvider");
-  return ctx.tokens;
+  const c = useContext(ThemeCtx);
+  if (!c) throw new Error("useColorTokens must be used within ThemeProvider");
+  return c.tokens;
 }
 export function getStatusBarStyle(s: "light" | "dark"): "light" | "dark" {
   return s === "dark" ? "light" : "dark";

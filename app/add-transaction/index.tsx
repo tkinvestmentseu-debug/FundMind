@@ -1,6 +1,6 @@
 import React from "react";
-import {  StyleSheet } from "react-native";
-import { ThemedView as View, ThemedText as Text } from "../src/ui/Themed";
+import { StyleSheet } from "react-native";
+import { ThemedView as View, ThemedText as Text } from "../../src/ui/Themed";
 
 import { Stack, useRouter } from "expo-router";
 import { Feather } from "@expo/vector-icons";
@@ -41,7 +41,7 @@ export default function AddTransactionMenu() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#F6F8FB",
+
     alignItems: "center",
     justifyContent: "center",
     paddingHorizontal: 24,
@@ -61,4 +61,3 @@ const styles = StyleSheet.create({
     gap: 20,
   },
 });
-

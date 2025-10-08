@@ -1,6 +1,6 @@
 import React from "react";
-import {  StyleSheet, Pressable } from "react-native";
-import { ThemedText as Text } from "../src/ui/Themed";
+import { StyleSheet, Pressable } from "react-native";
+import { ThemedText as Text } from "../../src/ui/Themed";
 
 import { LinearGradient } from "expo-linear-gradient";
 
@@ -38,4 +38,3 @@ const styles = StyleSheet.create({
     color: "#fff",
   },
 });
-

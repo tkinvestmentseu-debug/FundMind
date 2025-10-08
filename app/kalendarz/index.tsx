@@ -1,21 +1,46 @@
-import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
-
+import { SafeAreaView, useSafeAreaInsets } from "react-native-safe-area-context";
 
 import React from "react";
-import {  StyleSheet } from "react-native";
-import { ThemedView as View, ThemedText as Text, ThemedScrollView as ScrollView } from "../src/ui/Themed";
-
+import { StyleSheet } from "react-native";
+import {
+  ThemedView as View,
+  ThemedText as Text,
+  ThemedScrollView as ScrollView,
+} from "../../src/ui/Themed";
 
 import { Calendar, LocaleConfig } from "react-native-calendars";
 
 LocaleConfig.locales["pl"] = {
   monthNames: [
-    "Styczen","Luty","Marzec","Kwiecien","Maj","Czerwiec",
-    "Lipiec","Sierpien","Wrzesien","Pazdziernik","Listopad","Grudzien"
+    "Styczen",
+    "Luty",
+    "Marzec",
+    "Kwiecien",
+    "Maj",
+    "Czerwiec",
+    "Lipiec",
+    "Sierpien",
+    "Wrzesien",
+    "Pazdziernik",
+    "Listopad",
+    "Grudzien",
   ],
-  monthNamesShort: ["Sty","Lut","Mar","Kwi","Maj","Cze","Lip","Sie","Wrz","Paz","Lis","Gru"],
-  dayNames: ["Niedziela","Poniedzialek","Wtorek","Sroda","Czwartek","Piatek","Sobota"],
-  dayNamesShort: ["Nd","Pn","Wt","Sr","Czw","Pt","So"],
+  monthNamesShort: [
+    "Sty",
+    "Lut",
+    "Mar",
+    "Kwi",
+    "Maj",
+    "Cze",
+    "Lip",
+    "Sie",
+    "Wrz",
+    "Paz",
+    "Lis",
+    "Gru",
+  ],
+  dayNames: ["Niedziela", "Poniedzialek", "Wtorek", "Sroda", "Czwartek", "Piatek", "Sobota"],
+  dayNamesShort: ["Nd", "Pn", "Wt", "Sr", "Czw", "Pt", "So"],
 };
 LocaleConfig.defaultLocale = "pl";
 
@@ -24,8 +49,11 @@ export default function KalendarzScreen() {
   const topPad = Math.max(Math.ceil(insets.top) + 40, 40);
 
   return (
-    <SafeAreaView style={styles.safe} edges={["top","left","right"]}>
-      <ScrollView contentContainerStyle={[styles.container, { paddingTop: topPad }]}>
+    <SafeAreaView style={styles.safe} edges={["top", "left", "right"]}>
+      <ScrollView
+        variant="screen"
+        contentContainerStyle={[styles.container, { paddingTop: topPad }]}
+      >
         <View style={styles.card}>
           <Calendar
             firstDay={1}
@@ -54,22 +82,16 @@ const styles = StyleSheet.create({
   container: { paddingHorizontal: 16, paddingBottom: 24 },
   card: {
     borderRadius: 16,
-    
+
     padding: 8,
     shadowColor: "#000000",
     shadowOpacity: 0.06,
     shadowRadius: 16,
     shadowOffset: { width: 0, height: 6 },
     elevation: 2,
-    marginHorizontal: 2
+    marginHorizontal: 2,
   },
   calendar: { borderRadius: 12 },
   section: { fontSize: 20, fontWeight: "700", marginTop: 20 },
-  empty: { fontSize: 16, color: "#64748B", marginTop: 6 }
+  empty: { fontSize: 16, color: "#64748B", marginTop: 6 },
 });
-
-
-
-
-
-

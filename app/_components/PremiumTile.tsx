@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 import { Pressable, StyleSheet, Platform } from "react-native";
-import { ThemedView as View, ThemedText as Text } from "../src/ui/Themed";
+import { ThemedView as View, ThemedText as Text } from "../../src/ui/Themed";
 
 import { LinearGradient } from "expo-linear-gradient";
 
@@ -44,30 +44,30 @@ const styles = StyleSheet.create({
   // 3 kolumny: width = ~30.8% + space-between w gridzie ⇒ równe odstępy
   tile: {
     width: "30.8%",
-    aspectRatio: 1,        // kwadrat
+    aspectRatio: 1, // kwadrat
     borderRadius: 16,
-    
+
     alignItems: "center",
     justifyContent: "center",
-    marginBottom: 12,      // odstęp pionowy między wierszami
+    marginBottom: 12, // odstęp pionowy między wierszami
     borderWidth: 1,
     borderColor: "#E6EDF2",
     shadowColor: "#000",
     shadowOpacity: 0.05,
     shadowRadius: 7,
     shadowOffset: { width: 0, height: 3 },
-    ...(Platform.OS === "android" ? { elevation: 2 } : {})
+    ...(Platform.OS === "android" ? { elevation: 2 } : {}),
   },
   tilePressed: {
-    shadowOpacity: 0.10,
-    transform: [{ scale: 0.985 }]
+    shadowOpacity: 0.1,
+    transform: [{ scale: 0.985 }],
   },
   badgeShadow: {
     marginBottom: 6,
     shadowColor: "#7C4DFF",
-    shadowOpacity: 0.10,
+    shadowOpacity: 0.1,
     shadowRadius: 6,
-    shadowOffset: { width: 0, height: 4 }
+    shadowOffset: { width: 0, height: 4 },
   },
   badge: {
     width: 42,
@@ -77,18 +77,14 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     borderWidth: 1,
     borderColor: "rgba(124,77,255,0.14)",
-    backgroundColor: "#F6F3FF"
+    backgroundColor: "#F6F3FF",
   },
   label: {
-    fontSize: 13,          // MNIEJSZY tekst
+    fontSize: 13, // MNIEJSZY tekst
     fontWeight: "600",
     color: "#0F172A",
     textAlign: "center",
     lineHeight: 16,
-    paddingHorizontal: 4
-  }
+    paddingHorizontal: 4,
+  },
 });
-
-
-
-

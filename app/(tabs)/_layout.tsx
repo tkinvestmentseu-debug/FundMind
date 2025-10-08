@@ -1,14 +1,12 @@
 import React from "react";
+import { useThemeMode, useTokens } from "../../src/providers/theme";
 import { Tabs } from "expo-router";
-import { useThemeMode, useColorTokens, getStatusBarStyle } from "../../src/providers/theme";
 import { StatusBar } from "expo-status-bar";
 
 export default function TabsLayout() {
-  const { scheme } = useThemeMode();
-  const t = useColorTokens();
-  return (
+  const { scheme } = useThemeMode();const { colors: t } = useTokens();return (
     <>
-      <StatusBar style={getStatusBarStyle(scheme)} />
+      <StatusBar style={(scheme === 'dark' ? 'light' : 'dark')} />
       <Tabs
         screenOptions={{
           headerStyle: { backgroundColor: t.bg },

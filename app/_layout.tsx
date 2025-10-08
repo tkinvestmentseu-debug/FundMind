@@ -1,17 +1,15 @@
 import React from "react";
+import { ThemeProvider, useThemeMode, useTokens } from "../src/providers/theme";
 import { Slot } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
-import { ThemeProvider, useThemeMode, getStatusBarStyle, useColorTokens } from "../src/providers/theme";
 import { SettingsProvider } from "../src/providers/settings";
 
 function Shell() {
-  const { scheme } = useThemeMode();
-  const t = useColorTokens();
-  return (
+  const { scheme } = useThemeMode();const { colors: t } = useTokens();return (
     <SafeAreaProvider>
       <SafeAreaView style={{ flex: 1, backgroundColor: t.bg }}>
-        <StatusBar style={getStatusBarStyle(scheme)} />
+        <StatusBar style={(scheme === 'dark' ? 'light' : 'dark')} />
         <Slot />
       </SafeAreaView>
     </SafeAreaProvider>

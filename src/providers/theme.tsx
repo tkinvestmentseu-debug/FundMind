@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useEffect, useMemo, useState } from "react";
-import { Appearance, ColorSchemeName } from "react-native";
+import { Appearance, type ColorSchemeName } from "react-native";
 
-export type ThemeMode = "light" | "dark" | "system";
+export type ThemeMode = "system" | "light" | "dark";
 
 export type Tokens = {
   bg: string;
@@ -10,26 +10,32 @@ export type Tokens = {
   muted: string;
   border: string;
   tint: string;
+  chipBg: string;
+  chipActiveBg: string;
 };
 
 function computeTokens(scheme: "light" | "dark"): Tokens {
   if (scheme === "dark") {
     return {
       bg: "#0B1220",
-      card: "#111827",
-      text: "#E5E7EB",
-      muted: "#9CA3AF",
-      border: "#1F2937",
-      tint: "#3B82F6"
+      card: "#0F172A",
+      text: "#E6EDF2",
+      muted: "#94A3B8",
+      border: "#1E293B",
+      tint: "#60A5FA",
+      chipBg: "#0F172A",
+      chipActiveBg: "#111827",
     };
   }
   return {
     bg: "#FFFFFF",
-    card: "#F9FAFB",
+    card: "#FFFFFF",
     text: "#111827",
     muted: "#6B7280",
     border: "#E6EDF2",
-    tint: "#2563EB"
+    tint: "#2563EB",
+    chipBg: "#F1F5F9",
+    chipActiveBg: "#E2E8F0",
   };
 }
 
@@ -47,9 +53,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [sys, setSys] = useState<ColorSchemeName>(Appearance.getColorScheme());
 
   useEffect(() => {
-    const sub = Appearance.addChangeListener(({ colorScheme }) => {
-      setSys(colorScheme);
-    });
+    const sub = Appearance.addChangeListener(({ colorScheme }) => setSys(colorScheme));
     return () => sub.remove();
   }, []);
 
@@ -66,6 +70,9 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   return <ThemeCtx.Provider value={value}>{children}</ThemeCtx.Provider>;
 }
 
+// alias dla istniejącego kodu
+export const AppThemeProvider = ThemeProvider;
+
 export function useThemeMode(): ThemeContextValue {
   const ctx = useContext(ThemeCtx);
   if (!ctx) throw new Error("useThemeMode must be used within ThemeProvider");
@@ -73,11 +80,40 @@ export function useThemeMode(): ThemeContextValue {
 }
 
 export function useColorTokens(): Tokens {
-  const ctx = useContext(ThemeCtx);
-  if (!ctx) throw new Error("useColorTokens must be used within ThemeProvider");
-  return ctx.tokens;
+  return useThemeMode().tokens;
 }
 
 export function getStatusBarStyle(scheme: "light" | "dark"): "light" | "dark" {
   return scheme === "dark" ? "light" : "dark";
+}
+
+/** Legacy alias – zachowuje stary kształt API: const { colors } = useTokens() */
+export function useTokens(): { colors: Tokens } & Tokens {
+  // użyj systemowego schematu jak w starym kodzie:
+  // jeśli w pliku jest już jakaś logika kolorów, weź istniejące Tokens; tu fallback prosty.
+  const scheme = (typeof window === 'undefined'
+    ? undefined
+    : (require("react-native").Appearance?.getColorScheme?.() ?? undefined)) === 'dark' ? 'dark' : 'light';
+
+  const colors: Tokens = (function(){
+    // spróbuj odczytać z ewentualnych helperów; jeżeli ich nie ma, fallback:
+    try {
+      // jeśli plik ma computeTokens(scheme)
+      // @ts-ignore
+      if (typeof computeTokens === 'function') { return computeTokens(scheme); }
+    } catch {}
+    return {
+      bg:    scheme === 'dark' ? "#0B1220" : "#FFFFFF",
+      card:  scheme === 'dark' ? "#0F172A" : "#F8FAFC",
+      text:  scheme === 'dark' ? "#E6EDF2" : "#0B1220",
+      muted: scheme === 'dark' ? "#94A3B8" : "#6B7280",
+      border:scheme === 'dark' ? "#1E293B" : "#E6EDF2",
+      primary:"#2563EB",
+      chipBg:        scheme === 'dark' ? "#0F172A" : "#F1F5F9",
+      chipActiveBg:  scheme === 'dark' ? "#111827" : "#E2E8F0",
+      tint: "#2563EB"
+    } as Tokens;
+  })();
+
+  return { colors, ...colors };
 }

@@ -1,1 +1,0 @@
-OK: klucz zaakceptowany; id=chatcmpl-COMMfAOSwXZ4bT4L87vV7YbH26ITj; model=gpt-4o-mini-2024-07-18

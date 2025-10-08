@@ -1,6 +1,0 @@
-=== I18N EN FINALIZE REPORT ===
-en.json: D:\FundMind\app\locales\en.json
-Changed: 1
-
----- CHANGED KEYS ----
-HH:mm = HH:mm

@@ -1,8 +1,0 @@
-Invoke-RestMethod: D:\FundMind\tools\chatgpt-cli.ps1:71:11
-Line |
-  71 |    $resp = Invoke-RestMethod -Method Post -Uri (($ApiBase.TrimEnd('/') …
-     |            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     |  {   "error": {     "message": "Incorrect API key provided:
-     | sk-proj-********************************************************************************************************************************************************pCIA. You can find your API key at https://platform.openai.com/account/api-keys.",     "type": "invalid_request_error",     "param": null,     "code": "invalid_api_key"   } }
-
-

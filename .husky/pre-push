@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo "▶ pre-push: typecheck + (opcjonalnie) testy"
+npm run typecheck || exit 1
+
+if [ -z "$SKIP_TESTS" ]; then
+  npm run test:ci || exit 1
+else
+  echo "SKIP_TESTS=1 -> pomijam testy"
+fi
+
+echo "✓ pre-push OK"

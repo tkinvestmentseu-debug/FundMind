@@ -1,6 +1,5 @@
 import React from "react";
 import { Slot } from "expo-router";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import { AppThemeProvider } from "../app_providers/theme";
+import { AppThemeProvider } from "./_providers/theme";
 export default function RootLayout() { return ( <AppThemeProvider><SafeAreaProvider><Slot /></SafeAreaProvider></AppThemeProvider> ); }
-

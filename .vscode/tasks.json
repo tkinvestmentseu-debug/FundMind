@@ -1,0 +1,63 @@
+{
+  "version": "2.0.0",
+  "inputs": [
+    {
+      "id": "askText",
+      "type": "promptString",
+      "description": "Question for ChatGPT",
+      "default": "Short, actionable answer with concrete steps."
+    }
+  ],
+  "tasks": [
+    {
+      "label": "FundMind: Ask ChatGPT",
+      "type": "shell",
+      "command": "pwsh",
+      "args": [
+        "-NoLogo","-NoProfile","-ExecutionPolicy","Bypass",
+        "-File","D:\\FundMind\\tools\\chatgpt-cli.ps1",
+        "-Prompt","${input:askText}",
+        "-File","${file}"
+      ],
+      "options": { "cwd": "D:\\FundMind" },
+      "problemMatcher": []
+    },
+    {
+      "label": "FundMind: Ask (no file)",
+      "type": "shell",
+      "command": "pwsh",
+      "args": [
+        "-NoLogo","-NoProfile","-ExecutionPolicy","Bypass",
+        "-File","D:\\FundMind\\tools\\chatgpt-cli.ps1",
+        "-Prompt","${input:askText}"
+      ],
+      "options": { "cwd": "D:\\FundMind" },
+      "problemMatcher": []
+    },
+    {
+      "label": "FundMind: Ask selection (clipboard)",
+      "type": "shell",
+      "command": "pwsh",
+      "args": [
+        "-NoLogo","-NoProfile","-ExecutionPolicy","Bypass",
+        "-File","D:\\FundMind\\tools\\ask-selection.ps1",
+        "-Prompt","${input:askText}"
+      ],
+      "options": { "cwd": "D:\\FundMind" },
+      "problemMatcher": []
+    },
+    {
+      "label": "FundMind: Explain current file",
+      "type": "shell",
+      "command": "pwsh",
+      "args": [
+        "-NoLogo","-NoProfile","-ExecutionPolicy","Bypass",
+        "-File","D:\\FundMind\\tools\\chatgpt-cli.ps1",
+        "-Prompt","Explain this file in the FundMind RN/Expo context and propose minimal, production-safe fixes with exact paths and diffs.",
+        "-File","${file}"
+      ],
+      "options": { "cwd": "D:\\FundMind" },
+      "problemMatcher": []
+    }
+  ]
+}

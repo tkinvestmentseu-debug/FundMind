@@ -1,0 +1,20 @@
+import { SafeAreaProvider } from "react-native-safe-area-context";
+
+import React from "react";
+import { Slot } from "expo-router";
+
+import { SettingsProvider } from "../src/contexts/SettingsContext";
+
+export default function RootLayout() {
+  return (
+    <SafeAreaProvider>
+      <SettingsProvider>
+        <Slot />
+      </SettingsProvider>
+    </SafeAreaProvider>
+  );
+}
+
+
+
+

@@ -1,0 +1,5 @@
+[20251008-125343] VSCode-ChatGPT bridge installed/updated
+Project: D:\FundMind
+Tools:   D:\FundMind\tools\chatgpt-cli.ps1
+Tasks:   D:\FundMind\.vscode\tasks.json
+Settings:D:\FundMind\.vscode\settings.json

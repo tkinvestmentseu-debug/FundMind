@@ -1,0 +1,5 @@
+[
+  { "key": "ctrl+alt+a", "command": "workbench.action.tasks.runTask", "args": "FundMind: Ask ChatGPT" },
+  { "key": "ctrl+alt+e", "command": "workbench.action.tasks.runTask", "args": "FundMind: Explain current file" },
+  { "key": "ctrl+alt+s", "command": "workbench.action.tasks.runTask", "args": "FundMind: Ask selection (clipboard)" }
+]

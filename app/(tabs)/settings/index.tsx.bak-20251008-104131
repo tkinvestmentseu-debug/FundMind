@@ -1,0 +1,30 @@
+import React from "react";
+import { View, Text, Pressable } from "react-native";
+import { useAppTheme } from "../../_providers/theme";
+
+type Mode = "system" | "light" | "dark";
+
+function Row({ label, value, current, onSelect }: { label: string; value: Mode; current: Mode; onSelect: (m: Mode) => void; }) {
+  const selected = current === value;
+  return (
+    <Pressable
+      onPress={() => onSelect(value)}
+      style={{ paddingVertical: 14, paddingHorizontal: 16, flexDirection: "row", alignItems: "center", justifyContent: "space-between", borderBottomWidth: 1, borderBottomColor: "#00000011" }}
+      android_ripple={{ color: "#00000010" }}
+    >
+      <Text style={{ fontSize: 16 }}>{label}</Text>
+      <Text accessibilityRole="text" style={{ fontSize: 16 }}>{selected ? "●" : "○"}</Text>
+    </Pressable>
+  );
+}
+
+export default function SettingsScreen() {
+  const { mode, setMode } = useAppTheme();
+  return (
+    <View style={{ flex: 1, paddingTop: 8 }}>
+      <Row label="Tryb systemowy" value="system" current={mode} onSelect={setMode} />
+      <Row label="Jasny" value="light" current={mode} onSelect={setMode} />
+      <Row label="Ciemny" value="dark" current={mode} onSelect={setMode} />
+    </View>
+  );
+}

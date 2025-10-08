@@ -1,0 +1,5 @@
+CI cleanup done:
+ - package.json scripts normalized
+ - .github/workflows/expo-eas-ci.yml written
+ - other workflows renamed *.disabled (deactivated)
+ - eas.json ensured (preview)

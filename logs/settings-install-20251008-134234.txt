@@ -1,0 +1,14 @@
+typecheck: FAILED
+Start-Process: 
+Line |
+  12 |    $p1 = Start-Process -FilePath 'npm' -ArgumentList @('run','typechec …
+     |          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | This command cannot be run due to the error: %1 nie jest prawidłową aplikacją systemu Win32.
+
+tests: SKIPPED or FAILED
+Start-Process: 
+Line |
+  22 |    $p2 = Start-Process -FilePath 'npm' -ArgumentList @('run',$scriptNa …
+     |          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | This command cannot be run due to the error: %1 nie jest prawidłową aplikacją systemu Win32.
+

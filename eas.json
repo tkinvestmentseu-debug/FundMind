@@ -1,0 +1,7 @@
+{
+  "cli": { "version": ">= 13.0.0" },
+  "build": {
+    "preview": { "developmentClient": false, "autoIncrement": "version", "channel": "preview" }
+  },
+  "submit": { "production": {} }
+}

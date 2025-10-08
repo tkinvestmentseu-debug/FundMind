@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ThemedView as View, ThemedText as Text } from "../../src/ui/Themed";
+import { ThemedView as View, ThemedText as Text } from "../src/ui/Themed";
 
 import { Stack } from "expo-router";
 
@@ -15,6 +15,5 @@ export default function InvestmentsScreen() {
     </>
   );
 }
-
 
 

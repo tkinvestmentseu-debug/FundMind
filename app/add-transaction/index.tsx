@@ -1,6 +1,6 @@
 import React from "react";
 import {  StyleSheet } from "react-native";
-import { ThemedView as View, ThemedText as Text } from "../../src/ui/Themed";
+import { ThemedView as View, ThemedText as Text } from "../src/ui/Themed";
 
 import { Stack, useRouter } from "expo-router";
 import { Feather } from "@expo/vector-icons";
@@ -61,5 +61,4 @@ const styles = StyleSheet.create({
     gap: 20,
   },
 });
-
 

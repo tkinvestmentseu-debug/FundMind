@@ -1,6 +1,6 @@
 import React from 'react';
 import {  StyleSheet, Pressable } from 'react-native';
-import { ThemedView as View, ThemedText as Text } from "../../src/ui/Themed";
+import { ThemedView as View, ThemedText as Text } from "../src/ui/Themed";
 
 import { useRouter } from 'expo-router';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
@@ -28,5 +28,4 @@ const styles = StyleSheet.create({
   btn: { marginTop:18, paddingHorizontal:16, paddingVertical:10, borderRadius:12, backgroundColor:'#6D4AFF' },
   btnText: { color:'#fff', fontWeight:'700' }
 });
-
 

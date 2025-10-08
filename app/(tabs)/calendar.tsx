@@ -3,7 +3,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Stack } from "expo-router";
 import React, { useMemo, useState } from "react";
 import {  StyleSheet, Modal, TextInput, Pressable, Platform, FlatList } from "react-native";
-import { ThemedView as View, ThemedText as Text } from "../../src/ui/Themed";
+import { ThemedView as View, ThemedText as Text } from "../src/ui/Themed";
 
 import { Calendar, LocaleConfig } from "react-native-calendars";
 import DateTimePicker from "@react-native-community/datetimepicker";
@@ -280,7 +280,6 @@ function _CalendarTopSpacer(){
   const top = Math.max(Math.ceil(insets.top) + 32, 32);
   return <View style={{ height: top }} />;
 }
-
 
 
 

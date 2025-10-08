@@ -3,7 +3,7 @@ import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context'
 
 import React from "react";
 import {  StyleSheet } from "react-native";
-import { ThemedView as View, ThemedText as Text, ThemedScrollView as ScrollView } from "../../src/ui/Themed";
+import { ThemedView as View, ThemedText as Text, ThemedScrollView as ScrollView } from "../src/ui/Themed";
 
 
 import { Calendar, LocaleConfig } from "react-native-calendars";
@@ -67,7 +67,6 @@ const styles = StyleSheet.create({
   section: { fontSize: 20, fontWeight: "700", marginTop: 20 },
   empty: { fontSize: 16, color: "#64748B", marginTop: 6 }
 });
-
 
 
 

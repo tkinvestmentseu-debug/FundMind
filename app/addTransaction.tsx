@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
   card: {
     width: '90%',
     maxWidth: 400,              // premium modal look
-    
+    backgroundColor: '#FFFFFF',
     borderRadius: 16,
     padding: 20,
     shadowColor: '#000',
@@ -111,5 +111,4 @@ const styles = StyleSheet.create({
 });
 
 export default AddTransaction;
-
 

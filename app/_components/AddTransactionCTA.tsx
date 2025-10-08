@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import {  Pressable, StyleSheet, Animated, Easing, Platform } from "react-native";
-import { ThemedView as View, ThemedText as Text } from "../../src/ui/Themed";
+import { ThemedView as View, ThemedText as Text } from "../src/ui/Themed";
 
 import { Link } from "expo-router";
 import { LinearGradient } from "expo-linear-gradient";
@@ -144,7 +144,6 @@ const styles = StyleSheet.create({
     transform: [{ rotate: "14deg" }]
   } as any
 });
-
 
 
 

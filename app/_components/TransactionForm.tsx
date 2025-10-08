@@ -4,7 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 import React, { useState } from "react";
 import {  TextInput, Image, StyleSheet, Pressable, Alert } from "react-native";
-import { ThemedView as View, ThemedText as Text, ThemedScrollView as ScrollView } from "../../src/ui/Themed";
+import { ThemedView as View, ThemedText as Text, ThemedScrollView as ScrollView } from "../src/ui/Themed";
 
 import * as ImagePicker from "expo-image-picker";
 import { Feather } from "@expo/vector-icons";
@@ -132,7 +132,6 @@ const styles = StyleSheet.create({
   },
   saveText: { color: "#fff", fontWeight: "800", fontSize: 16 }
 });
-
 
 
 

@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import {  PanResponder, GestureResponderEvent, PanResponderGestureState } from "react-native";
-import { ThemedView as View } from "../../src/ui/Themed";
+import { ThemedView as View } from "../src/ui/Themed";
 
 import { useRouter } from "expo-router";
 
@@ -45,5 +45,4 @@ export default function SwipeBack({ children, edgeWidth = 30, trigger = 60, velo
     </View>
   );
 }
-
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {  StyleSheet, Pressable, TextInput, Alert } from "react-native";
-import { ThemedView as View, ThemedText as Text, ThemedScrollView as ScrollView } from "../../src/ui/Themed";
+import { ThemedView as View, ThemedText as Text, ThemedScrollView as ScrollView } from "../src/ui/Themed";
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
@@ -96,5 +96,4 @@ const styles = StyleSheet.create({
   chip: { backgroundColor: "#F1F5FF", borderRadius: 999, paddingHorizontal: 10, paddingVertical: 6 },
   chipText: { color: "#0A84FF", fontWeight: "700" },
 });
-
 

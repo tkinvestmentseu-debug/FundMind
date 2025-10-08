@@ -1,6 +1,6 @@
 import React from 'react';
 import { Pressable, StyleSheet, Platform } from "react-native";
-import { ThemedView as View, ThemedText as Text } from "../../src/ui/Themed";
+import { ThemedView as View, ThemedText as Text } from "../src/ui/Themed";
 
 import { LinearGradient } from "expo-linear-gradient";
 
@@ -88,7 +88,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 4
   }
 });
-
 
 
 

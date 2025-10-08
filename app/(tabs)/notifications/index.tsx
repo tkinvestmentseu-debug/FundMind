@@ -1,6 +1,6 @@
 import React from "react";
 import { SafeAreaView, StyleSheet } from "react-native";
-import { ThemedText as Text } from "../../../src/ui/Themed";
+import { ThemedText as Text } from "../../src/ui/Themed";
 
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
@@ -36,5 +36,4 @@ const styles = StyleSheet.create({
     color: "#7C8A96",
   },
 });
-
 

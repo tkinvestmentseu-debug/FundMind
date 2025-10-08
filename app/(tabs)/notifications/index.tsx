@@ -1,5 +1,7 @@
 import React from "react";
-import { SafeAreaView, Text, StyleSheet } from "react-native";
+import { SafeAreaView, StyleSheet } from "react-native";
+import { ThemedText as Text } from "../../../src/ui/Themed";
+
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 // Premium design for Notifications screen
@@ -34,3 +36,5 @@ const styles = StyleSheet.create({
     color: "#7C8A96",
   },
 });
+
+

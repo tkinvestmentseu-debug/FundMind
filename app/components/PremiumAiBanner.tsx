@@ -1,5 +1,7 @@
 import React, { useEffect, useRef } from "react";
-import { Pressable, Text, StyleSheet, Animated, View , Easing } from "react-native";
+import { Pressable, StyleSheet, Animated , Easing } from "react-native";
+import { ThemedView as View, ThemedText as Text } from "../../src/ui/Themed";
+
 import { LinearGradient } from "expo-linear-gradient";
 import { Sparkles } from "lucide-react-native";
 
@@ -157,6 +159,8 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
 });
+
+
 
 
 

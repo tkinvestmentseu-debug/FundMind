@@ -1,5 +1,7 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import {  StyleSheet } from "react-native";
+import { ThemedView as View, ThemedText as Text } from "../../src/ui/Themed";
+
 import { Stack, useRouter } from "expo-router";
 import { Feather } from "@expo/vector-icons";
 import GradientTile from "../_components/GradientTile";
@@ -59,3 +61,5 @@ const styles = StyleSheet.create({
     gap: 20,
   },
 });
+
+

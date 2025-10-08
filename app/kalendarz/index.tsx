@@ -2,7 +2,9 @@ import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context'
 
 
 import React from "react";
-import { View, Text, StyleSheet, ScrollView } from "react-native";
+import {  StyleSheet } from "react-native";
+import { ThemedView as View, ThemedText as Text, ThemedScrollView as ScrollView } from "../../src/ui/Themed";
+
 
 import { Calendar, LocaleConfig } from "react-native-calendars";
 
@@ -52,7 +54,7 @@ const styles = StyleSheet.create({
   container: { paddingHorizontal: 16, paddingBottom: 24 },
   card: {
     borderRadius: 16,
-    backgroundColor: "#FFFFFF",
+    
     padding: 8,
     shadowColor: "#000000",
     shadowOpacity: 0.06,
@@ -65,6 +67,9 @@ const styles = StyleSheet.create({
   section: { fontSize: 20, fontWeight: "700", marginTop: 20 },
   empty: { fontSize: 16, color: "#64748B", marginTop: 6 }
 });
+
+
+
 
 
 

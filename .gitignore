@@ -41,3 +41,5 @@ __tests__disabled__/
 _archive/
 _backup/
 .history/
+**/openai.key
+tools/scan/

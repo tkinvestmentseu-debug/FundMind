@@ -6,7 +6,9 @@ import { router } from "expo-router";
 import HeaderLogo from '../../components/HeaderLogo';
 
 import React from "react";
-import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Image } from "react-native";
+import {  StyleSheet, TouchableOpacity, Image } from "react-native";
+import { ThemedView as View, ThemedText as Text, ThemedScrollView as ScrollView } from "../../src/ui/Themed";
+
 import { Feather, MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
 
 import PagerView from "react-native-pager-view";
@@ -127,7 +129,7 @@ function Tile({ icon, label }: TileProps) {
 }
 
 const styles = StyleSheet.create({
-  scroll: { paddingHorizontal: 16, paddingTop: 8, paddingBottom: 16, backgroundColor: "#F4F7FA"},
+  scroll: { paddingHorizontal: 16, paddingTop: 8, paddingBottom: 16, },
   logoBox: { alignItems: "center", marginVertical: 8 },
   logo: { width: 96, height: 96, resizeMode: "contain", marginBottom: 8 },
   card: {
@@ -182,6 +184,9 @@ const styles = StyleSheet.create({
   accentLine: { height: 2, borderRadius: 999, marginTop: 4, marginBottom: 8, opacity: 0.9 },
   iconWrap: { width: 28, height: 28, borderRadius: 14, alignItems: "center", justifyContent: "center", backgroundColor: "#EEF2FF", borderWidth: 1, borderColor: "#E4E9F5" },
 });
+
+
+
 
 
 

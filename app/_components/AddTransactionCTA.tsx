@@ -1,5 +1,7 @@
 import React, { useEffect, useRef } from "react";
-import { View, Text, Pressable, StyleSheet, Animated, Easing, Platform } from "react-native";
+import {  Pressable, StyleSheet, Animated, Easing, Platform } from "react-native";
+import { ThemedView as View, ThemedText as Text } from "../../src/ui/Themed";
+
 import { Link } from "expo-router";
 import { LinearGradient } from "expo-linear-gradient";
 import { Feather } from "@expo/vector-icons";
@@ -97,7 +99,7 @@ const styles = StyleSheet.create({
   },
   inner: {
     borderRadius: RADIUS_INNER,
-    backgroundColor: "#FFFFFF",
+    
     paddingVertical: 20,
     paddingHorizontal: 20,
     overflow: "hidden",
@@ -142,5 +144,8 @@ const styles = StyleSheet.create({
     transform: [{ rotate: "14deg" }]
   } as any
 });
+
+
+
 
 

@@ -2,7 +2,9 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { Stack } from "expo-router";
 import React, { useMemo, useState } from "react";
-import { View, Text, StyleSheet, Modal, TextInput, Pressable, Platform, FlatList } from "react-native";
+import {  StyleSheet, Modal, TextInput, Pressable, Platform, FlatList } from "react-native";
+import { ThemedView as View, ThemedText as Text } from "../../src/ui/Themed";
+
 import { Calendar, LocaleConfig } from "react-native-calendars";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import dayjs from "dayjs";
@@ -204,11 +206,11 @@ export default function CalendarScreen() {
 }
 
 const styles = StyleSheet.create({
-  screen: { flex: 1, backgroundColor: "#F4F7FA"},
+  screen: { flex: 1, },
   card: {
     marginHorizontal: 16,
     borderRadius: 16,
-    backgroundColor: "#F4F7FA",
+    
     padding: 8,
     shadowColor: "#000",
     shadowOpacity: 0.06,
@@ -222,7 +224,7 @@ const styles = StyleSheet.create({
   empty: { marginTop: 8, marginHorizontal: 16, color: "#6B7280" },
   eventCard: {
     marginTop: 8,
-    backgroundColor: "#F4F7FA",
+    
     borderRadius: 12,
     padding: 12,
     shadowColor: "#000",
@@ -254,14 +256,14 @@ const styles = StyleSheet.create({
   },
 
   modalBackdrop: { flex: 1, backgroundColor: "rgba(0,0,0,0.35)", padding: 16, justifyContent: "center" },
-  modalCard: { backgroundColor: "#F4F7FA", borderRadius: 16, padding: 16 },
+  modalCard: {  borderRadius: 16, padding: 16 },
   modalTitle: { fontSize: 18, fontWeight: "700", marginBottom: 12 },
   input: {
     borderWidth: 1, borderColor: "#E1E8EF", borderRadius: 10,
-    paddingHorizontal: 12, paddingVertical: 10, marginBottom: 12, backgroundColor: "#F4F7FA",
+    paddingHorizontal: 12, paddingVertical: 10, marginBottom: 12, 
   },
   timeRow: { flexDirection: "row", gap: 12, marginBottom: 8 },
-  timeBtn: { flex: 1, borderWidth: 1, borderColor: "#E1E8EF", borderRadius: 10, padding: 12, backgroundColor: "#F4F7FA" },
+  timeBtn: { flex: 1, borderWidth: 1, borderColor: "#E1E8EF", borderRadius: 10, padding: 12, },
   timeLabel: { fontSize: 12, color: "#6B7280" },
   timeValue: { fontSize: 16, fontWeight: "600", marginTop: 2 },
 
@@ -278,6 +280,9 @@ function _CalendarTopSpacer(){
   const top = Math.max(Math.ceil(insets.top) + 32, 32);
   return <View style={{ height: top }} />;
 }
+
+
+
 
 
 

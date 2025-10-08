@@ -3,7 +3,9 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 
 import React, { useState } from "react";
-import { View, Text, TextInput, Image, StyleSheet, ScrollView, Pressable, Alert } from "react-native";
+import {  TextInput, Image, StyleSheet, Pressable, Alert } from "react-native";
+import { ThemedView as View, ThemedText as Text, ThemedScrollView as ScrollView } from "../../src/ui/Themed";
+
 import * as ImagePicker from "expo-image-picker";
 import { Feather } from "@expo/vector-icons";
 
@@ -82,7 +84,7 @@ const [imageUri, setImageUri] = useState<string | null>(null);
 }
 
 const styles = StyleSheet.create({
-  safe: { flex: 1, backgroundColor: "#F4F7FA" },
+  safe: { flex: 1, },
   scroll: { padding: 16 },
   card: {
     backgroundColor: "#fff",
@@ -130,6 +132,9 @@ const styles = StyleSheet.create({
   },
   saveText: { color: "#fff", fontWeight: "800", fontSize: 16 }
 });
+
+
+
 
 
 

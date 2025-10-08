@@ -1,5 +1,7 @@
 import React from 'react';
-import { Pressable, View, Text, StyleSheet, Platform } from "react-native";
+import { Pressable, StyleSheet, Platform } from "react-native";
+import { ThemedView as View, ThemedText as Text } from "../../src/ui/Themed";
+
 import { LinearGradient } from "expo-linear-gradient";
 
 /**
@@ -44,7 +46,7 @@ const styles = StyleSheet.create({
     width: "30.8%",
     aspectRatio: 1,        // kwadrat
     borderRadius: 16,
-    backgroundColor: "#FFFFFF",
+    
     alignItems: "center",
     justifyContent: "center",
     marginBottom: 12,      // odstęp pionowy między wierszami
@@ -86,5 +88,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 4
   }
 });
+
+
+
 
 

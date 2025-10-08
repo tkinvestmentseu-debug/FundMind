@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TextInput, Pressable, Alert, Image } from 'react-native';
+import {  StyleSheet, TextInput, Pressable, Alert, Image } from 'react-native';
+import { ThemedView as View, ThemedText as Text } from "src/ui/Themed";
+
 import { Stack } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 
@@ -68,7 +70,7 @@ const styles = StyleSheet.create({
   card: {
     width: '90%',
     maxWidth: 400,              // premium modal look
-    backgroundColor: '#FFFFFF',
+    
     borderRadius: 16,
     padding: 20,
     shadowColor: '#000',
@@ -109,3 +111,5 @@ const styles = StyleSheet.create({
 });
 
 export default AddTransaction;
+
+

@@ -1,5 +1,7 @@
 import React from "react";
-import { View, Text } from "react-native";
+
+import { ThemedView as View, ThemedText as Text } from "../../src/ui/Themed";
+
 import { Stack } from "expo-router";
 
 export default function InvestmentsScreen() {
@@ -13,4 +15,6 @@ export default function InvestmentsScreen() {
     </>
   );
 }
+
+
 

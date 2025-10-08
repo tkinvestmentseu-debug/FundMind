@@ -1,5 +1,7 @@
 import React from "react";
-import { Text, StyleSheet, Pressable } from "react-native";
+import {  StyleSheet, Pressable } from "react-native";
+import { ThemedText as Text } from "../../src/ui/Themed";
+
 import { LinearGradient } from "expo-linear-gradient";
 
 export default function GradientTile({ label, icon, onPress }) {
@@ -36,3 +38,5 @@ const styles = StyleSheet.create({
     color: "#fff",
   },
 });
+
+

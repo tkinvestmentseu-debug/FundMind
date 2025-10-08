@@ -1,48 +1,25 @@
-import { SettingsProvider } from "../../src/contexts/SettingsContext";
 import React from "react";
 import { Tabs } from "expo-router";
-import Ionicons from "@expo/vector-icons/Ionicons";
+import { useThemeMode, useColorTokens, getStatusBarStyle } from "../../src/providers/theme";
+import { StatusBar } from "expo-status-bar";
 
 export default function TabsLayout() {
+  const { scheme } = useThemeMode();
+  const t = useColorTokens();
   return (
-    <Tabs screenOptions={{ headerShown: false }}>
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: "Start",
-          tabBarIcon: ({ color, size }: { color: string; size: number }) => (
-            <Ionicons name={"home-outline" as any} size={size} color={color} />
-          ),
+    <>
+      <StatusBar style={getStatusBarStyle(scheme)} />
+      <Tabs
+        screenOptions={{
+          headerStyle: { backgroundColor: t.bg },
+          headerTitleStyle: { color: t.text },
+          headerShadowVisible: false,
+          tabBarActiveTintColor: t.tint,
+          tabBarInactiveTintColor: t.muted,
+          tabBarStyle: { backgroundColor: t.bg, borderTopColor: t.border },
+          sceneContainerStyle: { backgroundColor: t.bg },
         }}
       />
-      <Tabs.Screen
-        name="calendar"
-        options={{
-          title: "Kalendarz",
-          tabBarIcon: ({ color, size }: { color: string; size: number }) => (
-            <Ionicons name={"calendar-outline" as any} size={size} color={color} />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="notifications/index"
-        options={{
-          title: "Powiadomienia",
-          tabBarIcon: ({ color, size }: { color: string; size: number }) => (
-            <Ionicons name={"notifications-outline" as any} size={size} color={color} />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="settings/index"
-        options={{
-          title: "Ustawienia",
-          tabBarIcon: ({ color, size }: { color: string; size: number }) => (
-            <Ionicons name={"settings-outline" as any} size={size} color={color} />
-          ),
-        }}
-      />
-    </Tabs>
+    </>
   );
 }
-

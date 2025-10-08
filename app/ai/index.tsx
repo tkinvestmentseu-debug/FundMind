@@ -1,5 +1,7 @@
-﻿import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import React from "react";
+import {  StyleSheet } from "react-native";
+import { ThemedView as View, ThemedText as Text } from "../../src/ui/Themed";
+
 
 export default function AiScreen() {
   return (
@@ -11,6 +13,9 @@ export default function AiScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, alignItems: "center", justifyContent: "center", padding: 24, backgroundColor: "#F4F7FA"},
+  container: { flex: 1, alignItems: "center", justifyContent: "center", padding: 24, },
   title: { fontSize: 24, fontWeight: "700", marginBottom: 8 }
 });
+
+
+

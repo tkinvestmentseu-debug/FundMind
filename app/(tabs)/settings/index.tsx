@@ -1,40 +1,100 @@
+import type { SettingsState as Ctx } from '../../../src/providers/settings';
 import React from "react";
-import { View, Text, Pressable, StyleSheet } from "react-native";
-import { useThemeMode } from "../../../app_providers/theme";
+import { Pressable, Switch, View } from "react-native";
+import { ThemedView, ThemedText } from "../../../src/ui/Themed";
+import { useThemeMode } from "../../../src/providers/theme";
+import { useSettings } from "../../../src/providers/settings";
 
-function Choice({ label, active, onPress }: { label: string; active: boolean; onPress: () => void }) {
+function Row({ label, right }: { label: string; right: React.ReactNode }) {
   return (
-    <Pressable onPress={onPress} style={[styles.chip, active && styles.chipActive]}>
-      <Text style={[styles.chipText, active && styles.chipTextActive]}>{label}</Text>
+    <View style={{ paddingVertical: 12, paddingHorizontal: 16, borderBottomWidth: 1, borderColor: "#E6EDF2", flexDirection: "row", alignItems: "center", justifyContent: "space-between" }}>
+      <ThemedText style={{ fontWeight: "700" }}>{label}</ThemedText>
+      {right}
+    </View>
+  );
+}
+
+function SegButton({ text, active, onPress }: { text: string; active: boolean; onPress: () => void }) {
+  return (
+    <Pressable onPress={onPress} style={({ pressed }) => ({
+      paddingHorizontal: 12,
+      paddingVertical: 6,
+      borderRadius: 10,
+      borderWidth: 1,
+      borderColor: active ? "#2563EB" : "#E6EDF2",
+      opacity: pressed ? 0.8 : 1
+    })}>
+      <ThemedText style={{ color: active ? "#2563EB" : undefined, fontWeight: active ? "700" : "400" }}>{text}</ThemedText>
     </Pressable>
   );
 }
 
 export default function SettingsScreen() {
-  const { mode, setMode, resolved } = useThemeMode();
+  const { mode, setMode } = useThemeMode();
+  const { settings, set } = useSettings();
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.h1}>Ustawienia</Text>
-      <Text style={styles.label}>Motyw</Text>
-      <View style={styles.row}>
-        <Choice label="Jasny" active={mode === "light"} onPress={() => setMode("light")} />
-        <Choice label="Ciemny" active={mode === "dark"} onPress={() => setMode("dark")} />
-        <Choice label="Auto" active={mode === "system"} onPress={() => setMode("system")} />
-      </View>
-      <Text style={styles.help}>Bieżący efekt: {resolved}</Text>
-    </View>
+    <ThemedView style={{ flex: 1 }}>
+      <View style={{ height: 12 }} />
+      {/* Motyw */}
+      <Row
+        label="Motyw"
+        right={
+          <View style={{ flexDirection: "row", gap: 8 }}>
+            <SegButton text="Jasny" active={mode === "light"} onPress={() => setMode("light")} />
+            <SegButton text="Ciemny" active={mode === "dark"} onPress={() => setMode("dark")} />
+            <SegButton text="System" active={mode === "system"} onPress={() => setMode("system")} />
+          </View>
+        }
+      />
+
+      {/* Waluta */}
+      <Row
+        label="Waluta"
+        right={
+          <View style={{ flexDirection: "row", gap: 8 }}>
+            {(["PLN","EUR","USD"] as const).map(c => (
+              <SegButton key={c} text={c} active={settings.currency === c} onPress={() => set("currency", c)} />
+            ))}
+          </View>
+        }
+      />
+
+      {/* Powiadomienia */}
+      <Row
+        label="Powiadomienia"
+        right={<Switch value={settings.notifications} onValueChange={(v) => set("notifications", v)} />}
+      />
+
+      {/* Blokada biometryczna */}
+      <Row
+        label="Blokada biometryczna"
+        right={<Switch value={settings.biometrics} onValueChange={(v) => set("biometrics", v)} />}
+      />
+
+      {/* Synchronizacja tylko Wi-Fi */}
+      <Row
+        label="Synchronizacja tylko Wi-Fi"
+        right={<Switch value={settings.wifiOnly} onValueChange={(v) => set("wifiOnly", v)} />}
+      />
+
+      {/* Język */}
+      <Row
+        label="Język"
+        right={
+          <View style={{ flexDirection: "row", gap: 8 }}>
+            {(["pl","en"] as const).map(l => (
+              <SegButton key={l} text={l.toUpperCase()} active={settings.language === l} onPress={() => set("language", l)} />
+            ))}
+          </View>
+        }
+      />
+
+      {/* Analityka */}
+      <Row
+        label="Analityka"
+        right={<Switch value={settings.analytics} onValueChange={(v) => set("analytics", v)} />}
+      />
+    </ThemedView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: { flex: 1, padding: 16, gap: 12 },
-  h1: { fontSize: 22, fontWeight: "600", marginBottom: 8 },
-  label: { fontSize: 16, opacity: 0.8 },
-  row: { flexDirection: "row", columnGap: 8, gap: 8 },
-  chip: { paddingVertical: 8, paddingHorizontal: 12, borderRadius: 999, borderWidth: 1, borderColor: "#888" },
-  chipActive: { backgroundColor: "#555", borderColor: "#555" },
-  chipText: { color: "#222" },
-  chipTextActive: { color: "#fff" },
-  help: { marginTop: 8, opacity: 0.7 },
-});
-

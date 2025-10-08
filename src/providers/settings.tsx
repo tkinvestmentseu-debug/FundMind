@@ -1,71 +1,76 @@
-import * as React from "react";
-
-export type Language = "pl" | "en";
-export type Currency = "PLN" | "USD" | "EUR";
-
 export type SettingsState = {
-  language: Language; setLanguage: (l: Language) => void;
-
+  language: "pl" | "en"; setLanguage: (l: "pl" | "en") => void;
   notifications: boolean; setNotifications: (v: boolean) => void;
-
-  /** główne pole + aliasy zgodne z istniejącym kodem */
   biometricLock: boolean; setBiometricLock: (v: boolean) => void;
   biometrics: boolean; setBiometrics: (v: boolean) => void;
-
   analyticsEnabled: boolean; setAnalyticsEnabled: (v: boolean) => void;
   analytics: boolean; setAnalytics: (v: boolean) => void;
-
   wifiOnlySync: boolean; setWifiOnlySync: (v: boolean) => void;
+  currency: "PLN" | "USD" | "EUR"; setCurrency: (c: "PLN" | "USD" | "EUR") => void;
+};
+import React, { createContext, useContext, useEffect, useMemo, useState } from "react";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
-  currency: Currency; setCurrency: (c: Currency) => void;
+type Currency = "PLN" | "EUR" | "USD";
+type Lang = "pl" | "en";
+
+type Settings = {
+  currency: Currency;
+  notifications: boolean;
+  biometrics: boolean;
+  wifiOnly: boolean;
+  language: Lang;
+  analytics: boolean;
 };
 
-const Ctx = React.createContext<SettingsState | null>(null);
-
-export const SettingsProvider: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
-  const [language, setLanguage] = React.useState<Language>("pl");
-  const [notifications, setNotifications] = React.useState(true);
-
-  const [biometricLock, setBiometricLock] = React.useState(false);
-  const setBiometrics = (v: boolean) => setBiometricLock(v);
-  const biometrics = biometricLock;
-
-  const [analyticsEnabled, setAnalyticsEnabled] = React.useState(true);
-  const setAnalytics = (v: boolean) => setAnalyticsEnabled(v);
-  const analytics = analyticsEnabled;
-
-  const [wifiOnlySync, setWifiOnlySync] = React.useState(false);
-
-  const [currency, setCurrency] = React.useState<Currency>("PLN");
-
-  const value: SettingsState = {
-    language, setLanguage,
-    notifications, setNotifications,
-    biometricLock, setBiometricLock,
-    biometrics, setBiometrics,
-    analyticsEnabled, setAnalyticsEnabled,
-    analytics, setAnalytics,
-    wifiOnlySync, setWifiOnlySync,
-    currency, setCurrency,
-  };
-
-  return <Ctx.Provider value={value}>{children}</Ctx.Provider>;
+type Ctx = {
+  settings: Settings;
+  set: <K extends keyof Settings>(key: K, value: Settings[K]) => void;
+  reset: () => void;
 };
 
-export function useSettings(): SettingsState {
-  const ctx = React.useContext(Ctx);
-  if (!ctx) {
-    // fallback bez providera (bezpieczne wartości domyślne)
-    return {
-      language: "pl", setLanguage: () => {},
-      notifications: true, setNotifications: () => {},
-      biometricLock: false, setBiometricLock: () => {},
-      biometrics: false, setBiometrics: () => {},
-      analyticsEnabled: true, setAnalyticsEnabled: () => {},
-      analytics: true, setAnalytics: () => {},
-      wifiOnlySync: false, setWifiOnlySync: () => {},
-      currency: "PLN", setCurrency: () => {},
-    };
-  }
+const DEF: Settings = {
+  currency: "PLN",
+  notifications: true,
+  biometrics: false,
+  wifiOnly: true,
+  language: "pl",
+  analytics: false
+};
+
+const KEY = "fundmind.settings.v1";
+const CtxObj = createContext<Ctx | undefined>(undefined);
+
+export function SettingsProvider({ children }: { children: React.ReactNode }) {
+  const [settings, setSettings] = useState<Settings>(DEF);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const s = await AsyncStorage.getItem(KEY);
+        if (s) {
+          const parsed = JSON.parse(s) as Partial<Settings>;
+          setSettings({ ...DEF, ...parsed });
+        }
+      } catch {}
+    })();
+  }, []);
+
+  useEffect(() => {
+    AsyncStorage.setItem(KEY, JSON.stringify(settings)).catch(() => {});
+  }, [settings]);
+
+  const api = useMemo<Ctx>(() => ({
+    settings,
+    set: (k, v) => setSettings(prev => ({ ...prev, [k]: v } as Settings)),
+    reset: () => setSettings(DEF)
+  }), [settings]);
+
+  return <CtxObj.Provider value={api}>{children}</CtxObj.Provider>;
+}
+
+export function useSettings() {
+  const ctx = useContext(CtxObj);
+  if (!ctx) throw new Error("useSettings must be used within SettingsProvider");
   return ctx;
 }

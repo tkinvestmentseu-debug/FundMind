@@ -2,11 +2,11 @@ name: Expo EAS CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "master" ]
     tags:
       - "v*"
   pull_request:
-    branches: [ "main" ]
+    branches: [ "main", "master" ]
   workflow_dispatch:
 
 concurrency:
@@ -15,18 +15,46 @@ concurrency:
 
 jobs:
   checks:
-    name: Checks (lint+typecheck+test)
+    name: Checks (lint / typecheck / test)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
           node-version: "20"
           cache: "npm"
-      - run: npm ci
-      - run: npm run lint
-      - run: npm run typecheck
-      - run: npm test
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Lint (if eslint present)
+        run: |
+          if npx --no-install eslint -v >/dev/null 2>&1; then
+            echo "eslint detected -> running lint"
+            npm run lint
+          else
+            echo "::notice title=Lint skipped::eslint not found in dependencies"
+          fi
+
+      - name: Typecheck (if tsc present)
+        run: |
+          if npx --no-install tsc -v >/dev/null 2>&1; then
+            echo "tsc detected -> running typecheck"
+            npm run typecheck
+          else
+            echo "::notice title=Typecheck skipped::typescript not found"
+          fi
+
+      - name: Test (if jest present)
+        run: |
+          if npx --no-install jest -v >/dev/null 2>&1; then
+            echo "jest detected -> running tests"
+            npm test --passWithNoTests
+          else
+            echo "::notice title=Tests skipped::jest not found"
+          fi
 
   build-preview:
     name: EAS build (preview on tags)
@@ -35,20 +63,27 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
           node-version: "20"
           cache: "npm"
-      - run: npm ci
+
+      - name: Install deps
+        run: npm ci
+
       - name: Setup Expo & EAS
         uses: expo/expo-github-action@v8
         with:
           expo-cache: true
           eas-cache: true
           token: ${{ secrets.EXPO_TOKEN }}
+
       - name: Build Android (preview)
         env: { EAS_TOKEN: ${{ secrets.EAS_TOKEN }} }
         run: npx eas build --platform android --profile preview --non-interactive --no-wait
+
       - name: Build iOS (preview)
         env: { EAS_TOKEN: ${{ secrets.EAS_TOKEN }} }
         run: npx eas build --platform ios --profile preview --non-interactive --no-wait

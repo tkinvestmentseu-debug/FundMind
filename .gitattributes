@@ -1,19 +1,5 @@
-# Default: text files as LF in repo
-*           text=auto eol=lf
-
-# Keep Windows EOL for Windows scripts
-*.ps1       text eol=crlf
-*.bat       text eol=crlf
-*.cmd       text eol=crlf
-
-# Explicit LF for configs / code
-*.js        text eol=lf
-*.jsx       text eol=lf
-*.ts        text eol=lf
-*.tsx       text eol=lf
-*.json      text eol=lf
-*.yml       text eol=lf
-*.yaml      text eol=lf
-*.md        text eol=lf
-*.css       text eol=lf
-*.html      text eol=lf
+@
+* text=auto eol=lf
+*.bat text eol=crlf
+*.ps1 text eol=crlf
+@

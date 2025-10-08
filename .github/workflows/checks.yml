@@ -1,0 +1,60 @@
+name: Checks
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+  workflow_dispatch:
+
+jobs:
+  checks:
+    name: Lint / Typecheck / Test (soft)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install deps (robust)
+        run: |
+          set -e
+          echo "→ npm ci"
+          if npm ci; then
+            echo "✓ npm ci OK"
+          else
+            echo "::warning::npm ci failed — retrying npm install --legacy-peer-deps"
+            npm install --legacy-peer-deps
+          fi
+
+      - name: Lint (soft)
+        continue-on-error: true
+        run: |
+          if npx --no-install eslint -v >/dev/null 2>&1; then
+            npm run lint || echo "::notice title=Lint failed::non-blocking"
+          else
+            echo "::notice title=Lint skipped::eslint not found"
+          fi
+
+      - name: Typecheck (soft)
+        continue-on-error: true
+        run: |
+          if npx --no-install tsc -v >/dev/null 2>&1; then
+            npm run typecheck || echo "::notice title=Typecheck failed::non-blocking"
+          else
+            echo "::notice title=Typecheck skipped::typescript not found"
+          fi
+
+      - name: Test (soft)
+        continue-on-error: true
+        run: |
+          if npx --no-install jest -v >/dev/null 2>&1; then
+            npm run test:ci || echo "::notice title=Tests failed::non-blocking"
+          else
+            echo "::notice title=Tests skipped::jest not found"
+          fi

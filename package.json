@@ -99,13 +99,5 @@
   },
   "simple-git-hooks": {
     "pre-commit": "npm run -s typecheck && npm test --silent"
-  },
-  "lint-staged": {
-    "*.{ts,tsx,js,jsx}": [
-      "eslint --fix"
-    ],
-    "*.{ts,tsx,js,jsx,json,md,yml,yaml}": [
-      "prettier --write"
-    ]
   }
 }

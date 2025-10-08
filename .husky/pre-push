@@ -1,11 +1,9 @@
 #!/usr/bin/env sh
 echo "▶ pre-push: typecheck + (opcjonalnie) testy"
 npm run -s typecheck || exit 1
-
 if [ "$SKIP_TESTS" = "1" ]; then
   echo "⏭  SKIP_TESTS=1 -> pomijam testy"
   exit 0
 fi
-
 npm run -s test:ci || exit 1
 echo "✓ pre-push OK"

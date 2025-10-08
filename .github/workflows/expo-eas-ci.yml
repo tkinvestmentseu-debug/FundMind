@@ -3,8 +3,7 @@ name: Expo EAS CI
 on:
   push:
     branches: [ "main", "master" ]
-    tags:
-      - "v*"
+    tags: [ "v*" ]
   pull_request:
     branches: [ "main", "master" ]
   workflow_dispatch:
@@ -26,22 +25,28 @@ jobs:
           node-version: "20"
           cache: "npm"
 
-      - name: Install deps
-        run: npm ci
+      - name: Install deps (robust)
+        run: |
+          set -e
+          echo "→ npm ci"
+          if npm ci; then
+            echo "✓ npm ci OK"
+          else
+            echo "::warning::npm ci failed — retrying npm install --legacy-peer-deps"
+            npm install --legacy-peer-deps
+          fi
 
       - name: Lint (if eslint present)
         run: |
           if npx --no-install eslint -v >/dev/null 2>&1; then
-            echo "eslint detected -> running lint"
             npm run lint
           else
-            echo "::notice title=Lint skipped::eslint not found in dependencies"
+            echo "::notice title=Lint skipped::eslint not found"
           fi
 
       - name: Typecheck (if tsc present)
         run: |
           if npx --no-install tsc -v >/dev/null 2>&1; then
-            echo "tsc detected -> running typecheck"
             npm run typecheck
           else
             echo "::notice title=Typecheck skipped::typescript not found"
@@ -50,7 +55,6 @@ jobs:
       - name: Test (if jest present)
         run: |
           if npx --no-install jest -v >/dev/null 2>&1; then
-            echo "jest detected -> running tests"
             npm test --passWithNoTests
           else
             echo "::notice title=Tests skipped::jest not found"
@@ -70,8 +74,15 @@ jobs:
           node-version: "20"
           cache: "npm"
 
-      - name: Install deps
-        run: npm ci
+      - name: Install deps (robust)
+        run: |
+          set -e
+          if npm ci; then
+            echo "✓ npm ci OK"
+          else
+            echo "::warning::npm ci failed — retrying npm install --legacy-peer-deps"
+            npm install --legacy-peer-deps
+          fi
 
       - name: Setup Expo & EAS
         uses: expo/expo-github-action@v8

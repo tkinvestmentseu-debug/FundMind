@@ -35,3 +35,9 @@ logs/
 .expo
 .expo-shared
 dist/
+# archives & disabled tests
+.archive/
+__tests__disabled__/
+_archive/
+_backup/
+.history/

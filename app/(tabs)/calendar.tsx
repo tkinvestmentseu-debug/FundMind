@@ -1,7 +1,7 @@
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { Stack } from "expo-router";
-import React from "react";
+import React, {useMemo, useState} from 'react';
 import { useColorTokens } from "../../src/providers/theme";
 import { StyleSheet, Modal, TextInput, Pressable, Platform, FlatList } from "react-native";
 import { ThemedView as View, ThemedText as Text } from "../../src/ui/Themed";

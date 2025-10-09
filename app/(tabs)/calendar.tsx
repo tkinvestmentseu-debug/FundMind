@@ -1,7 +1,8 @@
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { Stack } from "expo-router";
-import React, { useMemo, useState } from "react";
+import React from "react";
+import { useColorTokens } from "../../src/providers/theme";
 import { StyleSheet, Modal, TextInput, Pressable, Platform, FlatList } from "react-native";
 import { ThemedView as View, ThemedText as Text } from "../../src/ui/Themed";
 
@@ -36,9 +37,21 @@ const dict: Record<Lang, Record<string, string>> = {
   },
 };
 const lang: Lang = "pl";
-const t = (l: Lang, k: string) => dict[l][k] ?? k;
+const tr = (l: Lang, k: string) => dict[l][k] ?? k;
 
 // Locale (PL/EN)
+const tokens = useColorTokens();
+const calendarTheme = {
+  backgroundColor: tokens.card,
+  calendarBackground: tokens.card,
+  dayTextColor: tokens.text,
+  monthTextColor: tokens.text,
+  textDisabledColor: tokens.muted,
+  arrowColor: tokens.tint,
+  selectedDayBackgroundColor: tokens.tint,
+  selectedDayTextColor: "#FFFFFF",
+  todayTextColor: tokens.tint,
+};
 LocaleConfig.locales.pl = {
   monthNames: [
     "Styczeń",
@@ -206,11 +219,12 @@ export default function CalendarScreen() {
   return (
     <View style={styles.screen}>
       <_CalendarTopSpacer />
-      <Stack.Screen options={{ title: t(lang, "calendar") }} />
+      <Stack.Screen options={{ title: tr(lang, "calendar") }} />
 
       {/* Kalendarz niżej */}
       <View style={[styles.card, { marginTop: 32 }]}>
         <Calendar
+          theme={calendarTheme}
           current={selectedDate}
           onDayPress={(d) => {
             setSelectedDate(d.dateString);
@@ -226,7 +240,7 @@ export default function CalendarScreen() {
       </View>
 
       {/* Nadchodzące wydarzenia */}
-      <Text style={styles.section}>{t(lang, "upcoming")}</Text>
+      <Text style={styles.section}>{tr(lang, "upcoming")}</Text>
       <FlatList
         scrollEnabled={false}
         bounces={false}
@@ -235,7 +249,7 @@ export default function CalendarScreen() {
         contentContainerStyle={{ paddingHorizontal: 16, paddingBottom: 88 }}
         data={upcoming}
         keyExtractor={(it) => it.id}
-        ListEmptyComponent={<Text style={styles.empty}>{t(lang, "empty")}</Text>}
+        ListEmptyComponent={<Text style={styles.empty}>{tr(lang, "empty")}</Text>}
         renderItem={({ item }) => (
           <View style={styles.eventCard}>
             <View style={{ flex: 1 }}>
@@ -261,20 +275,20 @@ export default function CalendarScreen() {
       <Modal visible={modalVisible} transparent animationType="slide">
         <View style={styles.modalBackdrop}>
           <View style={styles.modalCard}>
-            <Text style={styles.modalTitle}>{t(lang, "newEvent")}</Text>
+            <Text style={styles.modalTitle}>{tr(lang, "newEvent")}</Text>
             <TextInput
-              placeholder={t(lang, "title")}
+              placeholder={tr(lang, "title")}
               value={title}
               onChangeText={setTitle}
               style={styles.input}
             />
             <View style={styles.timeRow}>
               <Pressable style={styles.timeBtn} onPress={() => setShowStartPicker(true)}>
-                <Text style={styles.timeLabel}>{t(lang, "start")}</Text>
+                <Text style={styles.timeLabel}>{tr(lang, "start")}</Text>
                 <Text style={styles.timeValue}>{dayjs(startTime).format("HH:mm")}</Text>
               </Pressable>
               <Pressable style={styles.timeBtn} onPress={() => setShowEndPicker(true)}>
-                <Text style={styles.timeLabel}>{t(lang, "end")}</Text>
+                <Text style={styles.timeLabel}>{tr(lang, "end")}</Text>
                 <Text style={styles.timeValue}>{dayjs(endTime).format("HH:mm")}</Text>
               </Pressable>
             </View>
@@ -309,10 +323,10 @@ export default function CalendarScreen() {
                 style={[styles.btn, styles.btnSecondary]}
                 onPress={() => setModalVisible(false)}
               >
-                <Text style={styles.btnSecondaryText}>{t(lang, "cancel")}</Text>
+                <Text style={styles.btnSecondaryText}>{tr(lang, "cancel")}</Text>
               </Pressable>
               <Pressable style={[styles.btn, styles.btnPrimary]} onPress={saveEvent}>
-                <Text style={styles.btnPrimaryText}>{t(lang, "save")}</Text>
+                <Text style={styles.btnPrimaryText}>{tr(lang, "save")}</Text>
               </Pressable>
             </View>
           </View>
@@ -406,3 +420,4 @@ function _CalendarTopSpacer() {
   const top = Math.max(Math.ceil(insets.top) + 32, 32);
   return <View style={{ height: top }} />;
 }
+

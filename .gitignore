@@ -1,0 +1,11 @@
+node_modules
+.expo
+dist
+build
+*.log
+*.tmp
+.expo-shared
+npm-debug.log*
+coverage
+.DS_Store
+.env

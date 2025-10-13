@@ -1,0 +1,2 @@
+Using EXPO_TOKEN (len=40).
+>> C:\Program Files\nodejs\node.exe 

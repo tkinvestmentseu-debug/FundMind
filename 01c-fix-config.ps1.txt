@@ -1,0 +1,77 @@
+# 01c-fix-config.ps1 — Patch dynamic app.config.ts to include plugins for expo-sqlite & expo-localization
+$ErrorActionPreference='Stop'
+$Root='D:\FundMind'
+$AppCfg=Join-Path $Root 'app.config.ts'
+$Babel=Join-Path $Root 'babel.config.js'
+$Logs=Join-Path $Root 'logs'
+$ts=Get-Date -Format 'yyyyMMdd-HHmmss'
+
+function Ensure-Dir([string]$p){ if(!(Test-Path $p)){ New-Item -ItemType Directory -Path $p | Out-Null } }
+function ReadRaw([string]$p){ if(!(Test-Path $p)){ throw "Nie znaleziono pliku: $p" }; Get-Content -Raw -LiteralPath $p }
+function WriteUtf8([string]$p,[string]$s){ [IO.File]::WriteAllText($p,$s,[Text.UTF8Encoding]::new($false)) }
+
+Ensure-Dir $Logs
+
+# --- 1) Patch app.config.ts ---
+$app = ReadRaw $AppCfg
+# backup
+Copy-Item -Force -Path $AppCfg -Destination ($AppCfg + ".bak.$ts")
+
+# new plugins block (zachowujemy stałe pozycje)
+$pluginsBlock = @"
+plugins: [
+      "expo-router",
+      ["expo-notifications", { "sounds": [] }],
+      "expo-sqlite",
+      "expo-localization"
+    ]
+"@
+
+# jeśli istnieje sekcja plugins — podstawiamy całość (z opcjonalnym przecinkiem)
+$pattern = '(?s)plugins\s*:\s*\[[^\]]*\]\s*,?'
+if([regex]::IsMatch($app,$pattern)){
+  $app = [regex]::Replace($app,$pattern,$pluginsBlock + ',')
+} else {
+  # brak "plugins:" — wstaw po "extra:" lub na końcu obiektu expo
+  $afterExtra = '(?s)(extra\s*:\s*\{.*?\}\s*,?)'
+  if([regex]::IsMatch($app,$afterExtra)){
+    $app = [regex]::Replace($app,$afterExtra,'$1' + "`n    " + $pluginsBlock + ',')
+  } else {
+    # awaryjnie: spróbuj tuż przed końcem "expo: { ... }"
+    $expoEnd = '(?s)(expo\s*:\s*\{.*?)(\}\s*\}\s*;?)'
+    if([regex]::IsMatch($app,$expoEnd)){
+      $app = [regex]::Replace($app,$expoEnd,'$1' + "`n    " + $pluginsBlock + "`n  $2")
+    } else {
+      throw "Nie udało się odnaleźć miejsca na wstawienie plugins w app.config.ts"
+    }
+  }
+}
+WriteUtf8 $AppCfg $app
+
+# --- 2) Patch babel.config.js: ensure reanimated plugin is last ---
+if(Test-Path $Babel){
+  $babel = ReadRaw $Babel
+  $pluginsArr = '(?s)(plugins\s*:\s*\[)(.*?)(\])'
+  if([regex]::IsMatch($babel,$pluginsArr)){
+    $inner = ([regex]::Match($babel,$pluginsArr)).Groups[2].Value
+    # usuń istniejące wystąpienia 'react-native-reanimated/plugin'
+    $inner2 = [regex]::Replace($inner, "(?s)\s*'?react-native-reanimated/plugin'?\s*,?\s*", '')
+    # upewnij się, że jest require.resolve('expo-router/babel')
+    if($inner2 -notmatch "expo-router/babel"){
+      $inner2 = "require.resolve('expo-router/babel'), " + $inner2.Trim()
+    }
+    # dołóż 'react-native-reanimated/plugin' NA KOŃCU
+    $inner2 = ($inner2.Trim().TrimEnd(',')) + ", 'react-native-reanimated/plugin'"
+    $babel = [regex]::Replace($babel,$pluginsArr,'$1' + $inner2 + '$3')
+    WriteUtf8 $Babel $babel
+  }
+}
+
+# --- 3) Doctor log (nie przerywa) ---
+try {
+  Push-Location $Root
+  $doc = (npx expo-doctor) 2>&1
+  Set-Content -LiteralPath (Join-Path $Logs "doctor-$ts.log") -Value $doc
+} catch { }
+
+Write-Host "[OK] app.config.ts zaktualizowany. Dodano wtyczki: expo-sqlite, expo-localization. Backup: $($AppCfg).bak.$ts"

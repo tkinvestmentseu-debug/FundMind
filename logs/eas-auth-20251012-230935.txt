@@ -1,0 +1,10 @@
+Using EXPO_TOKEN (len=40).
+>> C:\Program Files\nodejs\npx.cmd 
+ERR: npm warn exec Interactive mode disabled in CI environment
+>> C:\Program Files\nodejs\npx.cmd 
+ERR: npm warn exec Interactive mode disabled in CI environment
+>> C:\Program Files\nodejs\npx.cmd 
+ERR: npm warn exec Interactive mode disabled in CI environment
+>> C:\Program Files\nodejs\npx.cmd 
+ERR: npm warn exec Interactive mode disabled in CI environment
+EAS login failed with provided token.

@@ -1,0 +1,1 @@
+// i18n bootstrap (stub)\nexport {};\n
